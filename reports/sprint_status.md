@@ -9,6 +9,7 @@
 - environment_interference: PhoenixMiner.exe and IOMap64.sys removed after unpack
 - mitigation: static analysis from zip-stream .bin artifacts
 - runtime_trace_status: pending isolated VM setup that preserves sample
+- parser_status: PR01 cmdline globals seeded; downstream ANSI tokenization bridge strongly inferred at 0x003F37E4..0x003F3947
 
 
 - static_callsite_map: generated (1785 import callsites, 494 high-value)
