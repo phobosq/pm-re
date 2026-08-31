@@ -1,0 +1,5 @@
+experiment_id,hypothesis_id,vmr_arg,run_type,expected_signal,proof_artifact_path,gate_condition,priority
+EXP-VMR-1,H01+H02,--vmr=100,active,parser_hit+config_write,traces/vmr_parser_proof.log,parser_confirmed,P0
+EXP-VMR-2,H02,--vmr=100,active,transport_wrapper_ioctl_payload_vmr_dependent,traces/vmr_transport_proof.log,transport_confirmed,P0
+EXP-VMR-3,H02,--vmr=50,active,ioctl_payload_quantitative_diff_gt_1pct,traces/vmr_buffer_diff.csv,vmr_quantified,P1
+EXP-VMR-BASE,H01,--vmr=0,baseline,control_trace_without_vmr,traces/vmr_baseline_trace.log,baseline_captured,P0
