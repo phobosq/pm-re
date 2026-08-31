@@ -1,0 +1,4 @@
+field,option,register_offset,bit_mask,bit_shift,meaning,evidence_level,notes
+vmt_field_1,vmt1,unknown,unknown,unknown,unknown,unknown,Deferred to wave2 after vmr transport confirmation
+vmt_field_2,vmt2,unknown,unknown,unknown,unknown,unknown,Deferred to wave2 after vmr transport confirmation
+vmt_field_3,vmt3,unknown,unknown,unknown,unknown,unknown,Deferred to wave2 after vmr transport confirmation

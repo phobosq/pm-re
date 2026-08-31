@@ -1,0 +1,4 @@
+"function_begin","function_end","function_size","callsite_count","weighted_score","role_guess","has_cmdline","has_compare","has_createfile","has_deviceiocontrol","apis"
+"0x003E16B0","0x003E16D5","37","2","14","unknown","True","False","False","False","GetCommandLineW:1; GetCommandLineA:1"
+"0x003B160C","0x003B16C8","188","1","6","unknown","False","True","False","False","CompareStringW:1"
+"0x003F9610","0x003F96FF","239","1","6","unknown","False","True","False","False","CompareStringW:1"

@@ -1,0 +1,4 @@
+"file","machine","pe64","entry_rva","image_base","section_count","coff_timestamp","characteristics","subsystem","dll_characteristics","number_of_datadirs","export_rva","import_rva","resource_rva","reloc_rva","tls_rva"
+"PhoenixMiner.exe.bin","0x8664","True","0x003B288C","0x140000000","8","1651028714","0x0022","3","0x8160","16","0x0078CBF0","0x0078CC4C","0x0081A000","0x0081B000","0x0071FD10"
+"EIO.dll","0x014C","False","0x00006E01","0x10000000","5","1372758305","0x210E","2","0x0000","16","0x0000CFE0","0x0000C798","0x00013000","0x00017000","0x00000000"
+"EIO.exe","0x014C","False","0x000012C1","0x400000","6","1604806414","0x0102","3","0x8140","16","0x00000000","0x00016C2C","0x0001B000","0x0001C000","0x00000000"

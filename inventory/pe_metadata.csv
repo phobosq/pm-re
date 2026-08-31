@@ -1,0 +1,4 @@
+"relative_path","extension","size_bytes","is_mz","has_pe_signature","machine","optional_header_magic","section_count","coff_timestamp","is_dll_flag","file_version","product_version","company_name","original_filename","signer_status","tls_callbacks","imports_status","notes"
+"EIO.dll",".dll","98304","True","True","0x014C","0x010B","5","1372758305","True","15, 0, 0, 0","15, 0, 0, 0","ASUSTek Computer Inc.,","EIO.dll","unknown","unknown","pending",""
+"EIO.exe",".exe","97792","True","True","0x014C","0x010B","6","1604806414","False",,,,,"unknown","unknown","pending",""
+"PhoenixMiner.exe",".exe","8477696","True","True","0x8664","0x020B","8","1651028714","False",,,,,"unknown","unknown","pending",""

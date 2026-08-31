@@ -1,0 +1,10 @@
+{
+    "timestamp_utc":  "2026-08-31T22:48:11.0151896Z",
+    "source_zip":  "C:\\Users\\swojcik\\Downloads\\PhoenixMiner_6.2c_Windows.zip",
+    "source_size":  5408368,
+    "sha256":  "5e74527181574edd659a6682bb26cbeefed9de385be1656fdb99fdab55ae42a7",
+    "expected_sha256":  "5e74527181574edd659a6682bb26cbeefed9de385be1656fdb99fdab55ae42a7",
+    "match":  true,
+    "original_copy":  "C:\\Users\\swojcik\\phoenix-re\\samples\\original\\PhoenixMiner_6.2c_Windows.zip",
+    "work_copy":  "C:\\Users\\swojcik\\phoenix-re\\samples\\work\\PhoenixMiner_6.2c_Windows.zip"
+}

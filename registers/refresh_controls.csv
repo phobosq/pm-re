@@ -1,0 +1,2 @@
+field,option,register_offset,bit_mask,bit_shift,meaning,evidence_level,notes
+refresh_rate_control,vmr,unknown,unknown,unknown,unknown,hypothesis,Waiting for vmr runtime A/B trace

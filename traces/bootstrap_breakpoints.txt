@@ -1,0 +1,15 @@
+# Bootstrap Breakpoints (NVIDIA vmr wave1)
+kernel32!CreateFileW
+kernel32!LoadLibraryA
+kernel32!LoadLibraryW
+kernel32!LoadLibraryExA
+kernel32!LoadLibraryExW
+kernel32!GetProcAddress
+kernel32!DeviceIoControl
+ntdll!NtDeviceIoControlFile
+ntdll!LdrLoadDll
+ntdll!LdrGetProcedureAddress
+advapi32!CreateServiceA
+advapi32!CreateServiceW
+advapi32!StartServiceA
+advapi32!StartServiceW

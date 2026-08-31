@@ -1,0 +1,8 @@
+"token","source"
+"c:\iomap-v1.5_20170428\objfre_win7_amd64\amd64\IOMap.pdb","zip_entry:IOMap64.sys"
+"IoCreateDevice","zip_entry:IOMap64.sys"
+"IoCreateSymbolicLink","zip_entry:IOMap64.sys"
+"IoDeleteDevice","zip_entry:IOMap64.sys"
+"IoDeleteSymbolicLink","zip_entry:IOMap64.sys"
+"MmMapIoSpace","zip_entry:IOMap64.sys"
+"MmUnmapIoSpace","zip_entry:IOMap64.sys"

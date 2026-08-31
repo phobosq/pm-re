@@ -1,0 +1,1 @@
+run_id,timestamp_utc,sample_sha256,os_build,gpu_model,nvidia_driver,option,option_value,control_value,expected_signal,observed_signal,transport_candidate,evidence_level,blocker,next_action

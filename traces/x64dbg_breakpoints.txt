@@ -1,0 +1,16 @@
+bpx kernel32.GetCommandLineW
+bpx kernel32.GetCommandLineA
+bpx kernel32.CompareStringW
+bpx kernel32.GetProcAddress
+bpx kernel32.LoadLibraryA
+bpx kernel32.LoadLibraryW
+bpx kernel32.LoadLibraryExA
+bpx kernel32.LoadLibraryExW
+bpx kernel32.CreateFileW
+bpx kernel32.CreateFileA
+bpx kernel32.DeviceIoControl
+bpx ntdll.NtDeviceIoControlFile
+bpx advapi32.CreateServiceW
+bpx advapi32.CreateServiceA
+bpx advapi32.StartServiceW
+bpx advapi32.StartServiceA

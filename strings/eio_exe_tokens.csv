@@ -1,0 +1,6 @@
+"token","source","confidence"
+"?EIO.dll","EIO.exe","strongly_inferred"
+"C:\Projects\AMD\MMIORegMod\Release\EIO.pdb","EIO.exe","strongly_inferred"
+"CreateFileW","EIO.exe","strongly_inferred"
+"Failed to load EIO.dll - %08X","EIO.exe","strongly_inferred"
+"KERNEL32.dll","EIO.exe","strongly_inferred"

@@ -1,0 +1,6 @@
+"option","backend","transport_candidate","evidence_level","evidence","status","next_action"
+"vmr","NVIDIA","helper-driver path via IOMap64.sys + EIO.dll user-mode bridge","strongly_inferred","IOMap64.sys present in ZIP but removed after unpack; in-memory profile shows MmMapIoSpace/MmUnmapIoSpace and IoCreateDevice/IoCreateSymbolicLink; EIO.dll exports MMIO read/write and Phoenix imports DeviceIoControl/CreateFile","open","Prioritize operational blocks B009,B015,B010,B011 and parser anchors B027/B023 for code-flow confirmation"
+"straps","NVIDIA","unknown","unknown","No direct parser/consumer evidence yet","open","Wave2 only: execute after vmr transport confirmation; see reports/straps_vmt_wave2.md"
+"vmt1","NVIDIA","unknown","unknown","No direct parser/consumer evidence yet","open","Wave2 only: execute after vmr transport confirmation; see reports/straps_vmt_wave2.md"
+"vmt2","NVIDIA","unknown","unknown","No direct parser/consumer evidence yet","open","Wave2 only: execute after vmr transport confirmation; see reports/straps_vmt_wave2.md"
+"vmt3","NVIDIA","unknown","unknown","No direct parser/consumer evidence yet","open","Wave2 only: execute after vmr transport confirmation; see reports/straps_vmt_wave2.md"

@@ -1,0 +1,12 @@
+claim_id,claim,evidence_level,evidence_artifact,next_step
+C01,Sample hash matches expected reference,confirmed,hashes/sha256.txt,None
+C02,PhoenixMiner.exe exists in ZIP archive,confirmed,inventory/zip_vs_unpacked_presence.csv,None
+C03,IOMap64.sys exists in ZIP archive,confirmed,inventory/zip_vs_unpacked_presence.csv,None
+C04,PhoenixMiner.exe removed after unpack on host,confirmed,reports/runtime_presence_anomaly.md,Use isolated runtime environment
+C05,IOMap64.sys removed after unpack on host,confirmed,reports/runtime_presence_anomaly.md,Use isolated runtime environment
+C06,PhoenixMiner imports CreateFile/DeviceIoControl/GetCommandLine/CompareStringW,confirmed,imports/phoenix_import_functions.csv,Use for vmr parser and transport tracing
+C07,EIO.dll imports SCM APIs CreateService/OpenSCManager/StartService,confirmed,imports/eio_import_functions.csv,Correlate with helper-driver lifecycle
+C08,EIO.dll exports MMIO and PCI-like read/write helpers,confirmed,imports/eio_exports.csv,Correlate exported calls during vmr runs
+C09,IOMap64.sys exposes kernel MMIO mapping primitives,confirmed,strings/iomap_strings_tagged.csv,Correlate with DeviceIoControl payloads
+C10,vmr likely uses helper-driver path via EIO and IOMap64,strongly_inferred,traces/transport_matrix.csv,Runtime A/B confirmation
+C11,straps/vmt likely share transport family with vmr,hypothesis,hypotheses/hypothesis_register.md,Validate after vmr confirmation

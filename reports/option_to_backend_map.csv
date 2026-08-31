@@ -1,0 +1,6 @@
+option,backend,scope,evidence_level,reason,next_action
+vmr,NVIDIA,wave1,strongly_inferred,"Documented in Readme and grouped with timing controls",confirm parser->consumer->transport chain
+straps,NVIDIA,wave2,strongly_inferred,"Documented in Readme with vmt options",analyze after vmr transport gate
+vmt1,NVIDIA,wave2,strongly_inferred,"Documented in Readme with timing controls",analyze after vmr transport gate
+vmt2,NVIDIA,wave2,strongly_inferred,"Documented in Readme with timing controls",analyze after vmr transport gate
+vmt3,NVIDIA,wave2,strongly_inferred,"Documented in Readme with timing controls",analyze after vmr transport gate

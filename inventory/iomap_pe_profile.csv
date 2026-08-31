@@ -1,0 +1,2 @@
+"source","size_bytes","machine","pe64","entry_rva","image_base","section_count","import_rva","export_rva","tls_rva"
+"zip_entry:IOMap64.sys","34064","0x8664","True","0x00007064","0x10000","6","0x00007084","0x00000000","0x00000000"

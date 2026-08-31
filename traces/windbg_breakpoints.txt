@@ -1,0 +1,19 @@
+.symfix
+.reload
+bp kernel32!GetCommandLineW
+bp kernel32!GetCommandLineA
+bp kernel32!CompareStringW
+bp kernel32!GetProcAddress
+bp kernel32!LoadLibraryA
+bp kernel32!LoadLibraryW
+bp kernel32!LoadLibraryExA
+bp kernel32!LoadLibraryExW
+bp kernel32!CreateFileW
+bp kernel32!CreateFileA
+bp kernel32!DeviceIoControl
+bp ntdll!NtDeviceIoControlFile
+bp advapi32!CreateServiceW
+bp advapi32!CreateServiceA
+bp advapi32!StartServiceW
+bp advapi32!StartServiceA
+g
