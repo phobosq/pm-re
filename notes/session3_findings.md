@@ -40,6 +40,6 @@ This upgrades the parser-entry story from "tiny cmdline snapshot" to "snapshot p
 ## Recommended Next Steps
 
 1. Runtime: break on `0x003F3835` and log whether execution uses `[0x1407EDB50]` or the fallback buffer.
-2. Runtime: after `0x003F38CA/0x003F392F`, dump the token table at `0x1407EDB40` and count at `0x1407EDB3C`.
+2. Runtime: after `0x003F38CA/0x003F3923/0x003F392F`, dump the token table at `0x1407EDB40` and count at `0x1407EDB3C`.
 3. Static: find all read-side xrefs to `0x1407EDB40`/`0x1407EDB3C` and classify the first option-dispatch consumer.
 4. Only after locating the first argv consumer, resume prioritization between compare-path A and compare-path B for `-vmr` token confirmation.
