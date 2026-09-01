@@ -38,6 +38,7 @@ static_assert(sizeof(RegisterOpRequest1) == 0x20, "RegisterOpRequest ABI mismatc
 
 constexpr std::uint32_t kRegisterOpRequestVersion = 0x00011808u;
 constexpr std::uint16_t kRegisterOpRead = 0x0015u;
+constexpr std::uint16_t kRegisterOpMaskedWrite = 0x0016u;
 
 std::string win32_error(const char* prefix) {
   std::ostringstream os;
@@ -195,6 +196,46 @@ bool NvApi::read_register(NvPhysicalGpuHandle gpu, std::uint32_t reg,
   }
 
   value = req.entry.value;
+  return true;
+}
+
+bool NvApi::write_register_masked(NvPhysicalGpuHandle gpu, std::uint32_t reg,
+                                  std::uint64_t mask, std::uint64_t value,
+                                  std::string& error) const {
+  error.clear();
+  if (!initialized_) {
+    error = "NVAPI is not initialized";
+    return false;
+  }
+  if (gpu == nullptr) {
+    error = "Invalid physical GPU handle";
+    return false;
+  }
+  if (register_op_ == nullptr) {
+    error = "NvAPI_GPU_RegisterOp (0x2EB3C140) is unavailable";
+    return false;
+  }
+  if ((value & ~mask) != 0) {
+    error = "Masked RegisterOp value contains bits outside the mask";
+    return false;
+  }
+
+  RegisterOpRequest1 req{};
+  req.version = kRegisterOpRequestVersion;
+  req.count = 1;
+  req.entry.opcode = kRegisterOpMaskedWrite;
+  req.entry.reg = reg;
+  req.entry.mask = mask;
+  req.entry.value = value;
+
+  const NvStatus status = reinterpret_cast<GpuRegisterOpFn>(register_op_)(gpu, &req);
+  if (status != kNvApiOk) {
+    std::ostringstream os;
+    os << "NvAPI_GPU_RegisterOp(masked write 0x" << std::hex << reg
+       << ") failed with status " << std::dec << status;
+    error = os.str();
+    return false;
+  }
   return true;
 }
 
