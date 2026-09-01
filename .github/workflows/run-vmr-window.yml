@@ -4,7 +4,7 @@ on:
   push:
     paths:
       - '.github/workflows/run-vmr-window.yml'
-      - 'scripts/dump_pergpu_accessors.py'
+      - 'scripts/fingerprint_timing_fields.py'
 
 permissions:
   contents: write
@@ -18,15 +18,15 @@ jobs:
         with:
           python-version: '3.12'
       - run: python -m pip install pefile capstone
-      - name: Run focused per-GPU analysis
+      - name: Run timing-field fingerprint
         run: |
           BIN=samples/work/unpacked/PhoenixMiner_6.2c_Windows/PhoenixMiner.exe.bin
-          python scripts/dump_pergpu_accessors.py "$BIN" --out-dir notes
+          python scripts/fingerprint_timing_fields.py "$BIN" --out-dir notes
       - name: Commit result
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add notes/pergpu_accessors.md
+          git add notes/timing_field_fingerprint.md
           if git diff --cached --quiet; then exit 0; fi
-          git commit -m 'analysis: inspect per-gpu stride accessors'
+          git commit -m 'analysis: fingerprint timing field consumers'
           git push
