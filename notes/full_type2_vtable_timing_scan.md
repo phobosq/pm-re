@@ -1,0 +1,419 @@
+# Full Type2 runtime vtable timing bridge scan
+
+Type2 vtable `0x004BD558`; Type1 compare `0x0044B3D8`.
+
+| slot | Type2 RVA | Type1 RVA | class |
+|---:|---:|---:|---|
+| `+0x0` | `0x001CDF70` | `0x001618B0` | NVIDIA override |
+| `+0x8` | `0x00067840` | `0x00067840` | shared |
+| `+0x10` | `0x00067840` | `0x00067840` | shared |
+| `+0x18` | `0x00138970` | `0x00138970` | shared |
+| `+0x20` | `0x00067840` | `0x00067840` | shared |
+| `+0x28` | `0x00132720` | `0x00132720` | shared |
+| `+0x30` | `0x00067840` | `0x00169AA0` | NVIDIA override |
+| `+0x38` | `0x0036EFD0` | `0x001688B0` | NVIDIA override |
+| `+0x40` | `0x00067840` | `0x00161DB0` | NVIDIA override |
+| `+0x48` | `0x001CF7C0` | `0x00168780` | NVIDIA override |
+| `+0x50` | `0x001CF8B0` | `0x001688D0` | NVIDIA override |
+| `+0x58` | `0x001D0730` | `0x00169660` | NVIDIA override |
+| `+0x60` | `0x001CF890` | `0x0036EFD0` | NVIDIA override |
+| `+0x68` | `0x001CDFB0` | `0x001620D0` | NVIDIA override |
+| `+0x70` | `0x001CDFD0` | `0x001620F0` | NVIDIA override |
+| `+0x78` | `0x001D0AD0` | `0x00169F20` | NVIDIA override |
+| `+0x80` | `0x001CE0B0` | `0x00164350` | NVIDIA override |
+| `+0x88` | `0x001CFED0` | `0x00169650` | NVIDIA override |
+| `+0x90` | `0x001CF880` | `0x001688A0` | NVIDIA override |
+
+## slot `+0x48` -> `0x001CF7C0` (NVIDIA override)
+
+PDATA `0x001CF7C0..0x001CF87B`
+
+### Hits
+
+#### child at `0x001CF801`
+
+```asm
+0x001CF7DE: mov ebp, r8d
+0x001CF7E1: mov rsi, rdx
+0x001CF7E4: mov rdi, rcx
+0x001CF7E7: lea rbx, [rcx + 0x7c0]
+0x001CF7EE: mov rcx, rbx
+0x001CF7F1: call 0x140391ac4
+0x001CF7F6: test eax, eax
+0x001CF7F8: je 0x1401cf801
+0x001CF7FA: mov ecx, eax
+0x001CF7FC: call 0x14039219c
+0x001CF801: cmp qword ptr [rdi + 0x838], 0
+0x001CF809: je 0x1401cf84b
+0x001CF80B: mov rax, qword ptr [rsi]
+0x001CF80E: cmp qword ptr [rdi + 0x810], rax
+0x001CF815: jne 0x1401cf84b
+0x001CF817: mov rax, qword ptr [rsi + 8]
+0x001CF81B: cmp qword ptr [rdi + 0x818], rax
+0x001CF822: jne 0x1401cf84b
+0x001CF824: mov rax, qword ptr [rsi + 0x10]
+0x001CF828: cmp qword ptr [rdi + 0x820], rax
+0x001CF82F: jne 0x1401cf84b
+0x001CF831: mov rax, qword ptr [rsi + 0x18]
+0x001CF835: cmp qword ptr [rdi + 0x828], rax
+```
+
+### Calls
+
+| RVA | target |
+|---|---|
+| `0x001CF7F1` | `0x00391AC4` |
+| `0x001CF7FC` | `0x0039219C` |
+| `0x001CF851` | `0x00391B24` |
+| `0x001CF85C` | `0x0039219C` |
+
+## slot `+0x50` -> `0x001CF8B0` (NVIDIA override)
+
+PDATA `0x001CF8B0..0x001CFEC5`
+
+### Hits
+
+#### child at `0x001CF9C4`
+
+```asm
+0x001CF9A8: test cl, cl
+0x001CF9AA: jne 0x1401cf9b1
+0x001CF9AC: xor r15d, r15d
+0x001CF9AF: jmp 0x1401cfa03
+0x001CF9B1: mov rcx, rbx
+0x001CF9B4: call 0x140391ac4
+0x001CF9B9: test eax, eax
+0x001CF9BB: je 0x1401cf9c4
+0x001CF9BD: mov ecx, eax
+0x001CF9BF: call 0x14039219c
+0x001CF9C4: mov rsi, qword ptr [rdi + 0x838]
+0x001CF9CB: xor r15d, r15d
+0x001CF9CE: mov qword ptr [rdi + 0x838], r15
+0x001CF9D5: test rsi, rsi
+0x001CF9D8: je 0x1401cf9ef
+0x001CF9DA: mov rcx, rsi
+0x001CF9DD: call 0x1401ed8b0
+0x001CF9E2: lea edx, [r15 + 0x38]
+0x001CF9E6: mov rcx, rsi
+0x001CF9E9: call 0x1403b20dc
+0x001CF9EE: nop
+0x001CF9EF: mov rcx, rbx
+0x001CF9F2: call 0x140391b24
+```
+
+#### child at `0x001CF9CE`
+
+```asm
+0x001CF9AC: xor r15d, r15d
+0x001CF9AF: jmp 0x1401cfa03
+0x001CF9B1: mov rcx, rbx
+0x001CF9B4: call 0x140391ac4
+0x001CF9B9: test eax, eax
+0x001CF9BB: je 0x1401cf9c4
+0x001CF9BD: mov ecx, eax
+0x001CF9BF: call 0x14039219c
+0x001CF9C4: mov rsi, qword ptr [rdi + 0x838]
+0x001CF9CB: xor r15d, r15d
+0x001CF9CE: mov qword ptr [rdi + 0x838], r15
+0x001CF9D5: test rsi, rsi
+0x001CF9D8: je 0x1401cf9ef
+0x001CF9DA: mov rcx, rsi
+0x001CF9DD: call 0x1401ed8b0
+0x001CF9E2: lea edx, [r15 + 0x38]
+0x001CF9E6: mov rcx, rsi
+0x001CF9E9: call 0x1403b20dc
+0x001CF9EE: nop
+0x001CF9EF: mov rcx, rbx
+0x001CF9F2: call 0x140391b24
+0x001CF9F7: test eax, eax
+0x001CF9F9: je 0x1401cfa03
+```
+
+#### child at `0x001CFA03`
+
+```asm
+0x001CF9E6: mov rcx, rsi
+0x001CF9E9: call 0x1403b20dc
+0x001CF9EE: nop
+0x001CF9EF: mov rcx, rbx
+0x001CF9F2: call 0x140391b24
+0x001CF9F7: test eax, eax
+0x001CF9F9: je 0x1401cfa03
+0x001CF9FB: mov ecx, eax
+0x001CF9FD: call 0x14039219c
+0x001CFA02: nop
+0x001CFA03: lea rsi, [rdi + 0x838]
+0x001CFA0A: cmp qword ptr [rsi], 0
+0x001CFA0E: jne 0x1401cfb1b
+0x001CFA14: mov qword ptr [rsp + 0x98], rbx
+0x001CFA1C: mov rcx, rbx
+0x001CFA1F: call 0x140391ac4
+0x001CFA24: test eax, eax
+0x001CFA26: je 0x1401cfa30
+0x001CFA28: mov ecx, eax
+0x001CFA2A: call 0x14039219c
+0x001CFA2F: nop
+0x001CFA30: mov eax, dword ptr [rdi + 0x98]
+0x001CFA36: mov dword ptr [rsp + 0x44], eax
+```
+
+### Calls
+
+| RVA | target |
+|---|---|
+| `0x001CF903` | `0x00391AC4` |
+| `0x001CF90E` | `0x0039219C` |
+| `0x001CF938` | `0x00391B24` |
+| `0x001CF943` | `0x0039219C` |
+| `0x001CF954` | `0x00084A60` |
+| `0x001CF9B4` | `0x00391AC4` |
+| `0x001CF9BF` | `0x0039219C` |
+| `0x001CF9DD` | `0x001ED8B0` |
+| `0x001CF9E9` | `0x003B20DC` |
+| `0x001CF9F2` | `0x00391B24` |
+| `0x001CF9FD` | `0x0039219C` |
+| `0x001CFA1F` | `0x00391AC4` |
+| `0x001CFA2A` | `0x0039219C` |
+| `0x001CFA4E` | `0x001CD970` |
+| `0x001CFA6C` | `0x001ED8B0` |
+| `0x001CFA79` | `0x003B20DC` |
+| `0x001CFA8B` | `0x001ED8B0` |
+| `0x001CFA98` | `0x003B20DC` |
+| `0x001CFAA1` | `0x00391B24` |
+| `0x001CFAAC` | `0x0039219C` |
+| `0x001CFABA` | `0x00159B40` |
+| `0x001CFB11` | `0x001EFF00` |
+| `0x001CFB29` | `0x001F0140` |
+| `0x001CFDEB` | `0x001D0E50` |
+| `0x001CFE30` | `0x003D23C8` |
+| `0x001CFE4D` | `0x003D25D0` |
+| `0x001CFE56` | `0x00391AC4` |
+| `0x001CFE61` | `0x0039219C` |
+| `0x001CFE8C` | `0x00391B24` |
+| `0x001CFE97` | `0x0039219C` |
+| `0x001CFEA8` | `0x003B24C0` |
+
+## slot `+0x58` -> `0x001D0730` (NVIDIA override)
+
+PDATA `0x001D0730..0x001D0AB5`
+
+### Hits
+
+#### child at `0x001D075A`
+
+```asm
+0x001D0730: mov r11, rsp
+0x001D0733: sub rsp, 0x118
+0x001D073A: mov qword ptr [rsp + 0x68], 0xfffffffffffffffe
+0x001D0743: mov rax, qword ptr [rip + 0x6061a6]
+0x001D074A: xor rax, rsp
+0x001D074D: mov qword ptr [rsp + 0x100], rax
+0x001D0755: mov qword ptr [rsp + 0x30], rcx
+0x001D075A: cmp qword ptr [rcx + 0x838], 0
+0x001D0762: jne 0x1401d0a77
+0x001D0768: mov dword ptr [rsp + 0x78], 0x38
+0x001D0770: mov eax, dword ptr [rsp + 0x78]
+0x001D0774: add al, 0x38
+0x001D0776: movsx ecx, al
+0x001D0779: xor ecx, 0x24
+0x001D077C: mov dword ptr [rsp + 0x7c], ecx
+0x001D0780: mov eax, dword ptr [rsp + 0x7c]
+0x001D0784: mov ecx, dword ptr [rsp + 0x78]
+0x001D0788: xor ecx, eax
+0x001D078A: xor ecx, 0x45
+0x001D078D: mov byte ptr [rsp + 0x80], cl
+```
+
+#### child at `0x001D0A90`
+
+```asm
+0x001D0A59: lea rax, [rip + 0x262f28]
+0x001D0A60: mov qword ptr [rsp + 0x40], rax
+0x001D0A65: lea rdx, [rip + 0x5ba4f4]
+0x001D0A6C: lea rcx, [rsp + 0x40]
+0x001D0A71: call 0x1403d25d0
+0x001D0A76: nop
+0x001D0A77: mov rax, qword ptr [rsp + 0x148]
+0x001D0A7F: mov qword ptr [rsp + 0x28], rax
+0x001D0A84: movzx eax, byte ptr [rsp + 0x140]
+0x001D0A8C: mov byte ptr [rsp + 0x20], al
+0x001D0A90: mov rcx, qword ptr [rcx + 0x838]
+0x001D0A97: call 0x1401f0120
+0x001D0A9C: nop
+0x001D0A9D: mov rcx, qword ptr [rsp + 0x100]
+0x001D0AA5: xor rcx, rsp
+0x001D0AA8: call 0x1403b24c0
+0x001D0AAD: add rsp, 0x118
+0x001D0AB4: ret
+```
+
+### Calls
+
+| RVA | target |
+|---|---|
+| `0x001D0A18` | `0x0021C680` |
+| `0x001D0A54` | `0x003D23C8` |
+| `0x001D0A71` | `0x003D25D0` |
+| `0x001D0A97` | `0x001F0120` |
+| `0x001D0AA8` | `0x003B24C0` |
+
+## slot `+0x70` -> `0x001CDFD0` (NVIDIA override)
+
+PDATA `0x001CDFD0..0x001CE053`
+
+### Hits
+
+#### child at `0x001CE00F`
+
+```asm
+0x001CDFEC: mov rdi, rcx
+0x001CDFEF: lea rbx, [rcx + 0x7c0]
+0x001CDFF6: mov qword ptr [rsp + 0x40], rbx
+0x001CDFFB: mov rcx, rbx
+0x001CDFFE: call 0x140391ac4
+0x001CE003: test eax, eax
+0x001CE005: je 0x1401ce00f
+0x001CE007: mov ecx, eax
+0x001CE009: call 0x14039219c
+0x001CE00E: nop
+0x001CE00F: mov rcx, qword ptr [rdi + 0x838]
+0x001CE016: test rcx, rcx
+0x001CE019: jne 0x1401ce020
+0x001CE01B: xor dil, dil
+0x001CE01E: jmp 0x1401ce02b
+0x001CE020: mov rdx, rsi
+0x001CE023: call 0x1401eed90
+0x001CE028: movzx edi, al
+0x001CE02B: mov rcx, rbx
+0x001CE02E: call 0x140391b24
+0x001CE033: test eax, eax
+0x001CE035: je 0x1401ce03f
+0x001CE037: mov ecx, eax
+```
+
+### Calls
+
+| RVA | target |
+|---|---|
+| `0x001CDFFE` | `0x00391AC4` |
+| `0x001CE009` | `0x0039219C` |
+| `0x001CE023` | `0x001EED90` |
+| `0x001CE02E` | `0x00391B24` |
+| `0x001CE039` | `0x0039219C` |
+
+## slot `+0x78` -> `0x001D0AD0` (NVIDIA override)
+
+PDATA `0x001D0AD0..0x001D0B38`
+
+### Hits
+
+#### child at `0x001D0B07`
+
+```asm
+0x001D0AE4: mov rdi, rcx
+0x001D0AE7: lea rbx, [rcx + 0x7c0]
+0x001D0AEE: mov qword ptr [rsp + 0x40], rbx
+0x001D0AF3: mov rcx, rbx
+0x001D0AF6: call 0x140391ac4
+0x001D0AFB: test eax, eax
+0x001D0AFD: je 0x1401d0b07
+0x001D0AFF: mov ecx, eax
+0x001D0B01: call 0x14039219c
+0x001D0B06: nop
+0x001D0B07: mov rcx, qword ptr [rdi + 0x838]
+0x001D0B0E: test rcx, rcx
+0x001D0B11: je 0x1401d0b19
+0x001D0B13: call 0x1401f0960
+0x001D0B18: nop
+0x001D0B19: mov rcx, rbx
+0x001D0B1C: call 0x140391b24
+0x001D0B21: test eax, eax
+0x001D0B23: je 0x1401d0b2d
+0x001D0B25: mov ecx, eax
+0x001D0B27: call 0x14039219c
+0x001D0B2C: nop
+0x001D0B2D: mov rbx, qword ptr [rsp + 0x48]
+```
+
+### Calls
+
+| RVA | target |
+|---|---|
+| `0x001D0AF6` | `0x00391AC4` |
+| `0x001D0B01` | `0x0039219C` |
+| `0x001D0B13` | `0x001F0960` |
+| `0x001D0B1C` | `0x00391B24` |
+| `0x001D0B27` | `0x0039219C` |
+
+## slot `+0x80` -> `0x001CE0B0` (NVIDIA override)
+
+PDATA `0x001CE0B0..0x001CE141`
+
+### Hits
+
+#### child at `0x001CE0E3`
+
+```asm
+0x001CE0B6: mov qword ptr [rsp + 0x20], 0xfffffffffffffffe
+0x001CE0BF: mov qword ptr [rsp + 0x40], rbx
+0x001CE0C4: mov qword ptr [rsp + 0x48], rsi
+0x001CE0C9: mov rdi, rcx
+0x001CE0CC: add rcx, 0x7c0
+0x001CE0D3: call 0x140391ac4
+0x001CE0D8: test eax, eax
+0x001CE0DA: je 0x1401ce0e3
+0x001CE0DC: mov ecx, eax
+0x001CE0DE: call 0x14039219c
+0x001CE0E3: mov rsi, qword ptr [rdi + 0x838]
+0x001CE0EA: mov qword ptr [rdi + 0x838], 0
+0x001CE0F5: test rsi, rsi
+0x001CE0F8: je 0x1401ce110
+0x001CE0FA: mov rcx, rsi
+0x001CE0FD: call 0x1401ed8b0
+0x001CE102: mov edx, 0x38
+0x001CE107: mov rcx, rsi
+0x001CE10A: call 0x1403b20dc
+0x001CE10F: nop
+0x001CE110: lea rcx, [rdi + 0x7c0]
+0x001CE117: call 0x140391b24
+0x001CE11C: test eax, eax
+```
+
+#### child at `0x001CE0EA`
+
+```asm
+0x001CE0BF: mov qword ptr [rsp + 0x40], rbx
+0x001CE0C4: mov qword ptr [rsp + 0x48], rsi
+0x001CE0C9: mov rdi, rcx
+0x001CE0CC: add rcx, 0x7c0
+0x001CE0D3: call 0x140391ac4
+0x001CE0D8: test eax, eax
+0x001CE0DA: je 0x1401ce0e3
+0x001CE0DC: mov ecx, eax
+0x001CE0DE: call 0x14039219c
+0x001CE0E3: mov rsi, qword ptr [rdi + 0x838]
+0x001CE0EA: mov qword ptr [rdi + 0x838], 0
+0x001CE0F5: test rsi, rsi
+0x001CE0F8: je 0x1401ce110
+0x001CE0FA: mov rcx, rsi
+0x001CE0FD: call 0x1401ed8b0
+0x001CE102: mov edx, 0x38
+0x001CE107: mov rcx, rsi
+0x001CE10A: call 0x1403b20dc
+0x001CE10F: nop
+0x001CE110: lea rcx, [rdi + 0x7c0]
+0x001CE117: call 0x140391b24
+0x001CE11C: test eax, eax
+0x001CE11E: je 0x1401ce128
+```
+
+### Calls
+
+| RVA | target |
+|---|---|
+| `0x001CE0D3` | `0x00391AC4` |
+| `0x001CE0DE` | `0x0039219C` |
+| `0x001CE0FD` | `0x001ED8B0` |
+| `0x001CE10A` | `0x003B20DC` |
+| `0x001CE117` | `0x00391B24` |
+| `0x001CE122` | `0x0039219C` |
