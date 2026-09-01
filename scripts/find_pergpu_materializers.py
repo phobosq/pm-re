@@ -3,6 +3,7 @@
 
 Fingerprint: memory displacement +0x2C0 (owner->per_gpu base) plus arithmetic
 compatible with stride 0xD8. Static only; target binary is never executed.
+M2 purpose: find code that obtains a real per-GPU record before downstream use.
 """
 from __future__ import annotations
 import argparse
@@ -40,10 +41,9 @@ def main():
 
     grouped=defaultdict(list)
     for idx,i in enumerate(ins):
-        has_2c0=any(op.type==X86_OP_MEM and op.mem.disp==0x2c0 for op in i.operands)
-        if not has_2c0: continue
-        fn=owner(i.address-base)
-        if fn: grouped[fn].append(idx)
+        if any(op.type==X86_OP_MEM and op.mem.disp==0x2c0 for op in i.operands):
+            fn=owner(i.address-base)
+            if fn: grouped[fn].append(idx)
 
     rows=[]
     for fn,idxs in grouped.items():
@@ -52,10 +52,7 @@ def main():
         stride=[]
         for i in fi:
             if i.mnemonic=='imul' and any(op.type==X86_OP_IMM and (op.imm & 0xffffffffffffffff)==0xd8 for op in i.operands): stride.append(i.address-base)
-            # lea x,[x+x*8] / shifts can participate, but keep direct 0xd8 as strongest marker
-        calls=[]
-        for i in fi:
-            if i.mnemonic=='call': calls.append((i.address-base,i.op_str))
+        calls=[(i.address-base,i.op_str) for i in fi if i.mnemonic=='call']
         rows.append((1 if stride else 0,b,en,idxs,stride,calls,fi))
     rows.sort(key=lambda x:(-x[0],x[1]))
 
