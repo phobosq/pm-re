@@ -4,7 +4,7 @@ on:
   push:
     paths:
       - '.github/workflows/run-vmr-window.yml'
-      - 'scripts/find_runtime_class_fingerprint.py'
+      - 'scripts/decode_vendor_ctor_helpers.py'
 
 permissions:
   contents: write
@@ -18,16 +18,16 @@ jobs:
         with:
           python-version: '3.12'
       - run: python -m pip install pefile capstone
-      - name: Trace derived snapshot-base handoffs
+      - name: Decode vendor constructor helpers
         run: |
           BIN=samples/work/unpacked/PhoenixMiner_6.2c_Windows/PhoenixMiner.exe.bin
-          python scripts/find_runtime_class_fingerprint.py "$BIN" --out-dir notes
+          python scripts/decode_vendor_ctor_helpers.py "$BIN" --out-dir notes
       - name: Commit result
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add notes/runtime_class_fingerprint.md
+          git add notes/vendor_ctor_helpers.md
           if git diff --cached --quiet; then exit 0; fi
-          git commit -m 'analysis: trace derived snapshot-base handoffs'
+          git commit -m 'analysis: decode vendor constructor helpers'
           git pull --rebase origin main
           git push
