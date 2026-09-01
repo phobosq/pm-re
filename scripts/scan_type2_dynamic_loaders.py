@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
-"""Enumerate dynamic loader callsites in confirmed NVIDIA Type2 code region.
-Static only.
-"""
+"""Enumerate dynamic loader callsites in confirmed NVIDIA Type2 code region. Static only."""
 from __future__ import annotations
 import argparse,bisect
 from pathlib import Path
@@ -26,9 +24,9 @@ def main():
   dll=d.dll.decode(errors='replace')
   for im in d.imports:
    name=im.name.decode(errors='replace') if im.name else f'ord_{im.ordinal}'
-   if name in WANTED: imports[im.address-base]=f'{dll}!{name}'
- md=Cs(CS_ARCH_X86,CS_MODE_64);md.detail=True
- arr=list(md.disasm(pe.get_data(LO,HI-LO),base+LO))
+   if name in WANTED:imports[im.address-base]=f'{dll}!{name}'
+ md=Cs(CS_ARCH_X86,CS_MODE_64);md.detail=True;md.skipdata=True
+ arr=[i for i in md.disasm(pe.get_data(LO,HI-LO),base+LO) if i.id!=0]
  hits=[]
  for k,i in enumerate(arr):
   if i.mnemonic!='call' or not i.operands:continue
@@ -47,7 +45,7 @@ def main():
   lines += ['```','','Direct calls in preceding 35 instructions:']
   for w in arr[max(0,k-35):k]:
    if w.mnemonic=='call' and w.op_str.startswith('0x'):
-    try:tr=int(w.op_str,16)-base;lines.append(f'- `0x{w.address-base:08X}` -> `0x{tr:08X}`')
+    try:lines.append(f'- `0x{w.address-base:08X}` -> `0x{int(w.op_str,16)-base:08X}`')
     except:pass
   lines += ['']
  out=Path(a.out_dir);out.mkdir(parents=True,exist_ok=True);p=out/'type2_dynamic_loaders.md';p.write_text('\n'.join(lines),encoding='utf-8');print('hits',len(hits))
