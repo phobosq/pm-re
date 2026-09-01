@@ -1,8 +1,1425 @@
 # NVIDIA Type2 dynamic loader callsites
 
-region `0x001C0000..0x001F3000`; hits: 0
+region `0x001C0000..0x001F3000`; hits: 22
 
 | RVA | PDATA | API |
 |---|---|---|
+| `0x001D1279` | `0x001D123E..0x001D353C` | `KERNEL32.dll!LoadLibraryExA` |
+| `0x001D13F9` | `0x001D123E..0x001D353C` | `KERNEL32.dll!LoadLibraryExA` |
+| `0x001D1528` | `0x001D123E..0x001D353C` | `KERNEL32.dll!GetProcAddress` |
+| `0x001D16A5` | `0x001D123E..0x001D353C` | `KERNEL32.dll!GetProcAddress` |
+| `0x001D1874` | `0x001D123E..0x001D353C` | `KERNEL32.dll!GetProcAddress` |
+| `0x001D19F3` | `0x001D123E..0x001D353C` | `KERNEL32.dll!GetProcAddress` |
+| `0x001D1C60` | `0x001D123E..0x001D353C` | `KERNEL32.dll!GetProcAddress` |
+| `0x001D1E2E` | `0x001D123E..0x001D353C` | `KERNEL32.dll!GetProcAddress` |
+| `0x001D209A` | `0x001D123E..0x001D353C` | `KERNEL32.dll!GetProcAddress` |
+| `0x001D221A` | `0x001D123E..0x001D353C` | `KERNEL32.dll!GetProcAddress` |
+| `0x001D239A` | `0x001D123E..0x001D353C` | `KERNEL32.dll!GetProcAddress` |
+| `0x001D24E8` | `0x001D123E..0x001D353C` | `KERNEL32.dll!GetProcAddress` |
+| `0x001D2711` | `0x001D123E..0x001D353C` | `KERNEL32.dll!GetProcAddress` |
+| `0x001D2901` | `0x001D123E..0x001D353C` | `KERNEL32.dll!GetProcAddress` |
+| `0x001D2AA8` | `0x001D123E..0x001D353C` | `KERNEL32.dll!GetProcAddress` |
+| `0x001D2C81` | `0x001D123E..0x001D353C` | `KERNEL32.dll!GetProcAddress` |
+| `0x001D2E5E` | `0x001D123E..0x001D353C` | `KERNEL32.dll!GetProcAddress` |
+| `0x001D310A` | `0x001D123E..0x001D353C` | `KERNEL32.dll!GetProcAddress` |
+| `0x001D3301` | `0x001D123E..0x001D353C` | `KERNEL32.dll!GetProcAddress` |
+| `0x001D34ED` | `0x001D123E..0x001D353C` | `KERNEL32.dll!GetProcAddress` |
+| `0x001DE511` | `0x001DC0C0..0x001DE7D3` | `KERNEL32.dll!FreeLibrary` |
+| `0x001EB1DF` | `0x001EAE70..0x001EB205` | `KERNEL32.dll!FreeLibrary` |
 
 ## Contexts
+
+### `0x001D1279` — `KERNEL32.dll!LoadLibraryExA`
+
+```asm
+0x001D11D4: lea rdx, [rbp + 0x450]
+0x001D11DB: mov rcx, rax
+0x001D11DE: call qword ptr [rip + 0x25f0fc]
+0x001D11E4: mov rcx, qword ptr [rbp + 0x1e8]
+0x001D11EB: mov ebx, eax
+0x001D11ED: cmp rcx, 0x10
+0x001D11F1: jb 0x1401d123e
+0x001D11F3: mov rdx, qword ptr [rbp + 0x1d0]
+0x001D11FA: inc rcx
+0x001D11FD: cmp rcx, 0x1000
+0x001D1204: jb 0x1401d1236
+0x001D1206: test dl, 0x1f
+0x001D1209: jne 0x1401d353c
+0x001D120F: mov rax, qword ptr [rdx - 8]
+0x001D1213: cmp rax, rdx
+0x001D1216: jae 0x1401d3542
+0x001D121C: sub rdx, rax
+0x001D121F: cmp rdx, 8
+0x001D1223: jb 0x1401d3548
+0x001D1229: cmp rdx, 0x27
+0x001D122D: ja 0x1401d354e
+0x001D1233: mov rdx, rax
+0x001D1236: mov rcx, rdx
+0x001D1239: call 0x1403b20d4
+0x001D123E: mov qword ptr [rsp + 0xd70], rsi
+0x001D1246: xor esi, esi
+0x001D1248: mov qword ptr [rsp + 0xd78], rdi
+0x001D1250: mov qword ptr [rbp + 0x1e8], 0xf
+0x001D125B: mov qword ptr [rbp + 0x1e0], rsi
+0x001D1262: mov byte ptr [rbp + 0x1d0], sil
+0x001D1269: test ebx, ebx
+0x001D126B: je 0x1401d128b
+0x001D126D: xor r8d, r8d
+0x001D1270: lea rcx, [rbp + 0x450]
+0x001D1277: xor edx, edx
+0x001D1279: call qword ptr [rip + 0x25f071]
+0x001D127F: mov rdi, rax
+0x001D1282: test rax, rax
+0x001D1285: jne 0x1401d140b
+0x001D128B: mov edx, 0x7fe
+0x001D1290: lea rcx, [rbp + 0x450]
+0x001D1297: call qword ptr [rip + 0x25f04b]
+0x001D129D: mov ebx, eax
+0x001D129F: test eax, eax
+0x001D12A1: je 0x1401d350a
+0x001D12A7: cmp ebx, 0x7c0
+0x001D12AD: jae 0x1401d13ed
+0x001D12B3: mov dword ptr [rbp + 0x78], 0x66
+0x001D12BA: mov ecx, dword ptr [rbp + 0x78]
+0x001D12BD: add cl, 0x66
+0x001D12C0: movsx edx, cl
+0x001D12C3: xor edx, 0xd
+0x001D12C6: mov dword ptr [rbp + 0x7c], edx
+0x001D12C9: mov ecx, dword ptr [rbp + 0x7c]
+0x001D12CC: mov edx, dword ptr [rbp + 0x78]
+```
+
+Direct calls in preceding 35 instructions:
+- `0x001D1239` -> `0x003B20D4`
+
+### `0x001D13F9` — `KERNEL32.dll!LoadLibraryExA`
+
+```asm
+0x001D136B: movsx ecx, byte ptr [rbp + 0x86]
+0x001D1372: mov eax, dword ptr [rbp + 0x78]
+0x001D1375: add al, 7
+0x001D1377: xor eax, ecx
+0x001D1379: xor eax, 0x6c
+0x001D137C: mov byte ptr [rbp + 0x87], al
+0x001D1382: movsx ecx, byte ptr [rbp + 0x87]
+0x001D1389: mov eax, dword ptr [rbp + 0x78]
+0x001D138C: add al, 8
+0x001D138E: xor eax, ecx
+0x001D1390: lea rcx, [rbp + 0x78]
+0x001D1394: xor eax, 0x6c
+0x001D1397: mov byte ptr [rbp + 0x88], al
+0x001D139D: xor eax, eax
+0x001D139F: mov byte ptr [rbp + 0x89], al
+0x001D13A5: movzx eax, byte ptr [rbp + 0x80]
+0x001D13AC: call 0x140178720
+0x001D13B1: mov rcx, rax
+0x001D13B4: cmp qword ptr [rax + 0x18], 0x10
+0x001D13B9: jb 0x1401d13be
+0x001D13BB: mov rcx, qword ptr [rax]
+0x001D13BE: lea rdx, [rbp + 0x450]
+0x001D13C5: add rdx, rbx
+0x001D13C8: nop dword ptr [rax + rax]
+0x001D13D0: movzx eax, byte ptr [rcx]
+0x001D13D3: lea rcx, [rcx + 1]
+0x001D13D7: mov byte ptr [rdx], al
+0x001D13D9: lea rdx, [rdx + 1]
+0x001D13DD: test al, al
+0x001D13DF: jne 0x1401d13d0
+0x001D13E1: lea rcx, [rbp + 0x390]
+0x001D13E8: call 0x140032ef0
+0x001D13ED: xor r8d, r8d
+0x001D13F0: lea rcx, [rbp + 0x450]
+0x001D13F7: xor edx, edx
+0x001D13F9: call qword ptr [rip + 0x25eef1]
+0x001D13FF: mov rdi, rax
+0x001D1402: test rax, rax
+0x001D1405: je 0x1401d350a
+0x001D140B: mov dword ptr [rsp + 0x68], 0x38
+0x001D1413: lea rdx, [rbp + 0x1f0]
+0x001D141A: mov eax, dword ptr [rsp + 0x68]
+0x001D141E: add al, 0x38
+0x001D1420: movsx ecx, al
+0x001D1423: xor ecx, 0x75
+0x001D1426: mov dword ptr [rsp + 0x6c], ecx
+0x001D142A: mov eax, dword ptr [rsp + 0x6c]
+0x001D142E: mov ecx, dword ptr [rsp + 0x68]
+0x001D1432: xor ecx, eax
+0x001D1434: xor ecx, 0x6e
+0x001D1437: mov byte ptr [rsp + 0x70], cl
+0x001D143B: movsx ecx, byte ptr [rsp + 0x70]
+0x001D1440: mov eax, dword ptr [rsp + 0x68]
+0x001D1444: inc al
+0x001D1446: xor eax, ecx
+```
+
+Direct calls in preceding 35 instructions:
+- `0x001D13AC` -> `0x00178720`
+- `0x001D13E8` -> `0x00032EF0`
+
+### `0x001D1528` — `KERNEL32.dll!GetProcAddress`
+
+```asm
+0x001D14AF: mov byte ptr [rsp + 0x76], al
+0x001D14B3: movsx ecx, byte ptr [rsp + 0x76]
+0x001D14B8: mov eax, dword ptr [rsp + 0x68]
+0x001D14BC: add al, 7
+0x001D14BE: xor eax, ecx
+0x001D14C0: xor eax, 0x74
+0x001D14C3: mov byte ptr [rsp + 0x77], al
+0x001D14C7: movsx ecx, byte ptr [rsp + 0x77]
+0x001D14CC: mov eax, dword ptr [rsp + 0x68]
+0x001D14D0: add al, 8
+0x001D14D2: xor eax, ecx
+0x001D14D4: xor eax, 0x5f
+0x001D14D7: mov byte ptr [rsp + 0x78], al
+0x001D14DB: movsx ecx, byte ptr [rsp + 0x78]
+0x001D14E0: mov eax, dword ptr [rsp + 0x68]
+0x001D14E4: add al, 9
+0x001D14E6: xor eax, ecx
+0x001D14E8: xor eax, 0x76
+0x001D14EB: mov byte ptr [rsp + 0x79], al
+0x001D14EF: movsx ecx, byte ptr [rsp + 0x79]
+0x001D14F4: mov eax, dword ptr [rsp + 0x68]
+0x001D14F8: add al, 0xa
+0x001D14FA: xor eax, ecx
+0x001D14FC: lea rcx, [rsp + 0x68]
+0x001D1501: xor eax, 0x32
+0x001D1504: mov byte ptr [rsp + 0x7a], al
+0x001D1508: xor eax, eax
+0x001D150A: mov byte ptr [rsp + 0x7b], al
+0x001D150E: movzx eax, byte ptr [rsp + 0x70]
+0x001D1513: call 0x1400b2990
+0x001D1518: cmp qword ptr [rax + 0x18], 0x10
+0x001D151D: jb 0x1401d1522
+0x001D151F: mov rax, qword ptr [rax]
+0x001D1522: mov rdx, rax
+0x001D1525: mov rcx, rdi
+0x001D1528: call qword ptr [rip + 0x25ecba]
+0x001D152E: test rax, rax
+0x001D1531: mov qword ptr [rip + 0x6162e0], rax
+0x001D1538: mov rax, qword ptr [rbp + 0x208]
+0x001D153F: sete bl
+0x001D1542: cmp rax, 0x10
+0x001D1546: jb 0x1401d158f
+0x001D1548: mov rcx, qword ptr [rbp + 0x1f0]
+0x001D154F: inc rax
+0x001D1552: cmp rax, 0x1000
+0x001D1558: jb 0x1401d158a
+0x001D155A: test cl, 0x1f
+0x001D155D: jne 0x1401d3554
+0x001D1563: mov rax, qword ptr [rcx - 8]
+0x001D1567: cmp rax, rcx
+0x001D156A: jae 0x1401d355a
+0x001D1570: sub rcx, rax
+0x001D1573: cmp rcx, 8
+0x001D1577: jb 0x1401d3560
+0x001D157D: cmp rcx, 0x27
+```
+
+Direct calls in preceding 35 instructions:
+- `0x001D1513` -> `0x000B2990`
+
+### `0x001D16A5` — `KERNEL32.dll!GetProcAddress`
+
+```asm
+0x001D15F3: xor ecx, 0x2a
+0x001D15F6: mov byte ptr [rbp + 0x1aa], cl
+0x001D15FC: movsx ecx, byte ptr [rbp + 0x1aa]
+0x001D1603: xor ecx, 0x2b
+0x001D1606: mov byte ptr [rbp + 0x1ab], cl
+0x001D160C: movsx ecx, byte ptr [rbp + 0x1ab]
+0x001D1613: xor ecx, 0xe
+0x001D1616: mov byte ptr [rbp + 0x1ac], cl
+0x001D161C: movsx ecx, byte ptr [rbp + 0x1ac]
+0x001D1623: xor ecx, 0x29
+0x001D1626: mov byte ptr [rbp + 0x1ad], cl
+0x001D162C: movsx ecx, byte ptr [rbp + 0x1ad]
+0x001D1633: xor ecx, 0x2e
+0x001D1636: mov byte ptr [rbp + 0x1ae], cl
+0x001D163C: movsx ecx, byte ptr [rbp + 0x1ae]
+0x001D1643: xor ecx, 0x33
+0x001D1646: mov byte ptr [rbp + 0x1af], cl
+0x001D164C: movsx ecx, byte ptr [rbp + 0x1af]
+0x001D1653: xor ecx, 0x18
+0x001D1656: mov byte ptr [rbp + 0x1b0], cl
+0x001D165C: movsx ecx, byte ptr [rbp + 0x1b0]
+0x001D1663: xor ecx, 0x31
+0x001D1666: mov byte ptr [rbp + 0x1b1], cl
+0x001D166C: movsx ecx, byte ptr [rbp + 0x1b1]
+0x001D1673: xor ecx, 0x74
+0x001D1676: mov byte ptr [rbp + 0x1b3], al
+0x001D167C: mov byte ptr [rbp + 0x1b2], cl
+0x001D1682: lea rcx, [rbp + 0x1a0]
+0x001D1689: movzx eax, byte ptr [rbp + 0x1a8]
+0x001D1690: call 0x1401b63b0
+0x001D1695: cmp qword ptr [rax + 0x18], 0x10
+0x001D169A: jb 0x1401d169f
+0x001D169C: mov rax, qword ptr [rax]
+0x001D169F: mov rdx, rax
+0x001D16A2: mov rcx, rdi
+0x001D16A5: call qword ptr [rip + 0x25eb3d]
+0x001D16AB: mov qword ptr [rip + 0x61616e], rax
+0x001D16B2: mov rax, qword ptr [rbp + 0x228]
+0x001D16B9: cmp rax, 0x10
+0x001D16BD: jb 0x1401d1706
+0x001D16BF: mov rcx, qword ptr [rbp + 0x210]
+0x001D16C6: inc rax
+0x001D16C9: cmp rax, 0x1000
+0x001D16CF: jb 0x1401d1701
+0x001D16D1: test cl, 0x1f
+0x001D16D4: jne 0x1401d356c
+0x001D16DA: mov rax, qword ptr [rcx - 8]
+0x001D16DE: cmp rax, rcx
+0x001D16E1: jae 0x1401d3572
+0x001D16E7: sub rcx, rax
+0x001D16EA: cmp rcx, 8
+0x001D16EE: jb 0x1401d3578
+0x001D16F4: cmp rcx, 0x27
+0x001D16F8: ja 0x1401d357e
+0x001D16FE: mov rcx, rax
+```
+
+Direct calls in preceding 35 instructions:
+- `0x001D1690` -> `0x001B63B0`
+
+### `0x001D1874` — `KERNEL32.dll!GetProcAddress`
+
+```asm
+0x001D17C2: xor ecx, 0x37
+0x001D17C5: mov byte ptr [rbp + 0x190], cl
+0x001D17CB: movsx ecx, byte ptr [rbp + 0x190]
+0x001D17D2: xor ecx, 9
+0x001D17D5: mov byte ptr [rbp + 0x191], cl
+0x001D17DB: movsx ecx, byte ptr [rbp + 0x191]
+0x001D17E2: xor ecx, 0x14
+0x001D17E5: mov byte ptr [rbp + 0x192], cl
+0x001D17EB: movsx ecx, byte ptr [rbp + 0x192]
+0x001D17F2: xor ecx, 8
+0x001D17F5: mov byte ptr [rbp + 0x193], cl
+0x001D17FB: movsx ecx, byte ptr [rbp + 0x193]
+0x001D1802: xor ecx, 0x26
+0x001D1805: mov byte ptr [rbp + 0x194], cl
+0x001D180B: movsx ecx, byte ptr [rbp + 0x194]
+0x001D1812: xor ecx, 0xc
+0x001D1815: mov byte ptr [rbp + 0x195], cl
+0x001D181B: movsx ecx, byte ptr [rbp + 0x195]
+0x001D1822: xor ecx, 1
+0x001D1825: mov byte ptr [rbp + 0x196], cl
+0x001D182B: movsx ecx, byte ptr [rbp + 0x196]
+0x001D1832: xor ecx, 7
+0x001D1835: mov byte ptr [rbp + 0x197], cl
+0x001D183B: movsx ecx, byte ptr [rbp + 0x197]
+0x001D1842: xor ecx, 0x13
+0x001D1845: mov byte ptr [rbp + 0x199], al
+0x001D184B: mov byte ptr [rbp + 0x198], cl
+0x001D1851: lea rcx, [rbp + 0x180]
+0x001D1858: movzx eax, byte ptr [rbp + 0x188]
+0x001D185F: call 0x140287210
+0x001D1864: cmp qword ptr [rax + 0x18], 0x10
+0x001D1869: jb 0x1401d186e
+0x001D186B: mov rax, qword ptr [rax]
+0x001D186E: mov rdx, rax
+0x001D1871: mov rcx, rdi
+0x001D1874: call qword ptr [rip + 0x25e96e]
+0x001D187A: mov qword ptr [rip + 0x615fa7], rax
+0x001D1881: mov rax, qword ptr [rbp + 0x248]
+0x001D1888: cmp rax, 0x10
+0x001D188C: jb 0x1401d18d5
+0x001D188E: mov rcx, qword ptr [rbp + 0x230]
+0x001D1895: inc rax
+0x001D1898: cmp rax, 0x1000
+0x001D189E: jb 0x1401d18d0
+0x001D18A0: test cl, 0x1f
+0x001D18A3: jne 0x1401d3584
+0x001D18A9: mov rax, qword ptr [rcx - 8]
+0x001D18AD: cmp rax, rcx
+0x001D18B0: jae 0x1401d358a
+0x001D18B6: sub rcx, rax
+0x001D18B9: cmp rcx, 8
+0x001D18BD: jb 0x1401d3590
+0x001D18C3: cmp rcx, 0x27
+0x001D18C7: ja 0x1401d3596
+0x001D18CD: mov rcx, rax
+```
+
+Direct calls in preceding 35 instructions:
+- `0x001D185F` -> `0x00287210`
+
+### `0x001D19F3` — `KERNEL32.dll!GetProcAddress`
+
+```asm
+0x001D1941: xor ecx, 0x39
+0x001D1944: mov byte ptr [rbp + 0x1c3], cl
+0x001D194A: movsx ecx, byte ptr [rbp + 0x1c3]
+0x001D1951: xor ecx, 6
+0x001D1954: mov byte ptr [rbp + 0x1c4], cl
+0x001D195A: movsx ecx, byte ptr [rbp + 0x1c4]
+0x001D1961: xor ecx, 0x3d
+0x001D1964: mov byte ptr [rbp + 0x1c5], cl
+0x001D196A: movsx ecx, byte ptr [rbp + 0x1c5]
+0x001D1971: xor ecx, 0x20
+0x001D1974: mov byte ptr [rbp + 0x1c6], cl
+0x001D197A: movsx ecx, byte ptr [rbp + 0x1c6]
+0x001D1981: xor ecx, 0x21
+0x001D1984: mov byte ptr [rbp + 0x1c7], cl
+0x001D198A: movsx ecx, byte ptr [rbp + 0x1c7]
+0x001D1991: xor ecx, 0x31
+0x001D1994: mov byte ptr [rbp + 0x1c8], cl
+0x001D199A: movsx ecx, byte ptr [rbp + 0x1c8]
+0x001D19A1: xor ecx, 0x3a
+0x001D19A4: mov byte ptr [rbp + 0x1c9], cl
+0x001D19AA: movsx ecx, byte ptr [rbp + 0x1c9]
+0x001D19B1: xor ecx, 0x22
+0x001D19B4: mov byte ptr [rbp + 0x1ca], cl
+0x001D19BA: movsx ecx, byte ptr [rbp + 0x1ca]
+0x001D19C1: xor ecx, 0x3b
+0x001D19C4: mov byte ptr [rbp + 0x1cc], al
+0x001D19CA: mov byte ptr [rbp + 0x1cb], cl
+0x001D19D0: lea rcx, [rbp + 0x1b8]
+0x001D19D7: movzx eax, byte ptr [rbp + 0x1c0]
+0x001D19DE: call 0x1400861e0
+0x001D19E3: cmp qword ptr [rax + 0x18], 0x10
+0x001D19E8: jb 0x1401d19ed
+0x001D19EA: mov rax, qword ptr [rax]
+0x001D19ED: mov rdx, rax
+0x001D19F0: mov rcx, rdi
+0x001D19F3: call qword ptr [rip + 0x25e7ef]
+0x001D19F9: test rax, rax
+0x001D19FC: mov qword ptr [rip + 0x615e2d], rax
+0x001D1A03: mov rax, qword ptr [rbp + 0x268]
+0x001D1A0A: sete bl
+0x001D1A0D: cmp rax, 0x10
+0x001D1A11: jb 0x1401d1a5a
+0x001D1A13: mov rcx, qword ptr [rbp + 0x250]
+0x001D1A1A: inc rax
+0x001D1A1D: cmp rax, 0x1000
+0x001D1A23: jb 0x1401d1a55
+0x001D1A25: test cl, 0x1f
+0x001D1A28: jne 0x1401d359c
+0x001D1A2E: mov rax, qword ptr [rcx - 8]
+0x001D1A32: cmp rax, rcx
+0x001D1A35: jae 0x1401d35a2
+0x001D1A3B: sub rcx, rax
+0x001D1A3E: cmp rcx, 8
+0x001D1A42: jb 0x1401d35a8
+0x001D1A48: cmp rcx, 0x27
+```
+
+Direct calls in preceding 35 instructions:
+- `0x001D19DE` -> `0x000861E0`
+
+### `0x001D1C60` — `KERNEL32.dll!GetProcAddress`
+
+```asm
+0x001D1BE7: mov byte ptr [rsp + 0x60], al
+0x001D1BEB: movsx ecx, byte ptr [rsp + 0x60]
+0x001D1BF0: mov eax, dword ptr [rsp + 0x48]
+0x001D1BF4: add al, 0x11
+0x001D1BF6: xor eax, ecx
+0x001D1BF8: xor eax, 0x74
+0x001D1BFB: mov byte ptr [rsp + 0x61], al
+0x001D1BFF: movsx ecx, byte ptr [rsp + 0x61]
+0x001D1C04: mov eax, dword ptr [rsp + 0x48]
+0x001D1C08: add al, 0x12
+0x001D1C0A: xor eax, ecx
+0x001D1C0C: xor eax, 0x5f
+0x001D1C0F: mov byte ptr [rsp + 0x62], al
+0x001D1C13: movsx ecx, byte ptr [rsp + 0x62]
+0x001D1C18: mov eax, dword ptr [rsp + 0x48]
+0x001D1C1C: add al, 0x13
+0x001D1C1E: xor eax, ecx
+0x001D1C20: xor eax, 0x76
+0x001D1C23: mov byte ptr [rsp + 0x63], al
+0x001D1C27: movsx ecx, byte ptr [rsp + 0x63]
+0x001D1C2C: mov eax, dword ptr [rsp + 0x48]
+0x001D1C30: add al, 0x14
+0x001D1C32: xor eax, ecx
+0x001D1C34: lea rcx, [rsp + 0x48]
+0x001D1C39: xor eax, 0x32
+0x001D1C3C: mov byte ptr [rsp + 0x64], al
+0x001D1C40: xor eax, eax
+0x001D1C42: mov byte ptr [rsp + 0x65], al
+0x001D1C46: movzx eax, byte ptr [rsp + 0x50]
+0x001D1C4B: call 0x1400da890
+0x001D1C50: cmp qword ptr [rax + 0x18], 0x10
+0x001D1C55: jb 0x1401d1c5a
+0x001D1C57: mov rax, qword ptr [rax]
+0x001D1C5A: mov rdx, rax
+0x001D1C5D: mov rcx, rdi
+0x001D1C60: call qword ptr [rip + 0x25e582]
+0x001D1C66: test rax, rax
+0x001D1C69: mov qword ptr [rip + 0x615bc8], rax
+0x001D1C70: lea rcx, [rbp + 0x3b0]
+0x001D1C77: sete bl
+0x001D1C7A: call 0x140032ef0
+0x001D1C7F: test bl, bl
+0x001D1C81: jne 0x1401d350a
+0x001D1C87: mov dword ptr [rbp + 0x18], 0x21
+0x001D1C8E: mov eax, dword ptr [rbp + 0x18]
+0x001D1C91: xor eax, 0x6e
+0x001D1C94: add eax, 9
+0x001D1C97: mov byte ptr [rbp + 0x1c], al
+0x001D1C9A: movsx ecx, byte ptr [rbp + 0x1c]
+0x001D1C9E: xor ecx, 0x76
+0x001D1CA1: add ecx, 9
+0x001D1CA4: mov byte ptr [rbp + 0x1d], cl
+0x001D1CA7: movsx ecx, byte ptr [rbp + 0x1d]
+0x001D1CAB: xor ecx, 0x6d
+0x001D1CAE: add ecx, 9
+```
+
+Direct calls in preceding 35 instructions:
+- `0x001D1C4B` -> `0x000DA890`
+
+### `0x001D1E2E` — `KERNEL32.dll!GetProcAddress`
+
+```asm
+0x001D1DB9: add ecx, 9
+0x001D1DBC: mov byte ptr [rbp + 0x32], cl
+0x001D1DBF: movsx ecx, byte ptr [rbp + 0x32]
+0x001D1DC3: xor ecx, 0x64
+0x001D1DC6: add ecx, 9
+0x001D1DC9: mov byte ptr [rbp + 0x33], cl
+0x001D1DCC: movsx ecx, byte ptr [rbp + 0x33]
+0x001D1DD0: xor ecx, 0x65
+0x001D1DD3: add ecx, 9
+0x001D1DD6: mov byte ptr [rbp + 0x34], cl
+0x001D1DD9: movsx ecx, byte ptr [rbp + 0x34]
+0x001D1DDD: xor ecx, 0x78
+0x001D1DE0: add ecx, 9
+0x001D1DE3: mov byte ptr [rbp + 0x35], cl
+0x001D1DE6: movsx ecx, byte ptr [rbp + 0x35]
+0x001D1DEA: xor ecx, 0x5f
+0x001D1DED: add ecx, 9
+0x001D1DF0: mov byte ptr [rbp + 0x36], cl
+0x001D1DF3: movsx ecx, byte ptr [rbp + 0x36]
+0x001D1DF7: xor ecx, 0x76
+0x001D1DFA: add ecx, 9
+0x001D1DFD: mov byte ptr [rbp + 0x37], cl
+0x001D1E00: movsx ecx, byte ptr [rbp + 0x37]
+0x001D1E04: xor ecx, 0x32
+0x001D1E07: add ecx, 9
+0x001D1E0A: mov byte ptr [rbp + 0x38], cl
+0x001D1E0D: lea rcx, [rbp + 0x18]
+0x001D1E11: mov byte ptr [rbp + 0x39], sil
+0x001D1E15: movzx eax, byte ptr [rbp + 0x1c]
+0x001D1E19: call 0x1401d35c0
+0x001D1E1E: cmp qword ptr [rax + 0x18], 0x10
+0x001D1E23: jb 0x1401d1e28
+0x001D1E25: mov rax, qword ptr [rax]
+0x001D1E28: mov rdx, rax
+0x001D1E2B: mov rcx, rdi
+0x001D1E2E: call qword ptr [rip + 0x25e3b4]
+0x001D1E34: test rax, rax
+0x001D1E37: mov qword ptr [rip + 0x615a02], rax
+0x001D1E3E: lea rcx, [rbp + 0x3d0]
+0x001D1E45: sete bl
+0x001D1E48: call 0x140032ef0
+0x001D1E4D: test bl, bl
+0x001D1E4F: jne 0x1401d350a
+0x001D1E55: mov dword ptr [rbp + 0x110], 0x5d
+0x001D1E5F: mov dword ptr [rbp + 0x114], 0x54
+0x001D1E69: mov eax, dword ptr [rbp + 0x114]
+0x001D1E6F: xor eax, 0x33
+0x001D1E72: mov byte ptr [rbp + 0x118], al
+0x001D1E78: movsx ecx, byte ptr [rbp + 0x118]
+0x001D1E7F: xor ecx, 0x2b
+0x001D1E82: mov byte ptr [rbp + 0x119], cl
+0x001D1E88: movsx ecx, byte ptr [rbp + 0x119]
+0x001D1E8F: xor ecx, 0x30
+0x001D1E92: mov byte ptr [rbp + 0x11a], cl
+0x001D1E98: movsx ecx, byte ptr [rbp + 0x11a]
+```
+
+Direct calls in preceding 35 instructions:
+- `0x001D1E19` -> `0x001D35C0`
+
+### `0x001D209A` — `KERNEL32.dll!GetProcAddress`
+
+```asm
+0x001D1FE8: movsx ecx, byte ptr [rbp + 0x12f]
+0x001D1FEF: xor ecx, 0x1f
+0x001D1FF2: mov byte ptr [rbp + 0x130], cl
+0x001D1FF8: movsx ecx, byte ptr [rbp + 0x130]
+0x001D1FFF: xor ecx, 0x28
+0x001D2002: mov byte ptr [rbp + 0x131], cl
+0x001D2008: movsx ecx, byte ptr [rbp + 0x131]
+0x001D200F: xor ecx, 0x2e
+0x001D2012: lea rdx, [rbp + 0x3f0]
+0x001D2019: mov byte ptr [rbp + 0x132], cl
+0x001D201F: xor eax, eax
+0x001D2021: movsx ecx, byte ptr [rbp + 0x132]
+0x001D2028: xor ecx, 0x14
+0x001D202B: mov byte ptr [rbp + 0x133], cl
+0x001D2031: movsx ecx, byte ptr [rbp + 0x133]
+0x001D2038: xor ecx, 0x39
+0x001D203B: mov byte ptr [rbp + 0x134], cl
+0x001D2041: movsx ecx, byte ptr [rbp + 0x134]
+0x001D2048: xor ecx, 2
+0x001D204B: mov byte ptr [rbp + 0x135], cl
+0x001D2051: movsx ecx, byte ptr [rbp + 0x135]
+0x001D2058: xor ecx, 0x2b
+0x001D205B: mov byte ptr [rbp + 0x136], cl
+0x001D2061: movsx ecx, byte ptr [rbp + 0x136]
+0x001D2068: xor ecx, 0x6f
+0x001D206B: mov byte ptr [rbp + 0x138], al
+0x001D2071: mov byte ptr [rbp + 0x137], cl
+0x001D2077: lea rcx, [rbp + 0x110]
+0x001D207E: movzx eax, byte ptr [rbp + 0x118]
+0x001D2085: call 0x1401a5430
+0x001D208A: cmp qword ptr [rax + 0x18], 0x10
+0x001D208F: jb 0x1401d2094
+0x001D2091: mov rax, qword ptr [rax]
+0x001D2094: mov rdx, rax
+0x001D2097: mov rcx, rdi
+0x001D209A: call qword ptr [rip + 0x25e148]
+0x001D20A0: test rax, rax
+0x001D20A3: mov qword ptr [rip + 0x61579e], rax
+0x001D20AA: lea rcx, [rbp + 0x3f0]
+0x001D20B1: sete bl
+0x001D20B4: call 0x140032ef0
+0x001D20B9: test bl, bl
+0x001D20BB: jne 0x1401d350a
+0x001D20C1: mov dword ptr [rbp - 0x80], 0xe
+0x001D20C8: mov eax, dword ptr [rbp - 0x80]
+0x001D20CB: xor eax, 0x6e
+0x001D20CE: add eax, 3
+0x001D20D1: mov byte ptr [rbp - 0x7c], al
+0x001D20D4: movsx ecx, byte ptr [rbp - 0x7c]
+0x001D20D8: xor ecx, 0x76
+0x001D20DB: add ecx, 3
+0x001D20DE: mov byte ptr [rbp - 0x7b], cl
+0x001D20E1: movsx ecx, byte ptr [rbp - 0x7b]
+0x001D20E5: xor ecx, 0x6d
+0x001D20E8: add ecx, 3
+```
+
+Direct calls in preceding 35 instructions:
+- `0x001D2085` -> `0x001A5430`
+
+### `0x001D221A` — `KERNEL32.dll!GetProcAddress`
+
+```asm
+0x001D21A1: mov byte ptr [rbp - 0x6c], cl
+0x001D21A4: movsx ecx, byte ptr [rbp - 0x6c]
+0x001D21A8: xor ecx, 0x6e
+0x001D21AB: add ecx, 3
+0x001D21AE: mov byte ptr [rbp - 0x6b], cl
+0x001D21B1: movsx ecx, byte ptr [rbp - 0x6b]
+0x001D21B5: xor ecx, 0x66
+0x001D21B8: add ecx, 3
+0x001D21BB: mov byte ptr [rbp - 0x6a], cl
+0x001D21BE: movsx ecx, byte ptr [rbp - 0x6a]
+0x001D21C2: xor ecx, 0x6f
+0x001D21C5: add ecx, 3
+0x001D21C8: mov byte ptr [rbp - 0x69], cl
+0x001D21CB: movsx ecx, byte ptr [rbp - 0x69]
+0x001D21CF: lea rdx, [rbp + 0x410]
+0x001D21D6: xor ecx, 0x5f
+0x001D21D9: add ecx, 3
+0x001D21DC: mov byte ptr [rbp - 0x68], cl
+0x001D21DF: movsx ecx, byte ptr [rbp - 0x68]
+0x001D21E3: xor ecx, 0x76
+0x001D21E6: add ecx, 3
+0x001D21E9: mov byte ptr [rbp - 0x67], cl
+0x001D21EC: movsx ecx, byte ptr [rbp - 0x67]
+0x001D21F0: xor ecx, 0x32
+0x001D21F3: add ecx, 3
+0x001D21F6: mov byte ptr [rbp - 0x66], cl
+0x001D21F9: lea rcx, [rbp - 0x80]
+0x001D21FD: mov byte ptr [rbp - 0x65], sil
+0x001D2201: movzx eax, byte ptr [rbp - 0x7c]
+0x001D2205: call 0x1401d3800
+0x001D220A: cmp qword ptr [rax + 0x18], 0x10
+0x001D220F: jb 0x1401d2214
+0x001D2211: mov rax, qword ptr [rax]
+0x001D2214: mov rdx, rax
+0x001D2217: mov rcx, rdi
+0x001D221A: call qword ptr [rip + 0x25dfc8]
+0x001D2220: test rax, rax
+0x001D2223: mov qword ptr [rip + 0x615626], rax
+0x001D222A: lea rcx, [rbp + 0x410]
+0x001D2231: sete bl
+0x001D2234: call 0x140032ef0
+0x001D2239: test bl, bl
+0x001D223B: jne 0x1401d350a
+0x001D2241: mov dword ptr [rbp - 0x60], 0x45
+0x001D2248: mov eax, dword ptr [rbp - 0x60]
+0x001D224B: xor eax, 0x6e
+0x001D224E: add eax, 2
+0x001D2251: mov byte ptr [rbp - 0x5c], al
+0x001D2254: movsx ecx, byte ptr [rbp - 0x5c]
+0x001D2258: xor ecx, 0x76
+0x001D225B: add ecx, 2
+0x001D225E: mov byte ptr [rbp - 0x5b], cl
+0x001D2261: movsx ecx, byte ptr [rbp - 0x5b]
+0x001D2265: xor ecx, 0x6d
+0x001D2268: add ecx, 2
+```
+
+Direct calls in preceding 35 instructions:
+- `0x001D2205` -> `0x001D3800`
+
+### `0x001D239A` — `KERNEL32.dll!GetProcAddress`
+
+```asm
+0x001D2321: mov byte ptr [rbp - 0x4c], cl
+0x001D2324: movsx ecx, byte ptr [rbp - 0x4c]
+0x001D2328: xor ecx, 0x6e
+0x001D232B: add ecx, 2
+0x001D232E: mov byte ptr [rbp - 0x4b], cl
+0x001D2331: movsx ecx, byte ptr [rbp - 0x4b]
+0x001D2335: xor ecx, 0x66
+0x001D2338: add ecx, 2
+0x001D233B: mov byte ptr [rbp - 0x4a], cl
+0x001D233E: movsx ecx, byte ptr [rbp - 0x4a]
+0x001D2342: xor ecx, 0x6f
+0x001D2345: add ecx, 2
+0x001D2348: mov byte ptr [rbp - 0x49], cl
+0x001D234B: movsx ecx, byte ptr [rbp - 0x49]
+0x001D234F: lea rdx, [rbp + 0x430]
+0x001D2356: xor ecx, 0x5f
+0x001D2359: add ecx, 2
+0x001D235C: mov byte ptr [rbp - 0x48], cl
+0x001D235F: movsx ecx, byte ptr [rbp - 0x48]
+0x001D2363: xor ecx, 0x76
+0x001D2366: add ecx, 2
+0x001D2369: mov byte ptr [rbp - 0x47], cl
+0x001D236C: movsx ecx, byte ptr [rbp - 0x47]
+0x001D2370: xor ecx, 0x33
+0x001D2373: add ecx, 2
+0x001D2376: mov byte ptr [rbp - 0x46], cl
+0x001D2379: lea rcx, [rbp - 0x60]
+0x001D237D: mov byte ptr [rbp - 0x45], sil
+0x001D2381: movzx eax, byte ptr [rbp - 0x5c]
+0x001D2385: call 0x14026def0
+0x001D238A: cmp qword ptr [rax + 0x18], 0x10
+0x001D238F: jb 0x1401d2394
+0x001D2391: mov rax, qword ptr [rax]
+0x001D2394: mov rdx, rax
+0x001D2397: mov rcx, rdi
+0x001D239A: call qword ptr [rip + 0x25de48]
+0x001D23A0: lea rcx, [rbp + 0x430]
+0x001D23A7: mov qword ptr [rip + 0x615462], rax
+0x001D23AE: call 0x140032ef0
+0x001D23B3: mov dword ptr [rbp + 0x168], 0x77
+0x001D23BD: lea rdx, [rbp + 0x270]
+0x001D23C4: mov dword ptr [rbp + 0x16c], 5
+0x001D23CE: mov eax, dword ptr [rbp + 0x16c]
+0x001D23D4: xor eax, 0x19
+0x001D23D7: mov byte ptr [rbp + 0x170], al
+0x001D23DD: xor eax, eax
+0x001D23DF: movsx ecx, byte ptr [rbp + 0x170]
+0x001D23E6: xor ecx, 1
+0x001D23E9: mov byte ptr [rbp + 0x171], cl
+0x001D23EF: movsx ecx, byte ptr [rbp + 0x171]
+0x001D23F6: xor ecx, 0x1a
+0x001D23F9: mov byte ptr [rbp + 0x172], cl
+0x001D23FF: movsx ecx, byte ptr [rbp + 0x172]
+0x001D2406: xor ecx, 0x1b
+0x001D2409: mov byte ptr [rbp + 0x173], cl
+```
+
+Direct calls in preceding 35 instructions:
+- `0x001D2385` -> `0x0026DEF0`
+
+### `0x001D24E8` — `KERNEL32.dll!GetProcAddress`
+
+```asm
+0x001D2436: xor ecx, 5
+0x001D2439: mov byte ptr [rbp + 0x176], cl
+0x001D243F: movsx ecx, byte ptr [rbp + 0x176]
+0x001D2446: xor ecx, 0x18
+0x001D2449: mov byte ptr [rbp + 0x177], cl
+0x001D244F: movsx ecx, byte ptr [rbp + 0x177]
+0x001D2456: xor ecx, 5
+0x001D2459: mov byte ptr [rbp + 0x178], cl
+0x001D245F: movsx ecx, byte ptr [rbp + 0x178]
+0x001D2466: xor ecx, 0x24
+0x001D2469: mov byte ptr [rbp + 0x179], cl
+0x001D246F: movsx ecx, byte ptr [rbp + 0x179]
+0x001D2476: xor ecx, 3
+0x001D2479: mov byte ptr [rbp + 0x17a], cl
+0x001D247F: movsx ecx, byte ptr [rbp + 0x17a]
+0x001D2486: xor ecx, 5
+0x001D2489: mov byte ptr [rbp + 0x17b], cl
+0x001D248F: movsx ecx, byte ptr [rbp + 0x17b]
+0x001D2496: xor ecx, 0x1e
+0x001D2499: mov byte ptr [rbp + 0x17c], cl
+0x001D249F: movsx ecx, byte ptr [rbp + 0x17c]
+0x001D24A6: xor ecx, 0x19
+0x001D24A9: mov byte ptr [rbp + 0x17d], cl
+0x001D24AF: movsx ecx, byte ptr [rbp + 0x17d]
+0x001D24B6: xor ecx, 0x10
+0x001D24B9: mov byte ptr [rbp + 0x17f], al
+0x001D24BF: mov byte ptr [rbp + 0x17e], cl
+0x001D24C5: lea rcx, [rbp + 0x168]
+0x001D24CC: movzx eax, byte ptr [rbp + 0x170]
+0x001D24D3: call 0x140178f80
+0x001D24D8: cmp qword ptr [rax + 0x18], 0x10
+0x001D24DD: jb 0x1401d24e2
+0x001D24DF: mov rax, qword ptr [rax]
+0x001D24E2: mov rdx, rax
+0x001D24E5: mov rcx, rdi
+0x001D24E8: call qword ptr [rip + 0x25dcfa]
+0x001D24EE: test rax, rax
+0x001D24F1: mov qword ptr [rip + 0x615360], rax
+0x001D24F8: lea rcx, [rbp + 0x270]
+0x001D24FF: sete bl
+0x001D2502: call 0x140032ef0
+0x001D2507: test bl, bl
+0x001D2509: jne 0x1401d350a
+0x001D250F: mov dword ptr [rbp + 0xb0], 0x6d
+0x001D2519: mov eax, dword ptr [rbp + 0xb0]
+0x001D251F: xor eax, 0x6e
+0x001D2522: add eax, 5
+0x001D2525: mov byte ptr [rbp + 0xb4], al
+0x001D252B: movsx ecx, byte ptr [rbp + 0xb4]
+0x001D2532: xor ecx, 0x76
+0x001D2535: add ecx, 5
+0x001D2538: mov byte ptr [rbp + 0xb5], cl
+0x001D253E: movsx ecx, byte ptr [rbp + 0xb5]
+0x001D2545: xor ecx, 0x6d
+0x001D2548: add ecx, 5
+```
+
+Direct calls in preceding 35 instructions:
+- `0x001D24D3` -> `0x00178F80`
+
+### `0x001D2711` — `KERNEL32.dll!GetProcAddress`
+
+```asm
+0x001D2668: mov byte ptr [rbp + 0xc5], cl
+0x001D266E: movsx ecx, byte ptr [rbp + 0xc5]
+0x001D2675: xor ecx, 0x72
+0x001D2678: add ecx, 5
+0x001D267B: mov byte ptr [rbp + 0xc6], cl
+0x001D2681: movsx ecx, byte ptr [rbp + 0xc6]
+0x001D2688: xor ecx, 0x61
+0x001D268B: add ecx, 5
+0x001D268E: mov byte ptr [rbp + 0xc7], cl
+0x001D2694: movsx ecx, byte ptr [rbp + 0xc7]
+0x001D269B: lea rdx, [rbp + 0x290]
+0x001D26A2: xor ecx, 0x74
+0x001D26A5: add ecx, 5
+0x001D26A8: mov byte ptr [rbp + 0xc8], cl
+0x001D26AE: movsx ecx, byte ptr [rbp + 0xc8]
+0x001D26B5: xor ecx, 0x75
+0x001D26B8: add ecx, 5
+0x001D26BB: mov byte ptr [rbp + 0xc9], cl
+0x001D26C1: movsx ecx, byte ptr [rbp + 0xc9]
+0x001D26C8: xor ecx, 0x72
+0x001D26CB: add ecx, 5
+0x001D26CE: mov byte ptr [rbp + 0xca], cl
+0x001D26D4: movsx ecx, byte ptr [rbp + 0xca]
+0x001D26DB: xor ecx, 0x65
+0x001D26DE: add ecx, 5
+0x001D26E1: mov byte ptr [rbp + 0xcb], cl
+0x001D26E7: lea rcx, [rbp + 0xb0]
+0x001D26EE: mov byte ptr [rbp + 0xcc], sil
+0x001D26F5: movzx eax, byte ptr [rbp + 0xb4]
+0x001D26FC: call 0x1401d38c0
+0x001D2701: cmp qword ptr [rax + 0x18], 0x10
+0x001D2706: jb 0x1401d270b
+0x001D2708: mov rax, qword ptr [rax]
+0x001D270B: mov rdx, rax
+0x001D270E: mov rcx, rdi
+0x001D2711: call qword ptr [rip + 0x25dad1]
+0x001D2717: test rax, rax
+0x001D271A: mov qword ptr [rip + 0x61513f], rax
+0x001D2721: lea rcx, [rbp + 0x290]
+0x001D2728: sete bl
+0x001D272B: call 0x140032ef0
+0x001D2730: test bl, bl
+0x001D2732: jne 0x1401d350a
+0x001D2738: mov dword ptr [rbp + 0x90], 0xffffff89
+0x001D2742: mov eax, dword ptr [rbp + 0x90]
+0x001D2748: xor eax, 0x6e
+0x001D274B: add eax, 0xa
+0x001D274E: mov byte ptr [rbp + 0x94], al
+0x001D2754: movsx ecx, byte ptr [rbp + 0x94]
+0x001D275B: xor ecx, 0x76
+0x001D275E: add ecx, 0xa
+0x001D2761: mov byte ptr [rbp + 0x95], cl
+0x001D2767: movsx ecx, byte ptr [rbp + 0x95]
+0x001D276E: xor ecx, 0x6d
+0x001D2771: add ecx, 0xa
+```
+
+Direct calls in preceding 35 instructions:
+- `0x001D26FC` -> `0x001D38C0`
+
+### `0x001D2901` — `KERNEL32.dll!GetProcAddress`
+
+```asm
+0x001D2858: mov byte ptr [rbp + 0xa2], cl
+0x001D285E: movsx ecx, byte ptr [rbp + 0xa2]
+0x001D2865: xor ecx, 0x6e
+0x001D2868: add ecx, 0xa
+0x001D286B: mov byte ptr [rbp + 0xa3], cl
+0x001D2871: movsx ecx, byte ptr [rbp + 0xa3]
+0x001D2878: xor ecx, 0x53
+0x001D287B: add ecx, 0xa
+0x001D287E: mov byte ptr [rbp + 0xa4], cl
+0x001D2884: movsx ecx, byte ptr [rbp + 0xa4]
+0x001D288B: xor ecx, 0x70
+0x001D288E: add ecx, 0xa
+0x001D2891: mov byte ptr [rbp + 0xa5], cl
+0x001D2897: movsx ecx, byte ptr [rbp + 0xa5]
+0x001D289E: xor ecx, 0x65
+0x001D28A1: add ecx, 0xa
+0x001D28A4: mov byte ptr [rbp + 0xa6], cl
+0x001D28AA: movsx ecx, byte ptr [rbp + 0xa6]
+0x001D28B1: xor ecx, 0x65
+0x001D28B4: add ecx, 0xa
+0x001D28B7: mov byte ptr [rbp + 0xa7], cl
+0x001D28BD: movsx ecx, byte ptr [rbp + 0xa7]
+0x001D28C4: lea rdx, [rbp + 0x2b0]
+0x001D28CB: xor ecx, 0x64
+0x001D28CE: add ecx, 0xa
+0x001D28D1: mov byte ptr [rbp + 0xa8], cl
+0x001D28D7: lea rcx, [rbp + 0x90]
+0x001D28DE: mov byte ptr [rbp + 0xa9], sil
+0x001D28E5: movzx eax, byte ptr [rbp + 0x94]
+0x001D28EC: call 0x1401d3680
+0x001D28F1: cmp qword ptr [rax + 0x18], 0x10
+0x001D28F6: jb 0x1401d28fb
+0x001D28F8: mov rax, qword ptr [rax]
+0x001D28FB: mov rdx, rax
+0x001D28FE: mov rcx, rdi
+0x001D2901: call qword ptr [rip + 0x25d8e1]
+0x001D2907: test rax, rax
+0x001D290A: mov qword ptr [rip + 0x614f57], rax
+0x001D2911: lea rcx, [rbp + 0x2b0]
+0x001D2918: sete bl
+0x001D291B: call 0x140032ef0
+0x001D2920: test bl, bl
+0x001D2922: jne 0x1401d350a
+0x001D2928: mov dword ptr [rbp - 8], 0x67
+0x001D292F: mov eax, dword ptr [rbp - 8]
+0x001D2932: xor eax, 0x6e
+0x001D2935: add eax, 7
+0x001D2938: mov byte ptr [rbp - 4], al
+0x001D293B: movsx ecx, byte ptr [rbp - 4]
+0x001D293F: xor ecx, 0x76
+0x001D2942: add ecx, 7
+0x001D2945: mov byte ptr [rbp - 3], cl
+0x001D2948: movsx ecx, byte ptr [rbp - 3]
+0x001D294C: xor ecx, 0x6d
+0x001D294F: add ecx, 7
+```
+
+Direct calls in preceding 35 instructions:
+- `0x001D28EC` -> `0x001D3680`
+
+### `0x001D2AA8` — `KERNEL32.dll!GetProcAddress`
+
+```asm
+0x001D2A2F: mov byte ptr [rbp + 0xf], cl
+0x001D2A32: movsx ecx, byte ptr [rbp + 0xf]
+0x001D2A36: lea rdx, [rbp + 0x2d0]
+0x001D2A3D: xor ecx, 0x65
+0x001D2A40: add ecx, 7
+0x001D2A43: mov byte ptr [rbp + 0x10], cl
+0x001D2A46: movsx ecx, byte ptr [rbp + 0x10]
+0x001D2A4A: xor ecx, 0x72
+0x001D2A4D: add ecx, 7
+0x001D2A50: mov byte ptr [rbp + 0x11], cl
+0x001D2A53: movsx ecx, byte ptr [rbp + 0x11]
+0x001D2A57: xor ecx, 0x73
+0x001D2A5A: add ecx, 7
+0x001D2A5D: mov byte ptr [rbp + 0x12], cl
+0x001D2A60: movsx ecx, byte ptr [rbp + 0x12]
+0x001D2A64: xor ecx, 0x69
+0x001D2A67: add ecx, 7
+0x001D2A6A: mov byte ptr [rbp + 0x13], cl
+0x001D2A6D: movsx ecx, byte ptr [rbp + 0x13]
+0x001D2A71: xor ecx, 0x6f
+0x001D2A74: add ecx, 7
+0x001D2A77: mov byte ptr [rbp + 0x14], cl
+0x001D2A7A: movsx ecx, byte ptr [rbp + 0x14]
+0x001D2A7E: xor ecx, 0x6e
+0x001D2A81: add ecx, 7
+0x001D2A84: mov byte ptr [rbp + 0x15], cl
+0x001D2A87: lea rcx, [rbp - 8]
+0x001D2A8B: mov byte ptr [rbp + 0x16], sil
+0x001D2A8F: movzx eax, byte ptr [rbp - 4]
+0x001D2A93: call 0x1401d3740
+0x001D2A98: cmp qword ptr [rax + 0x18], 0x10
+0x001D2A9D: jb 0x1401d2aa2
+0x001D2A9F: mov rax, qword ptr [rax]
+0x001D2AA2: mov rdx, rax
+0x001D2AA5: mov rcx, rdi
+0x001D2AA8: call qword ptr [rip + 0x25d73a]
+0x001D2AAE: test rax, rax
+0x001D2AB1: mov qword ptr [rip + 0x614db8], rax
+0x001D2AB8: lea rcx, [rbp + 0x2d0]
+0x001D2ABF: sete bl
+0x001D2AC2: call 0x140032ef0
+0x001D2AC7: test bl, bl
+0x001D2AC9: jne 0x1401d350a
+0x001D2ACF: mov dword ptr [rbp + 0xd0], 0x50
+0x001D2AD9: lea rdx, [rbp + 0x2f0]
+0x001D2AE0: mov dword ptr [rbp + 0xd4], 0x4e
+0x001D2AEA: mov eax, dword ptr [rbp + 0xd4]
+0x001D2AF0: xor eax, 0x3e
+0x001D2AF3: mov byte ptr [rbp + 0xd8], al
+0x001D2AF9: movsx ecx, byte ptr [rbp + 0xd8]
+0x001D2B00: xor ecx, 0x26
+0x001D2B03: mov byte ptr [rbp + 0xd9], cl
+0x001D2B09: movsx ecx, byte ptr [rbp + 0xd9]
+0x001D2B10: xor ecx, 0x3d
+0x001D2B13: mov byte ptr [rbp + 0xda], cl
+```
+
+Direct calls in preceding 35 instructions:
+- `0x001D2A93` -> `0x001D3740`
+
+### `0x001D2C81` — `KERNEL32.dll!GetProcAddress`
+
+```asm
+0x001D2BCF: xor ecx, 0x3f
+0x001D2BD2: mov byte ptr [rbp + 0xe6], cl
+0x001D2BD8: movsx ecx, byte ptr [rbp + 0xe6]
+0x001D2BDF: xor ecx, 0x27
+0x001D2BE2: mov byte ptr [rbp + 0xe7], cl
+0x001D2BE8: movsx ecx, byte ptr [rbp + 0xe7]
+0x001D2BEF: xor ecx, 0x35
+0x001D2BF2: mov byte ptr [rbp + 0xe8], cl
+0x001D2BF8: movsx ecx, byte ptr [rbp + 0xe8]
+0x001D2BFF: xor ecx, 0x22
+0x001D2C02: mov byte ptr [rbp + 0xe9], cl
+0x001D2C08: movsx ecx, byte ptr [rbp + 0xe9]
+0x001D2C0F: xor ecx, 5
+0x001D2C12: mov byte ptr [rbp + 0xea], cl
+0x001D2C18: movsx ecx, byte ptr [rbp + 0xea]
+0x001D2C1F: xor ecx, 0x23
+0x001D2C22: mov byte ptr [rbp + 0xeb], cl
+0x001D2C28: movsx ecx, byte ptr [rbp + 0xeb]
+0x001D2C2F: xor ecx, 0x31
+0x001D2C32: mov byte ptr [rbp + 0xec], cl
+0x001D2C38: movsx ecx, byte ptr [rbp + 0xec]
+0x001D2C3F: xor ecx, 0x37
+0x001D2C42: mov byte ptr [rbp + 0xed], cl
+0x001D2C48: movsx ecx, byte ptr [rbp + 0xed]
+0x001D2C4F: xor ecx, 0x35
+0x001D2C52: mov byte ptr [rbp + 0xef], al
+0x001D2C58: mov byte ptr [rbp + 0xee], cl
+0x001D2C5E: lea rcx, [rbp + 0xd0]
+0x001D2C65: movzx eax, byte ptr [rbp + 0xd8]
+0x001D2C6C: call 0x140086530
+0x001D2C71: cmp qword ptr [rax + 0x18], 0x10
+0x001D2C76: jb 0x1401d2c7b
+0x001D2C78: mov rax, qword ptr [rax]
+0x001D2C7B: mov rdx, rax
+0x001D2C7E: mov rcx, rdi
+0x001D2C81: call qword ptr [rip + 0x25d561]
+0x001D2C87: test rax, rax
+0x001D2C8A: mov qword ptr [rip + 0x614be7], rax
+0x001D2C91: lea rcx, [rbp + 0x2f0]
+0x001D2C98: sete bl
+0x001D2C9B: call 0x140032ef0
+0x001D2CA0: test bl, bl
+0x001D2CA2: jne 0x1401d350a
+0x001D2CA8: mov dword ptr [rbp + 0xf0], 0x3c
+0x001D2CB2: mov eax, dword ptr [rbp + 0xf0]
+0x001D2CB8: xor eax, 0x6e
+0x001D2CBB: add eax, 0xa
+0x001D2CBE: mov byte ptr [rbp + 0xf4], al
+0x001D2CC4: movsx ecx, byte ptr [rbp + 0xf4]
+0x001D2CCB: xor ecx, 0x76
+0x001D2CCE: add ecx, 0xa
+0x001D2CD1: mov byte ptr [rbp + 0xf5], cl
+0x001D2CD7: movsx ecx, byte ptr [rbp + 0xf5]
+0x001D2CDE: xor ecx, 0x6d
+0x001D2CE1: add ecx, 0xa
+```
+
+Direct calls in preceding 35 instructions:
+- `0x001D2C6C` -> `0x00086530`
+
+### `0x001D2E5E` — `KERNEL32.dll!GetProcAddress`
+
+```asm
+0x001D2DB5: mov byte ptr [rbp + 0x101], cl
+0x001D2DBB: movsx ecx, byte ptr [rbp + 0x101]
+0x001D2DC2: xor ecx, 0x61
+0x001D2DC5: add ecx, 0xa
+0x001D2DC8: mov byte ptr [rbp + 0x102], cl
+0x001D2DCE: movsx ecx, byte ptr [rbp + 0x102]
+0x001D2DD5: xor ecx, 0x6d
+0x001D2DD8: add ecx, 0xa
+0x001D2DDB: mov byte ptr [rbp + 0x103], cl
+0x001D2DE1: movsx ecx, byte ptr [rbp + 0x103]
+0x001D2DE8: xor ecx, 0x70
+0x001D2DEB: add ecx, 0xa
+0x001D2DEE: mov byte ptr [rbp + 0x104], cl
+0x001D2DF4: movsx ecx, byte ptr [rbp + 0x104]
+0x001D2DFB: xor ecx, 0x6c
+0x001D2DFE: add ecx, 0xa
+0x001D2E01: mov byte ptr [rbp + 0x105], cl
+0x001D2E07: movsx ecx, byte ptr [rbp + 0x105]
+0x001D2E0E: xor ecx, 0x65
+0x001D2E11: add ecx, 0xa
+0x001D2E14: mov byte ptr [rbp + 0x106], cl
+0x001D2E1A: movsx ecx, byte ptr [rbp + 0x106]
+0x001D2E21: xor ecx, 0x73
+0x001D2E24: add ecx, 0xa
+0x001D2E27: mov byte ptr [rbp + 0x107], cl
+0x001D2E2D: mov byte ptr [rbp + 0x108], sil
+0x001D2E34: lea rdx, [rbp + 0x310]
+0x001D2E3B: movzx eax, byte ptr [rbp + 0xf4]
+0x001D2E42: lea rcx, [rbp + 0xf0]
+0x001D2E49: call 0x1401bfbd0
+0x001D2E4E: cmp qword ptr [rax + 0x18], 0x10
+0x001D2E53: jb 0x1401d2e58
+0x001D2E55: mov rax, qword ptr [rax]
+0x001D2E58: mov rdx, rax
+0x001D2E5B: mov rcx, rdi
+0x001D2E5E: call qword ptr [rip + 0x25d384]
+0x001D2E64: test rax, rax
+0x001D2E67: mov qword ptr [rip + 0x614a12], rax
+0x001D2E6E: lea rcx, [rbp + 0x310]
+0x001D2E75: sete bl
+0x001D2E78: call 0x140032ef0
+0x001D2E7D: test bl, bl
+0x001D2E7F: jne 0x1401d350a
+0x001D2E85: mov dword ptr [rsp + 0x20], 0x38
+0x001D2E8D: mov eax, dword ptr [rsp + 0x20]
+0x001D2E91: add al, 0x38
+0x001D2E93: movsx ecx, al
+0x001D2E96: xor ecx, 0x7d
+0x001D2E99: mov dword ptr [rsp + 0x24], ecx
+0x001D2E9D: mov eax, dword ptr [rsp + 0x24]
+0x001D2EA1: mov ecx, dword ptr [rsp + 0x20]
+0x001D2EA5: xor ecx, eax
+0x001D2EA7: xor ecx, 0x6e
+0x001D2EAA: mov byte ptr [rsp + 0x28], cl
+0x001D2EAE: movsx ecx, byte ptr [rsp + 0x28]
+```
+
+Direct calls in preceding 35 instructions:
+- `0x001D2E49` -> `0x001BFBD0`
+
+### `0x001D310A` — `KERNEL32.dll!GetProcAddress`
+
+```asm
+0x001D308E: movsx ecx, byte ptr [rsp + 0x40]
+0x001D3093: mov eax, dword ptr [rsp + 0x20]
+0x001D3097: add al, 0x19
+0x001D3099: xor eax, ecx
+0x001D309B: xor eax, 0x74
+0x001D309E: mov byte ptr [rsp + 0x41], al
+0x001D30A2: movsx ecx, byte ptr [rsp + 0x41]
+0x001D30A7: mov eax, dword ptr [rsp + 0x20]
+0x001D30AB: lea rdx, [rbp + 0x330]
+0x001D30B2: add al, 0x1a
+0x001D30B4: xor eax, ecx
+0x001D30B6: xor eax, 0x61
+0x001D30B9: mov byte ptr [rsp + 0x42], al
+0x001D30BD: movsx ecx, byte ptr [rsp + 0x42]
+0x001D30C2: mov eax, dword ptr [rsp + 0x20]
+0x001D30C6: add al, 0x1b
+0x001D30C8: xor eax, ecx
+0x001D30CA: xor eax, 0x74
+0x001D30CD: mov byte ptr [rsp + 0x43], al
+0x001D30D1: movsx ecx, byte ptr [rsp + 0x43]
+0x001D30D6: mov eax, dword ptr [rsp + 0x20]
+0x001D30DA: add al, 0x1c
+0x001D30DC: xor eax, ecx
+0x001D30DE: lea rcx, [rsp + 0x20]
+0x001D30E3: xor eax, 0x65
+0x001D30E6: mov byte ptr [rsp + 0x44], al
+0x001D30EA: xor eax, eax
+0x001D30EC: mov byte ptr [rsp + 0x45], al
+0x001D30F0: movzx eax, byte ptr [rsp + 0x28]
+0x001D30F5: call 0x140093190
+0x001D30FA: cmp qword ptr [rax + 0x18], 0x10
+0x001D30FF: jb 0x1401d3104
+0x001D3101: mov rax, qword ptr [rax]
+0x001D3104: mov rdx, rax
+0x001D3107: mov rcx, rdi
+0x001D310A: call qword ptr [rip + 0x25d0d8]
+0x001D3110: test rax, rax
+0x001D3113: mov qword ptr [rip + 0x61476e], rax
+0x001D311A: lea rcx, [rbp + 0x330]
+0x001D3121: sete bl
+0x001D3124: call 0x140032ef0
+0x001D3129: test bl, bl
+0x001D312B: jne 0x1401d350a
+0x001D3131: mov dword ptr [rbp + 0x40], 0x5a
+0x001D3138: mov dword ptr [rbp + 0x44], 0x57
+0x001D313F: mov eax, dword ptr [rbp + 0x44]
+0x001D3142: xor eax, 0x34
+0x001D3145: mov byte ptr [rbp + 0x48], al
+0x001D3148: movsx ecx, byte ptr [rbp + 0x48]
+0x001D314C: xor ecx, 0x2c
+0x001D314F: mov byte ptr [rbp + 0x49], cl
+0x001D3152: movsx ecx, byte ptr [rbp + 0x49]
+0x001D3156: xor ecx, 0x37
+0x001D3159: mov byte ptr [rbp + 0x4a], cl
+0x001D315C: movsx ecx, byte ptr [rbp + 0x4a]
+```
+
+Direct calls in preceding 35 instructions:
+- `0x001D30F5` -> `0x00093190`
+
+### `0x001D3301` — `KERNEL32.dll!GetProcAddress`
+
+```asm
+0x001D328B: xor ecx, 0x36
+0x001D328E: mov byte ptr [rbp + 0x68], cl
+0x001D3291: movsx ecx, byte ptr [rbp + 0x68]
+0x001D3295: xor ecx, 0x3f
+0x001D3298: mov byte ptr [rbp + 0x69], cl
+0x001D329B: movsx ecx, byte ptr [rbp + 0x69]
+0x001D329F: xor ecx, 8
+0x001D32A2: mov byte ptr [rbp + 0x6a], cl
+0x001D32A5: movsx ecx, byte ptr [rbp + 0x6a]
+0x001D32A9: xor ecx, 0x3f
+0x001D32AC: mov byte ptr [rbp + 0x6b], cl
+0x001D32AF: movsx ecx, byte ptr [rbp + 0x6b]
+0x001D32B3: xor ecx, 0x3b
+0x001D32B6: mov byte ptr [rbp + 0x6c], cl
+0x001D32B9: movsx ecx, byte ptr [rbp + 0x6c]
+0x001D32BD: xor ecx, 0x29
+0x001D32C0: mov byte ptr [rbp + 0x6d], cl
+0x001D32C3: movsx ecx, byte ptr [rbp + 0x6d]
+0x001D32C7: xor ecx, 0x35
+0x001D32CA: mov byte ptr [rbp + 0x6e], cl
+0x001D32CD: movsx ecx, byte ptr [rbp + 0x6e]
+0x001D32D1: xor ecx, 0x34
+0x001D32D4: mov byte ptr [rbp + 0x6f], cl
+0x001D32D7: movsx ecx, byte ptr [rbp + 0x6f]
+0x001D32DB: xor ecx, 0x29
+0x001D32DE: mov byte ptr [rbp + 0x71], al
+0x001D32E1: mov byte ptr [rbp + 0x70], cl
+0x001D32E4: lea rcx, [rbp + 0x40]
+0x001D32E8: movzx eax, byte ptr [rbp + 0x48]
+0x001D32EC: call 0x140086390
+0x001D32F1: cmp qword ptr [rax + 0x18], 0x10
+0x001D32F6: jb 0x1401d32fb
+0x001D32F8: mov rax, qword ptr [rax]
+0x001D32FB: mov rdx, rax
+0x001D32FE: mov rcx, rdi
+0x001D3301: call qword ptr [rip + 0x25cee1]
+0x001D3307: test rax, rax
+0x001D330A: mov qword ptr [rip + 0x61457f], rax
+0x001D3311: lea rcx, [rbp + 0x350]
+0x001D3318: sete bl
+0x001D331B: call 0x140032ef0
+0x001D3320: test bl, bl
+0x001D3322: jne 0x1401d350a
+0x001D3328: mov dword ptr [rbp + 0x140], 0x39
+0x001D3332: lea rdx, [rbp + 0x370]
+0x001D3339: mov dword ptr [rbp + 0x144], 0x76
+0x001D3343: mov eax, dword ptr [rbp + 0x144]
+0x001D3349: xor eax, 0x57
+0x001D334C: mov byte ptr [rbp + 0x148], al
+0x001D3352: xor eax, eax
+0x001D3354: movsx ecx, byte ptr [rbp + 0x148]
+0x001D335B: xor ecx, 0x4f
+0x001D335E: mov byte ptr [rbp + 0x149], cl
+0x001D3364: movsx ecx, byte ptr [rbp + 0x149]
+0x001D336B: xor ecx, 0x54
+```
+
+Direct calls in preceding 35 instructions:
+- `0x001D32EC` -> `0x00086390`
+
+### `0x001D34ED` — `KERNEL32.dll!GetProcAddress`
+
+```asm
+0x001D343B: xor ecx, 0x74
+0x001D343E: mov byte ptr [rbp + 0x157], cl
+0x001D3444: movsx ecx, byte ptr [rbp + 0x157]
+0x001D344B: xor ecx, 0x75
+0x001D344E: mov byte ptr [rbp + 0x158], cl
+0x001D3454: movsx ecx, byte ptr [rbp + 0x158]
+0x001D345B: xor ecx, 0x6f
+0x001D345E: mov byte ptr [rbp + 0x159], cl
+0x001D3464: movsx ecx, byte ptr [rbp + 0x159]
+0x001D346B: xor ecx, 0x5c
+0x001D346E: mov byte ptr [rbp + 0x15a], cl
+0x001D3474: movsx ecx, byte ptr [rbp + 0x15a]
+0x001D347B: xor ecx, 0x4b
+0x001D347E: mov byte ptr [rbp + 0x15b], cl
+0x001D3484: movsx ecx, byte ptr [rbp + 0x15b]
+0x001D348B: xor ecx, 0x4a
+0x001D348E: mov byte ptr [rbp + 0x15c], cl
+0x001D3494: movsx ecx, byte ptr [rbp + 0x15c]
+0x001D349B: xor ecx, 0x50
+0x001D349E: mov byte ptr [rbp + 0x15d], cl
+0x001D34A4: movsx ecx, byte ptr [rbp + 0x15d]
+0x001D34AB: xor ecx, 0x56
+0x001D34AE: mov byte ptr [rbp + 0x15e], cl
+0x001D34B4: movsx ecx, byte ptr [rbp + 0x15e]
+0x001D34BB: xor ecx, 0x57
+0x001D34BE: mov byte ptr [rbp + 0x160], al
+0x001D34C4: mov byte ptr [rbp + 0x15f], cl
+0x001D34CA: lea rcx, [rbp + 0x140]
+0x001D34D1: movzx eax, byte ptr [rbp + 0x148]
+0x001D34D8: call 0x14026eb10
+0x001D34DD: cmp qword ptr [rax + 0x18], 0x10
+0x001D34E2: jb 0x1401d34e7
+0x001D34E4: mov rax, qword ptr [rax]
+0x001D34E7: mov rdx, rax
+0x001D34EA: mov rcx, rdi
+0x001D34ED: call qword ptr [rip + 0x25ccf5]
+0x001D34F3: lea rcx, [rbp + 0x370]
+0x001D34FA: mov qword ptr [rip + 0x614397], rax
+0x001D3501: call 0x140032ef0
+0x001D3506: mov al, 1
+0x001D3508: jmp 0x1401d350c
+0x001D350A: xor al, al
+0x001D350C: mov rsi, qword ptr [rsp + 0xd70]
+0x001D3514: mov rdi, qword ptr [rsp + 0xd78]
+0x001D351C: mov rcx, qword ptr [rbp + 0xc50]
+0x001D3523: xor rcx, rsp
+0x001D3526: call 0x1403b24c0
+0x001D352B: mov rbx, qword ptr [rsp + 0xd80]
+0x001D3533: add rsp, 0xd60
+0x001D353A: pop rbp
+0x001D353B: ret
+0x001D353C: call 0x1403db020
+0x001D3541: int3
+0x001D3542: call 0x1403db020
+0x001D3547: int3
+```
+
+Direct calls in preceding 35 instructions:
+- `0x001D34D8` -> `0x0026EB10`
+
+### `0x001DE511` — `KERNEL32.dll!FreeLibrary`
+
+```asm
+0x001DE47B: xor eax, eax
+0x001DE47D: mov byte ptr [rbp + 0x5f5], al
+0x001DE483: movzx eax, byte ptr [rbp + 0x5d0]
+0x001DE48A: lea rdx, [rbp + 0x7d8]
+0x001DE491: lea rcx, [rbp + 0x5c8]
+0x001DE498: call 0x1401ec910
+0x001DE49D: nop
+0x001DE49E: cmp qword ptr [rax + 0x18], 0x10
+0x001DE4A3: jb 0x1401de4a8
+0x001DE4A5: mov rax, qword ptr [rax]
+0x001DE4A8: lea r8, [rsp + 0x64]
+0x001DE4AD: lea rdx, [rsp + 0x68]
+0x001DE4B2: mov rcx, rax
+0x001DE4B5: call 0x1401d3fc0
+0x001DE4BA: nop
+0x001DE4BB: lea rcx, [rbp + 0x7d8]
+0x001DE4C2: call 0x140032ef0
+0x001DE4C7: jmp 0x1401de4ec
+0x001DE4C9: mov ecx, dword ptr [rsp + 0x48]
+0x001DE4CD: cmp ecx, -1
+0x001DE4D0: je 0x1401de4ec
+0x001DE4D2: mov rax, qword ptr [rdi]
+0x001DE4D5: mov qword ptr [rbp - 0x18], rax
+0x001DE4D9: mov dword ptr [rbp - 0x10], ecx
+0x001DE4DC: lea rdx, [rbp - 0x18]
+0x001DE4E0: lea rcx, [rip + 0x609409]
+0x001DE4E7: call 0x1401e0b40
+0x001DE4EC: inc ebx
+0x001DE4EE: cmp ebx, dword ptr [rsp + 0x24]
+0x001DE4F2: jb 0x1401de1e4
+0x001DE4F8: jmp 0x1401de7a7
+0x001DE4FD: mov dword ptr [rsp + 0x20], 2
+0x001DE505: mov rcx, qword ptr [rip + 0x60960c]
+0x001DE50C: test rcx, rcx
+0x001DE50F: je 0x1401de51e
+0x001DE511: call qword ptr [rip + 0x251d91]
+0x001DE517: mov qword ptr [rip + 0x6095fa], rbx
+0x001DE51E: mov dword ptr [rbp + 0x498], 0x73
+0x001DE528: mov eax, dword ptr [rbp + 0x498]
+0x001DE52E: xor eax, 0x55
+0x001DE531: add eax, 0xa
+0x001DE534: mov byte ptr [rbp + 0x49c], al
+0x001DE53A: movsx ecx, byte ptr [rbp + 0x49c]
+0x001DE541: xor ecx, 0x6e
+0x001DE544: add ecx, 0xa
+0x001DE547: mov byte ptr [rbp + 0x49d], cl
+0x001DE54D: movsx ecx, byte ptr [rbp + 0x49d]
+0x001DE554: xor ecx, 0x61
+0x001DE557: add ecx, 0xa
+0x001DE55A: mov byte ptr [rbp + 0x49e], cl
+0x001DE560: movsx ecx, byte ptr [rbp + 0x49e]
+0x001DE567: xor ecx, 0x62
+0x001DE56A: add ecx, 0xa
+0x001DE56D: mov byte ptr [rbp + 0x49f], cl
+0x001DE573: movsx ecx, byte ptr [rbp + 0x49f]
+```
+
+Direct calls in preceding 35 instructions:
+- `0x001DE498` -> `0x001EC910`
+- `0x001DE4B5` -> `0x001D3FC0`
+- `0x001DE4C2` -> `0x00032EF0`
+- `0x001DE4E7` -> `0x001E0B40`
+
+### `0x001EB1DF` — `KERNEL32.dll!FreeLibrary`
+
+```asm
+0x001EB16C: jb 0x1401eb171
+0x001EB16E: mov rax, qword ptr [rax]
+0x001EB171: lea r8, [rbp - 0x19]
+0x001EB175: lea rdx, [rbp - 0x15]
+0x001EB179: mov rcx, rax
+0x001EB17C: call 0x1401d3fc0
+0x001EB181: nop
+0x001EB182: mov rax, qword ptr [rbp + 0x3f]
+0x001EB186: cmp rax, 0x10
+0x001EB18A: jb 0x1401eb1d8
+0x001EB18C: inc rax
+0x001EB18F: mov rcx, qword ptr [rbp + 0x27]
+0x001EB193: cmp rax, 0x1000
+0x001EB199: jb 0x1401eb1d3
+0x001EB19B: test cl, 0x1f
+0x001EB19E: je 0x1401eb1a6
+0x001EB1A0: call 0x1403db020
+0x001EB1A5: int3
+0x001EB1A6: mov rax, qword ptr [rcx - 8]
+0x001EB1AA: cmp rax, rcx
+0x001EB1AD: jb 0x1401eb1b5
+0x001EB1AF: call 0x1403db020
+0x001EB1B4: int3
+0x001EB1B5: sub rcx, rax
+0x001EB1B8: cmp rcx, 8
+0x001EB1BC: jae 0x1401eb1c4
+0x001EB1BE: call 0x1403db020
+0x001EB1C3: int3
+0x001EB1C4: cmp rcx, 0x27
+0x001EB1C8: jbe 0x1401eb1d0
+0x001EB1CA: call 0x1403db020
+0x001EB1CF: int3
+0x001EB1D0: mov rcx, rax
+0x001EB1D3: call 0x1403b20d4
+0x001EB1D8: mov rcx, qword ptr [rip + 0x5fc939]
+0x001EB1DF: call qword ptr [rip + 0x2450c3]
+0x001EB1E5: mov qword ptr [rip + 0x5fc928], 0
+0x001EB1F0: mov rcx, qword ptr [rbp + 0x47]
+0x001EB1F4: xor rcx, rsp
+0x001EB1F7: call 0x1403b24c0
+0x001EB1FC: add rsp, 0x90
+0x001EB203: pop rbp
+0x001EB204: ret
+0x001EB205: int3
+0x001EB206: int3
+0x001EB207: int3
+0x001EB208: int3
+0x001EB209: int3
+0x001EB20A: int3
+0x001EB20B: int3
+0x001EB20C: int3
+0x001EB20D: int3
+0x001EB20E: int3
+0x001EB20F: int3
+0x001EB210: push rbx
+```
+
+Direct calls in preceding 35 instructions:
+- `0x001EB17C` -> `0x001D3FC0`
+- `0x001EB1A0` -> `0x003DB020`
+- `0x001EB1AF` -> `0x003DB020`
+- `0x001EB1BE` -> `0x003DB020`
+- `0x001EB1CA` -> `0x003DB020`
+- `0x001EB1D3` -> `0x003B20D4`
