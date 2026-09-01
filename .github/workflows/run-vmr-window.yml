@@ -4,7 +4,7 @@ on:
   push:
     paths:
       - '.github/workflows/run-vmr-window.yml'
-      - 'scripts/decode_config_runtime_transform.py'
+      - 'scripts/decode_transform_invoke_thunk.py'
 
 permissions:
   contents: write
@@ -18,16 +18,16 @@ jobs:
         with:
           python-version: '3.12'
       - run: python -m pip install pefile capstone
-      - name: Decode config-to-runtime transform
+      - name: Decode transform invoke thunk
         run: |
           BIN=samples/work/unpacked/PhoenixMiner_6.2c_Windows/PhoenixMiner.exe.bin
-          python scripts/decode_config_runtime_transform.py "$BIN" --out-dir notes
+          python scripts/decode_transform_invoke_thunk.py "$BIN" --out-dir notes
       - name: Commit result
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add notes/config_runtime_transform.md
+          git add notes/transform_invoke_thunk.md
           if git diff --cached --quiet; then exit 0; fi
-          git commit -m 'analysis: decode config-to-runtime transform'
+          git commit -m 'analysis: decode transform invoke thunk'
           git pull --rebase origin main
           git push
