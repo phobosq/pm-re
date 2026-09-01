@@ -18,3 +18,9 @@ jobs:
         run: cmake -S tools/nvramtiming -B build/nvramtiming -A x64
       - name: Build
         run: cmake --build build/nvramtiming --config Release
+      - name: Upload executable
+        uses: actions/upload-artifact@v4
+        with:
+          name: nvramtiming-win64
+          path: build/nvramtiming/Release/nvramtiming.exe
+          if-no-files-found: error
