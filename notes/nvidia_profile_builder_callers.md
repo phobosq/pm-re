@@ -1,0 +1,189 @@
+# Direct callers of NVIDIA profile builder 0x1D7930
+
+callers: `1`
+
+## call `0x001DF420` in `0x001DE8B0..0x001DF630`
+
+```asm
+0x001DF2A0: movsx ecx, byte ptr [rbp - 0x55]
+0x001DF2A4: xor ecx, 0x54
+0x001DF2A7: mov byte ptr [rbp - 0x54], cl
+0x001DF2AA: movsx ecx, byte ptr [rbp - 0x54]
+0x001DF2AE: xor ecx, 0x4f
+0x001DF2B1: mov byte ptr [rbp - 0x53], cl
+0x001DF2B4: movsx ecx, byte ptr [rbp - 0x53]
+0x001DF2B8: xor ecx, 0x40
+0x001DF2BB: mov byte ptr [rbp - 0x52], cl
+0x001DF2BE: movsx ecx, byte ptr [rbp - 0x52]
+0x001DF2C2: xor ecx, 0x43
+0x001DF2C5: mov byte ptr [rbp - 0x51], cl
+0x001DF2C8: movsx ecx, byte ptr [rbp - 0x51]
+0x001DF2CC: xor ecx, 0x4d
+0x001DF2CF: mov byte ptr [rbp - 0x50], cl
+0x001DF2D2: movsx ecx, byte ptr [rbp - 0x50]
+0x001DF2D6: xor ecx, 0x44
+0x001DF2D9: mov byte ptr [rbp - 0x4f], cl
+0x001DF2DC: movsx ecx, byte ptr [rbp - 0x4f]
+0x001DF2E0: xor ecx, 1
+0x001DF2E3: mov byte ptr [rbp - 0x4e], cl
+0x001DF2E6: movsx ecx, byte ptr [rbp - 0x4e]
+0x001DF2EA: xor ecx, 0x55
+0x001DF2ED: mov byte ptr [rbp - 0x4d], cl
+0x001DF2F0: movsx ecx, byte ptr [rbp - 0x4d]
+0x001DF2F4: xor ecx, 0x4e
+0x001DF2F7: mov byte ptr [rbp - 0x4c], cl
+0x001DF2FA: movsx ecx, byte ptr [rbp - 0x4c]
+0x001DF2FE: xor ecx, 1
+0x001DF301: mov byte ptr [rbp - 0x4b], cl
+0x001DF304: movsx ecx, byte ptr [rbp - 0x4b]
+0x001DF308: xor ecx, 0x52
+0x001DF30B: mov byte ptr [rbp - 0x4a], cl
+0x001DF30E: movsx ecx, byte ptr [rbp - 0x4a]
+0x001DF312: xor ecx, 0x44
+0x001DF315: mov byte ptr [rbp - 0x49], cl
+0x001DF318: movsx ecx, byte ptr [rbp - 0x49]
+0x001DF31C: xor ecx, 0x55
+0x001DF31F: mov byte ptr [rbp - 0x48], cl
+0x001DF322: movsx ecx, byte ptr [rbp - 0x48]
+0x001DF326: xor ecx, 1
+0x001DF329: mov byte ptr [rbp - 0x47], cl
+0x001DF32C: movsx ecx, byte ptr [rbp - 0x47]
+0x001DF330: xor ecx, 0x52
+0x001DF333: mov byte ptr [rbp - 0x46], cl
+0x001DF336: movsx ecx, byte ptr [rbp - 0x46]
+0x001DF33A: xor ecx, 0x55
+0x001DF33D: mov byte ptr [rbp - 0x45], cl
+0x001DF340: movsx ecx, byte ptr [rbp - 0x45]
+0x001DF344: xor ecx, 0x53
+0x001DF347: mov byte ptr [rbp - 0x44], cl
+0x001DF34A: movsx ecx, byte ptr [rbp - 0x44]
+0x001DF34E: xor ecx, 0x40
+0x001DF351: mov byte ptr [rbp - 0x43], cl
+0x001DF354: movsx ecx, byte ptr [rbp - 0x43]
+0x001DF358: xor ecx, 0x51
+0x001DF35B: mov byte ptr [rbp - 0x42], cl
+0x001DF35E: movsx ecx, byte ptr [rbp - 0x42]
+0x001DF362: xor ecx, 0x52
+0x001DF365: mov byte ptr [rbp - 0x41], cl
+0x001DF368: movsx ecx, byte ptr [rbp - 0x41]
+0x001DF36C: xor ecx, 0x1b
+0x001DF36F: mov byte ptr [rbp - 0x40], cl
+0x001DF372: movsx ecx, byte ptr [rbp - 0x40]
+0x001DF376: xor ecx, 1
+0x001DF379: mov byte ptr [rbp - 0x3f], cl
+0x001DF37C: movsx ecx, byte ptr [rbp - 0x3f]
+0x001DF380: xor ecx, 1
+0x001DF383: mov byte ptr [rbp - 0x3e], cl
+0x001DF386: movsx ecx, byte ptr [rbp - 0x3e]
+0x001DF38A: xor ecx, 0x44
+0x001DF38D: mov byte ptr [rbp - 0x3d], cl
+0x001DF390: movsx ecx, byte ptr [rbp - 0x3d]
+0x001DF394: xor ecx, 0x53
+0x001DF397: mov byte ptr [rbp - 0x3c], cl
+0x001DF39A: movsx ecx, byte ptr [rbp - 0x3c]
+0x001DF39E: xor ecx, 0x53
+0x001DF3A1: mov byte ptr [rbp - 0x3b], cl
+0x001DF3A4: movsx ecx, byte ptr [rbp - 0x3b]
+0x001DF3A8: xor ecx, 0x4e
+0x001DF3AB: mov byte ptr [rbp - 0x3a], cl
+0x001DF3AE: movsx ecx, byte ptr [rbp - 0x3a]
+0x001DF3B2: xor ecx, 0x53
+0x001DF3B5: mov byte ptr [rbp - 0x39], cl
+0x001DF3B8: movsx ecx, byte ptr [rbp - 0x39]
+0x001DF3BC: xor ecx, 1
+0x001DF3BF: mov byte ptr [rbp - 0x38], cl
+0x001DF3C2: movsx ecx, byte ptr [rbp - 0x38]
+0x001DF3C6: xor ecx, 0x10
+0x001DF3C9: mov byte ptr [rbp - 0x37], cl
+0x001DF3CC: movsx ecx, byte ptr [rbp - 0x37]
+0x001DF3D0: xor ecx, 0x13
+0x001DF3D3: mov byte ptr [rbp - 0x36], cl
+0x001DF3D6: xor eax, eax
+0x001DF3D8: mov byte ptr [rbp - 0x35], al
+0x001DF3DB: movzx eax, byte ptr [rbp - 0x58]
+0x001DF3DF: lea rdx, [rbp + 0x80]
+0x001DF3E6: lea rcx, [rbp - 0x60]
+0x001DF3EA: call 0x1400dcdd0
+0x001DF3EF: nop
+0x001DF3F0: cmp qword ptr [rax + 0x18], 0x10
+0x001DF3F5: jb 0x1401df3fa
+0x001DF3F7: mov rax, qword ptr [rax]
+0x001DF3FA: lea rdx, [rbx + 8]
+0x001DF3FE: mov rcx, rax
+0x001DF401: call 0x140040530
+0x001DF406: nop
+0x001DF407: lea rcx, [rbp + 0x80]
+0x001DF40E: jmp 0x1401df603
+0x001DF413: mov r8d, edi
+0x001DF416: lea rdx, [rbp + 0xc0]
+0x001DF41D: mov rcx, rbx
+0x001DF420: call 0x1401d7930
+0x001DF425: test al, al
+0x001DF427: je 0x1401df608
+0x001DF42D: mov r9d, edi
+0x001DF430: lea r8, [rbp + 0xc0]
+0x001DF437: lea rdx, [rbp]
+0x001DF43B: mov rcx, rbx
+0x001DF43E: call 0x1401ecb90
+0x001DF443: test al, al
+0x001DF445: jne 0x1401df608
+0x001DF44B: mov ecx, dword ptr [rbx + 0x278]
+0x001DF451: lea eax, [rcx + 1]
+0x001DF454: mov dword ptr [rbx + 0x278], eax
+0x001DF45A: cmp ecx, 4
+0x001DF45D: jge 0x1401df608
+0x001DF463: mov dword ptr [rbp - 0x30], 0x6c
+0x001DF46A: mov dword ptr [rbp - 0x2c], 0x1f
+0x001DF471: mov eax, dword ptr [rbp - 0x2c]
+0x001DF474: xor eax, 0x17
+0x001DF477: mov byte ptr [rbp - 0x28], al
+0x001DF47A: movsx ecx, byte ptr [rbp - 0x28]
+0x001DF47E: xor ecx, 0x11
+0x001DF481: mov byte ptr [rbp - 0x27], cl
+0x001DF484: movsx ecx, byte ptr [rbp - 0x27]
+0x001DF488: xor ecx, 0x56
+0x001DF48B: mov byte ptr [rbp - 0x26], cl
+0x001DF48E: movsx ecx, byte ptr [rbp - 0x26]
+0x001DF492: xor ecx, 0x4c
+0x001DF495: mov byte ptr [rbp - 0x25], cl
+0x001DF498: movsx ecx, byte ptr [rbp - 0x25]
+0x001DF49C: xor ecx, 0x19
+0x001DF49F: mov byte ptr [rbp - 0x24], cl
+0x001DF4A2: movsx ecx, byte ptr [rbp - 0x24]
+0x001DF4A6: xor ecx, 2
+0x001DF4A9: mov byte ptr [rbp - 0x23], cl
+0x001DF4AC: movsx ecx, byte ptr [rbp - 0x23]
+0x001DF4B0: xor ecx, 0xd
+0x001DF4B3: mov byte ptr [rbp - 0x22], cl
+0x001DF4B6: movsx ecx, byte ptr [rbp - 0x22]
+0x001DF4BA: xor ecx, 0xe
+0x001DF4BD: mov byte ptr [rbp - 0x21], cl
+0x001DF4C0: movsx eax, byte ptr [rbp - 0x21]
+0x001DF4C4: mov byte ptr [rbp - 0x20], al
+0x001DF4C7: movsx ecx, byte ptr [rbp - 0x20]
+0x001DF4CB: xor ecx, 9
+0x001DF4CE: mov byte ptr [rbp - 0x1f], cl
+0x001DF4D1: movsx ecx, byte ptr [rbp - 0x1f]
+0x001DF4D5: xor ecx, 0x4c
+0x001DF4D8: mov byte ptr [rbp - 0x1e], cl
+0x001DF4DB: movsx ecx, byte ptr [rbp - 0x1e]
+0x001DF4DF: xor ecx, 0x18
+0x001DF4E2: mov byte ptr [rbp - 0x1d], cl
+0x001DF4E5: movsx ecx, byte ptr [rbp - 0x1d]
+0x001DF4E9: xor ecx, 3
+0x001DF4EC: mov byte ptr [rbp - 0x1c], cl
+0x001DF4EF: movsx ecx, byte ptr [rbp - 0x1c]
+0x001DF4F3: xor ecx, 0x4c
+0x001DF4F6: mov byte ptr [rbp - 0x1b], cl
+0x001DF4F9: movsx ecx, byte ptr [rbp - 0x1b]
+0x001DF4FD: xor ecx, 0x1f
+0x001DF500: mov byte ptr [rbp - 0x1a], cl
+0x001DF503: movsx ecx, byte ptr [rbp - 0x1a]
+0x001DF507: xor ecx, 9
+0x001DF50A: mov byte ptr [rbp - 0x19], cl
+0x001DF50D: movsx ecx, byte ptr [rbp - 0x19]
+0x001DF511: xor ecx, 0x18
+0x001DF514: mov byte ptr [rbp - 0x18], cl
+0x001DF517: movsx ecx, byte ptr [rbp - 0x18]
+0x001DF51B: xor ecx, 0x4c
+```
