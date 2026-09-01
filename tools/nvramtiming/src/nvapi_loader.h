@@ -45,6 +45,7 @@ class NvApi {
   void* enum_physical_gpus_{};
   void* gpu_get_full_name_{};
   void* register_op_{};
+  bool initialized_{};
 };
 
 }  // namespace nvramtiming
