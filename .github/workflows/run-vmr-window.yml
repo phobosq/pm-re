@@ -4,7 +4,7 @@ on:
   push:
     paths:
       - '.github/workflows/run-vmr-window.yml'
-      - 'scripts/profile_1c2100_vmr_candidate.py'
+      - 'scripts/trace_1c4f11_transport_bridge.py'
 
 permissions:
   contents: write
@@ -18,16 +18,16 @@ jobs:
         with:
           python-version: '3.12'
       - run: python -m pip install pefile capstone
-      - name: Profile 1C2100 VMR candidate
+      - name: Trace 1C4F11 transport bridge
         run: |
           BIN=samples/work/unpacked/PhoenixMiner_6.2c_Windows/PhoenixMiner.exe.bin
-          python scripts/profile_1c2100_vmr_candidate.py "$BIN" --out-dir notes
+          python scripts/trace_1c4f11_transport_bridge.py "$BIN" --out-dir notes
       - name: Commit result
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add notes/vmr_candidate_1c2100.md
+          git add notes/transport_bridge_1c4f11.md
           if git diff --cached --quiet; then exit 0; fi
-          git commit -m 'analysis: profile 1C2100 VMR candidate'
+          git commit -m 'analysis: trace 1C4F11 transport bridge'
           git pull --rebase origin main
           git push
