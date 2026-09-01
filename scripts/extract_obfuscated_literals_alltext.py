@@ -17,7 +17,7 @@ def main():
     pe=pefile.PE(a.binary,fast_load=False); base=pe.OPTIONAL_HEADER.ImageBase
     text=next(s for s in pe.sections if s.Name.rstrip(b'\0')==b'.text')
     begin=text.VirtualAddress; raw=text.get_data()
-    md=Cs(CS_ARCH_X86,CS_MODE_64); md.detail=True
+    md=Cs(CS_ARCH_X86,CS_MODE_64); md.detail=True; md.skipdata=True
     ins=list(md.disasm(raw,base+begin))
     xs=[]
     for idx,i in enumerate(ins):
@@ -33,23 +33,19 @@ def main():
     rows=[]
     for g in groups:
         s=''.join(chr(x[2]) for x in g)
-        # setup byte often contaminates the first char; retain raw and suffix-minus-first.
         candidates=[s, s[1:] if len(s)>1 else s]
-        best=max(candidates,key=lambda z: sum(c.isalnum() or c in '-_./: ' for c in z)/max(1,len(z)))
         for cand in dict.fromkeys(candidates):
             low=cand.lower()
             if any(n in low for n in NEEDLES):
                 rows.append((g[0][1],g[-1][1],cand,'timing'))
-        # also retain likely CLI tokens for parser neighborhood mapping
         for cand in dict.fromkeys(candidates):
             if cand.startswith('-') and 2<=len(cand)<=40 and all(0x20<=ord(c)<=0x7e for c in cand):
                 rows.append((g[0][1],g[-1][1],cand,'cli'))
-    # dedup
     seen=set(); uniq=[]
     for r in rows:
         k=(r[0],r[2],r[3])
         if k not in seen: seen.add(k); uniq.append(r)
-    lines=['# All-.text recovered option literals','',f'.text RVA: `0x{begin:08X}`; decoded instructions: {len(ins)}','',
+    lines=['# All-.text recovered option literals','',f'.text RVA: `0x{begin:08X}`; decoded instructions: {len(ins)}; skipdata: enabled','',
            '| begin RVA | end RVA | class | literal |','|---|---|---|---|']
     for b,e,s,k in uniq:
         lines.append(f'| `0x{b:08X}` | `0x{e:08X}` | {k} | `{s.replace("|","\\|")}` |')
