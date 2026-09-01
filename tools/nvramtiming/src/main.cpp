@@ -31,6 +31,15 @@ struct VmrFamily {
   std::uint32_t target;
 };
 
+struct VmrPlan {
+  VmrFamily family{};
+  nvramtiming::PciIdentifiers pci{};
+  std::uint64_t original_raw{};
+  std::uint32_t current_field{};
+  std::uint32_t base_field{};
+  std::uint32_t desired_field{};
+};
+
 bool classify_vmr_family(std::uint32_t pci_device_id, VmrFamily& out) {
   // PhoenixMiner 6.2c table at RVA 0x4BD620. Keys are packed
   // (PCI device ID << 16) | 0x10DE.
@@ -65,12 +74,71 @@ std::uint32_t phoenix_vmr_field(std::uint32_t base, std::uint32_t target,
   return static_cast<std::uint32_t>(result);  // positive values: trunc toward zero
 }
 
+bool make_vmr_plan(const nvramtiming::NvApi& nvapi,
+                   const nvramtiming::GpuInfo& gpu,
+                   std::uint32_t vmr,
+                   VmrPlan& plan,
+                   std::string& error) {
+  plan = {};
+  if (!nvapi.get_pci_identifiers(gpu.handle, plan.pci, error)) {
+    return false;
+  }
+  if (!classify_vmr_family(plan.pci.device_id, plan.family)) {
+    std::ostringstream os;
+    os << "PCI device ID 0x" << std::hex << std::uppercase << plan.pci.device_id
+       << std::dec << " is not present in PhoenixMiner 6.2c Pascal VMR family table";
+    error = os.str();
+    return false;
+  }
+  if (!nvapi.read_register(gpu.handle, kVramTimingRegister, plan.original_raw, error)) {
+    return false;
+  }
+  plan.current_field = static_cast<std::uint32_t>((plan.original_raw & kVmrMask) >> kVmrShift);
+  plan.base_field = plan.current_field != 0 ? plan.current_field : plan.family.fallback_base;
+  if (plan.base_field < plan.family.target) {
+    std::ostringstream os;
+    os << "Current/base VMR field " << plan.base_field << " is below family target "
+       << plan.family.target << "; refusing to extrapolate";
+    error = os.str();
+    return false;
+  }
+  plan.desired_field = phoenix_vmr_field(plan.base_field, plan.family.target, vmr);
+  if (plan.desired_field > 0x1FFu) {
+    error = "Calculated VMR field does not fit the confirmed 9-bit register field";
+    return false;
+  }
+  return true;
+}
+
+void print_vmr_plan(const nvramtiming::GpuInfo& gpu, std::uint32_t vmr,
+                    const VmrPlan& plan) {
+  const std::uint64_t preview_raw = (plan.original_raw & ~kVmrMask) |
+      (static_cast<std::uint64_t>(plan.desired_field) << kVmrShift);
+  std::cout << "GPU: [" << gpu.index << "] " << gpu.name << '\n'
+            << "PCI device key: 0x" << std::hex << std::uppercase << plan.pci.device_id << std::dec << '\n'
+            << "Phoenix family: " << plan.family.id << " (" << plan.family.memory << ")\n"
+            << "VMR: " << vmr << " / 100\n"
+            << "current field: " << plan.current_field << '\n'
+            << "base field: " << plan.base_field
+            << (plan.current_field == 0 ? " (type-8 fallback)" : " (hardware)") << '\n'
+            << "target field: " << plan.family.target << '\n'
+            << "desired field: " << plan.desired_field << '\n'
+            << "register 0x9A0290 current: 0x" << std::hex << std::uppercase << plan.original_raw << '\n'
+            << "register 0x9A0290 preview: 0x" << preview_raw << std::dec << '\n';
+}
+
+std::uint32_t vmr_field(std::uint64_t raw) {
+  return static_cast<std::uint32_t>((raw & kVmrMask) >> kVmrShift);
+}
+
 }  // namespace
 
 int main(int argc, char** argv) {
   bool list = (argc == 1);
   bool read_reg = false;
   bool vmr_preview = false;
+  bool vmr_test = false;
+  bool confirm_write = false;
   std::uint32_t gpu_index = 0;
   std::uint32_t reg = 0;
   std::uint32_t vmr = 0;
@@ -86,28 +154,39 @@ int main(int argc, char** argv) {
       }
       read_reg = true;
       i += 2;
-    } else if (arg == "--vmr-preview") {
+    } else if (arg == "--vmr-preview" || arg == "--vmr-test") {
       if (i + 2 >= argc || !parse_u32(argv[i + 1], gpu_index) || !parse_u32(argv[i + 2], vmr) || vmr > 100) {
-        std::cerr << "Usage: nvramtiming --vmr-preview <gpu-index> <0..100>\n";
+        std::cerr << "Usage: nvramtiming " << arg << " <gpu-index> <0..100>\n";
         return 2;
       }
-      vmr_preview = true;
+      vmr_preview = (arg == "--vmr-preview");
+      vmr_test = (arg == "--vmr-test");
       i += 2;
+    } else if (arg == "--confirm-write") {
+      confirm_write = true;
     } else if (arg == "--help" || arg == "-h") {
-      std::cout << "nvramtiming MVP (NVIDIA-only)\n"
+      std::cout << "nvramtiming MVP (NVIDIA Pascal)\n"
                    "Usage:\n"
                    "  nvramtiming --list\n"
                    "  nvramtiming --read-reg <gpu-index> <register>\n"
-                   "  nvramtiming --vmr-preview <gpu-index> <0..100>\n\n"
-                   "Examples:\n"
-                   "  nvramtiming --read-reg 0 0x9A0290\n"
-                   "  nvramtiming --vmr-preview 0 50\n\n"
-                   "Current build is strictly read-only. VMR preview calculates but does not write.\n";
+                   "  nvramtiming --vmr-preview <gpu-index> <0..100>\n"
+                   "  nvramtiming --vmr-test <gpu-index> <0..100> --confirm-write\n\n"
+                   "--vmr-test writes only the confirmed VMR field, verifies it, then immediately\n"
+                   "restores and verifies the original field. There is no persistent apply mode.\n";
       return 0;
     } else {
       std::cerr << "Unknown argument: " << arg << '\n';
       return 2;
     }
+  }
+
+  if (vmr_test && !confirm_write) {
+    std::cerr << "--vmr-test performs a real timing-register write. Add --confirm-write explicitly.\n";
+    return 2;
+  }
+  if (confirm_write && !vmr_test) {
+    std::cerr << "--confirm-write is only valid with --vmr-test\n";
+    return 2;
   }
 
   nvramtiming::NvApi nvapi;
@@ -132,7 +211,7 @@ int main(int argc, char** argv) {
               << (nvapi.register_op_available() ? "available" : "not available") << '\n';
   }
 
-  if (read_reg || vmr_preview) {
+  if (read_reg || vmr_preview || vmr_test) {
     if (gpu_index >= gpus.size()) {
       std::cerr << "GPU index out of range: " << gpu_index << '\n';
       return 2;
@@ -151,48 +230,76 @@ int main(int argc, char** argv) {
               << std::dec << '\n';
   }
 
-  if (vmr_preview) {
-    nvramtiming::PciIdentifiers ids{};
-    if (!nvapi.get_pci_identifiers(gpus[gpu_index].handle, ids, error)) {
+  if (vmr_preview || vmr_test) {
+    VmrPlan plan{};
+    if (!make_vmr_plan(nvapi, gpus[gpu_index], vmr, plan, error)) {
       std::cerr << error << '\n';
       return 1;
     }
-
-    VmrFamily family{};
-    if (!classify_vmr_family(ids.device_id, family)) {
-      std::cerr << "PCI device ID 0x" << std::hex << std::uppercase << ids.device_id
-                << std::dec << " is not present in PhoenixMiner 6.2c Pascal VMR family table\n";
-      return 1;
+    if (vmr_preview) {
+      std::cout << "VMR preview only - NO WRITE\n";
+      print_vmr_plan(gpus[gpu_index], vmr, plan);
     }
 
-    std::uint64_t raw = 0;
-    if (!nvapi.read_register(gpus[gpu_index].handle, kVramTimingRegister, raw, error)) {
-      std::cerr << error << '\n';
-      return 1;
-    }
+    if (vmr_test) {
+      std::cout << "VMR TRANSACTION TEST - WILL WRITE AND RESTORE\n";
+      print_vmr_plan(gpus[gpu_index], vmr, plan);
+      if (plan.desired_field == plan.current_field) {
+        std::cout << "Desired field equals current field; no write needed. PASS (no-op).\n";
+        return 0;
+      }
 
-    const std::uint32_t current = static_cast<std::uint32_t>((raw & kVmrMask) >> kVmrShift);
-    const std::uint32_t base = current != 0 ? current : family.fallback_base;
-    if (base < family.target) {
-      std::cerr << "Current/base VMR field " << base << " is below family target "
-                << family.target << "; refusing to extrapolate\n";
-      return 1;
-    }
-    const std::uint32_t desired = phoenix_vmr_field(base, family.target, vmr);
-    const std::uint64_t preview_raw = (raw & ~kVmrMask) |
-        (static_cast<std::uint64_t>(desired) << kVmrShift);
+      const std::uint64_t desired_bits = static_cast<std::uint64_t>(plan.desired_field) << kVmrShift;
+      const std::uint64_t original_bits = static_cast<std::uint64_t>(plan.current_field) << kVmrShift;
+      bool write_succeeded = false;
+      bool apply_verified = false;
+      bool restore_succeeded = false;
+      bool restore_verified = false;
+      std::uint64_t after_apply = 0;
+      std::uint64_t after_restore = 0;
 
-    std::cout << "VMR preview only - NO WRITE\n"
-              << "GPU: [" << gpu_index << "] " << gpus[gpu_index].name << '\n'
-              << "PCI device key: 0x" << std::hex << std::uppercase << ids.device_id << std::dec << '\n'
-              << "Phoenix family: " << family.id << " (" << family.memory << ")\n"
-              << "VMR: " << vmr << " / 100\n"
-              << "current field: " << current << '\n'
-              << "base field: " << base << (current == 0 ? " (type-8 fallback)" : " (hardware)") << '\n'
-              << "target field: " << family.target << '\n'
-              << "desired field: " << desired << '\n'
-              << "register 0x9A0290 current: 0x" << std::hex << std::uppercase << raw << '\n'
-              << "register 0x9A0290 preview: 0x" << preview_raw << std::dec << '\n';
+      if (!nvapi.write_register_masked(gpus[gpu_index].handle, kVramTimingRegister,
+                                       kVmrMask, desired_bits, error)) {
+        std::cerr << "Apply write failed: " << error << '\n';
+      } else {
+        write_succeeded = true;
+        if (!nvapi.read_register(gpus[gpu_index].handle, kVramTimingRegister,
+                                 after_apply, error)) {
+          std::cerr << "Apply readback failed: " << error << '\n';
+        } else {
+          apply_verified = (vmr_field(after_apply) == plan.desired_field);
+          std::cout << "apply readback field: " << vmr_field(after_apply)
+                    << (apply_verified ? " (PASS)" : " (MISMATCH)") << '\n';
+        }
+      }
+
+      // Best-effort restore is attempted regardless of apply/readback outcome.
+      error.clear();
+      if (!nvapi.write_register_masked(gpus[gpu_index].handle, kVramTimingRegister,
+                                       kVmrMask, original_bits, error)) {
+        std::cerr << "RESTORE WRITE FAILED: " << error << '\n';
+      } else {
+        restore_succeeded = true;
+        if (!nvapi.read_register(gpus[gpu_index].handle, kVramTimingRegister,
+                                 after_restore, error)) {
+          std::cerr << "RESTORE READBACK FAILED: " << error << '\n';
+        } else {
+          restore_verified = (vmr_field(after_restore) == plan.current_field);
+          std::cout << "restore readback field: " << vmr_field(after_restore)
+                    << (restore_verified ? " (PASS)" : " (MISMATCH)") << '\n';
+        }
+      }
+
+      if (!restore_succeeded || !restore_verified) {
+        std::cerr << "CRITICAL: original VMR field was not verified restored. Driver/GPU reset is recommended.\n";
+        return 3;
+      }
+      if (!write_succeeded || !apply_verified) {
+        std::cerr << "VMR transaction did not verify, but original field was restored successfully.\n";
+        return 1;
+      }
+      std::cout << "VMR transaction PASS: desired value verified, original value restored and verified.\n";
+    }
   }
 
   return 0;
