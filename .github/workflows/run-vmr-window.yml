@@ -4,7 +4,7 @@ on:
   push:
     paths:
       - '.github/workflows/run-vmr-window.yml'
-      - 'scripts/trace_runtime_object_provenance.py'
+      - 'scripts/decode_runtime_object_methods.py'
 
 permissions:
   contents: write
@@ -18,16 +18,16 @@ jobs:
         with:
           python-version: '3.12'
       - run: python -m pip install pefile capstone
-      - name: Trace runtime object provenance
+      - name: Decode runtime object methods
         run: |
           BIN=samples/work/unpacked/PhoenixMiner_6.2c_Windows/PhoenixMiner.exe.bin
-          python scripts/trace_runtime_object_provenance.py "$BIN" --out-dir notes
+          python scripts/decode_runtime_object_methods.py "$BIN" --out-dir notes
       - name: Commit result
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add notes/runtime_object_provenance.md
+          git add notes/runtime_object_methods.md
           if git diff --cached --quiet; then exit 0; fi
-          git commit -m 'analysis: trace runtime object provenance'
+          git commit -m 'analysis: decode runtime object snapshot methods'
           git pull --rebase origin main
           git push
