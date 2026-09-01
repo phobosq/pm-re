@@ -5,6 +5,7 @@ on:
     paths:
       - '.github/workflows/run-main-analysis.yml'
       - 'scripts/analyze_main_capstone.py'
+      - 'scripts/analyze_main_parser.py'
 
 permissions:
   contents: write
@@ -29,15 +30,18 @@ jobs:
           python scripts/analyze_main_capstone.py \
             samples/work/unpacked/PhoenixMiner_6.2c_Windows/PhoenixMiner.exe.bin \
             --out-dir notes
+          python scripts/analyze_main_parser.py \
+            samples/work/unpacked/PhoenixMiner_6.2c_Windows/PhoenixMiner.exe.bin \
+            --out-dir notes
 
       - name: Commit generated analysis
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add notes/main_call_census.csv notes/main_indirect_calls.md notes/main_argv_candidates.md
+          git add notes/main_call_census.csv notes/main_indirect_calls.md notes/main_argv_candidates.md notes/main_parser_firstpass.md
           if git diff --cached --quiet; then
             echo 'No generated changes'
             exit 0
           fi
-          git commit -m 'analysis: generate PM62C main call census'
+          git commit -m 'analysis: generate focused PM62C main parser pass'
           git push
