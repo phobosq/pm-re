@@ -11,14 +11,16 @@ Implemented:
 - `NvAPI_Initialize`
 - `NvAPI_EnumPhysicalGPUs`
 - GPU-name enumeration
-- probes availability of private `NvAPI_GPU_RegisterOp` (`0x2EB3C140`)
+- private `NvAPI_GPU_RegisterOp` discovery (`0x2EB3C140`)
+- read-only RegisterOp request ABI (`version 0x11808`, opcode `0x15`)
+- arbitrary single-register read via `--read-reg`
 
 Intentionally **not implemented yet**:
-- active register reads/writes through the private interface
-- `-vmr`/`-vmt*` transformations
+- RegisterOp write opcode / active register writes
+- `set_vmr` / `set_vmt*`
 - strap application
 
-Those remain disabled until the exact PhoenixMiner request ABI and the high-level timing-value -> register-field mapping are fully verified statically.
+Writes remain disabled until the high-level timing controls are fully reproduced and a read/verify/restore transaction is in place.
 
 ## Build
 
@@ -27,18 +29,33 @@ cmake -S tools/nvramtiming -B build/nvramtiming -A x64
 cmake --build build/nvramtiming --config Release
 ```
 
-Run:
+The GitHub Actions build also publishes a `nvramtiming-win64` executable artifact.
+
+## Usage
+
+List NVIDIA GPUs and check private RegisterOp availability:
 
 ```powershell
 build\nvramtiming\Release\nvramtiming.exe --list
 ```
 
-The current executable is read-only.
+Read one register (no write operation is issued):
+
+```powershell
+build\nvramtiming\Release\nvramtiming.exe --read-reg 0 0x9A0290
+```
+
+The current executable is strictly read-only.
 
 ## Confirmed RE anchors
 
-- private NVAPI ID `0x2EB3C140` resolves to the RegisterOp interface used by PhoenixMiner's NVIDIA strap path
-- downstream strap application performs masked operations against registers including `0x9A0290`, `0x9A0298`, `0x9A029C`, and `0x9A02A0`
-- active writes remain out of this tool until their request structure and timing-value mapping are completely reproduced
+- private NVAPI ID `0x2EB3C140` resolves to the RegisterOp interface used by PhoenixMiner's NVIDIA timing path
+- RegisterOp receives a normal `NvPhysicalGpuHandle`; PhoenixMiner uses the same handle with `NvAPI_GPU_GetRamType`, `NvAPI_GPU_GetRamMaker`, and `NvAPI_GPU_GetPCIIdentifiers`
+- request header is `version=0x11808`, followed by count and 0x18-byte entries
+- entry opcode `0x15` performs a register read; result is returned in the entry value field
+- entry opcode `0x16` is the masked-write form observed in PhoenixMiner, but it is intentionally not exposed by this tool
+- NVIDIA VMR is stored in child field `+0x25C`
+- VMR changes profile field `+0x08`, which maps to register `0x9A0290` with mask `0x1FF00` / shift 8
+- the remaining static RE edge is the upper bridge from persistent per-GPU config `+0xB0` to the NVIDIA child VMR setter
 
 See `notes/` for the evidence trail.
