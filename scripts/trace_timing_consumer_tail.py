@@ -2,6 +2,7 @@
 """Trace the tail of the unique five-field timing consumer.
 
 Static-only. Never executes the target binary.
+Focused M2 pass: config-field consumer -> first downstream call boundary.
 """
 from __future__ import annotations
 import argparse
@@ -27,7 +28,6 @@ def main():
     md=Cs(CS_ARCH_X86,CS_MODE_64); md.detail=True
     ins=decode(pe,md,TAIL_BEGIN,TAIL_END)
 
-    # import IAT map
     imports={}
     if hasattr(pe,'DIRECTORY_ENTRY_IMPORT'):
         for dll in pe.DIRECTORY_ENTRY_IMPORT:
@@ -55,7 +55,6 @@ def main():
                 if slot in imports: desc+=f' = {imports[slot][0]}!{imports[slot][1]}'
         lines.append(f'| `0x{i.address-base:08X}` | `{desc}` |')
 
-    # all direct rel32 callers to the function start in .text
     text=next(s for s in pe.sections if s.Name.rstrip(b'\0')==b'.text')
     md2=Cs(CS_ARCH_X86,CS_MODE_64); md2.detail=True; md2.skipdata=True
     callers=[]
