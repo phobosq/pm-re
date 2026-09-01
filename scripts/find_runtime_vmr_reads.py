@@ -9,10 +9,9 @@ Static only; target binary is never executed.
 from __future__ import annotations
 import argparse,bisect
 from pathlib import Path
-from collections import defaultdict
 import pefile
-from capstone import Cs,CS_ARCH_X86,CS_MODE_64
-from capstone.x86 import X86_OP_MEM,CS_AC_READ
+from capstone import Cs,CS_ARCH_X86,CS_MODE_64,CS_AC_READ
+from capstone.x86 import X86_OP_MEM
 
 OFFS={0x418:'vmr_runtime_A',0x4f0:'vmr_runtime_B'}
 
@@ -34,7 +33,6 @@ def main():
  for idx,i in enumerate(ins):
   for op in i.operands:
    if op.type!=X86_OP_MEM or op.mem.disp not in OFFS: continue
-   # Prefer reads. Capstone access may be 0 for some encodings, so accept if mem is not obvious first-operand write-only.
    is_read=bool(op.access & CS_AC_READ) if op.access else not (i.operands and i.operands[0] is op and i.mnemonic.startswith('mov'))
    if is_read: hits.append((idx,i,op.mem.disp,fnof(i.address-base)))
  lines=['# Runtime-object VMR read candidates','',
