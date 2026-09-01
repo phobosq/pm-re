@@ -5,7 +5,7 @@ import pefile
 from capstone import Cs,CS_ARCH_X86,CS_MODE_64,CS_AC_WRITE
 from capstone.x86 import X86_OP_MEM
 BEGIN=0x001D4A80;END=0x001F1000
-WIN_B=0x001D84C0;WIN_E=0x001D88C0
+WIN_B=0x001D8AE0;WIN_E=0x001D8F40
 WATCH={0x258:'mode_258',0x25C:'mode_25c'}
 
 def main():
@@ -27,7 +27,7 @@ def main():
   lines += [f'### {k} {WATCH[d]} at `0x{i.address-base:08X}`','','```asm']
   for z in arr[max(0,idx-12):min(len(arr),idx+14)]:lines.append(f'0x{z.address-base:08X}: {z.mnemonic} {z.op_str}'.rstrip())
   lines += ['```','']
- lines += ['','## Profile-builder custom branch 0x1D84C0..0x1D88C0','','```asm']
+ lines += ['','## Profile-builder custom branch 0x1D8AE0..0x1D8F40','','```asm']
  win=list(md.disasm(pe.get_data(WIN_B,WIN_E-WIN_B),base+WIN_B))
  for i in win:lines.append(f'0x{i.address-base:08X}: {i.mnemonic} {i.op_str}'.rstrip())
  lines += ['```']
