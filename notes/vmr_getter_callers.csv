@@ -1,0 +1,4 @@
+"getter_label","getter_rva","caller_rva","func_begin","func_end","func_size","func_label"
+"get_fallback_buf","0x003E16E8","0x0006D29E","0x0006A930","0x0006E7E8","16056",""
+"get_argv_ptr_table","0x003E16E0","0x003B280F","0x003B2714","0x003B288B","375",""
+"get_argv_count","0x003E16D8","0x003B2817","0x003B2714","0x003B288B","375",""
