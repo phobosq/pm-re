@@ -4,7 +4,7 @@ on:
   push:
     paths:
       - '.github/workflows/run-vmr-window.yml'
-      - 'scripts/decode_iomap_strap_primitives.py'
+      - 'scripts/map_iomap_strap_registers.py'
 
 permissions:
   contents: write
@@ -18,16 +18,16 @@ jobs:
         with:
           python-version: '3.12'
       - run: python -m pip install pefile capstone
-      - name: Decode IOMap strap primitives
+      - name: Map IOMap strap registers
         run: |
           BIN=samples/work/unpacked/PhoenixMiner_6.2c_Windows/PhoenixMiner.exe.bin
-          python scripts/decode_iomap_strap_primitives.py "$BIN" --out-dir notes
+          python scripts/map_iomap_strap_registers.py "$BIN" --out-dir notes
       - name: Commit result
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add notes/iomap_strap_primitives.md
+          git add notes/iomap_strap_register_map.md
           if git diff --cached --quiet; then exit 0; fi
-          git commit -m 'analysis: decode IOMap strap primitives'
+          git commit -m 'analysis: map IOMap strap registers'
           git pull --rebase origin main
           git push
