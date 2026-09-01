@@ -1,25 +1,29 @@
 #!/usr/bin/env python3
 from pathlib import Path
-import argparse,bisect
+import argparse
 import pefile
 from capstone import Cs,CS_ARCH_X86,CS_MODE_64
 from capstone.x86 import X86_OP_MEM,X86_OP_IMM
 TARGETS=[0x001D97E0,0x001D7930]
 
+def decode_leaf(pe,md,base,target,max_bytes=0x500):
+    arr=list(md.disasm(pe.get_data(target,max_bytes),base+target))
+    out=[]
+    for i in arr:
+        out.append(i)
+        if i.mnemonic=='ret': break
+        if i.mnemonic=='int3' and len(out)>3: break
+    return out
+
 def main():
  ap=argparse.ArgumentParser();ap.add_argument('binary');ap.add_argument('--out-dir',default='notes');a=ap.parse_args()
  pe=pefile.PE(a.binary,fast_load=False);base=pe.OPTIONAL_HEADER.ImageBase
- funcs=[]
- for e in getattr(pe,'DIRECTORY_ENTRY_EXCEPTION',[]):
-  b=e.struct.BeginAddress;en=e.struct.EndAddress
-  if b<en:funcs.append((b,en))
- funcs=sorted(set(funcs));starts=[b for b,_ in funcs]
  md=Cs(CS_ARCH_X86,CS_MODE_64);md.detail=True
  lines=['# NVIDIA strap preprocessors 0x1D97E0 / 0x1D7930','',
-        'Called by child vtable slot +0x80 immediately before RegisterOp-backed apply.','']
+        'Exact-RVA leaf decoding. Called by NVIDIA child vtable slot +0x80 immediately before RegisterOp-backed apply.','']
  for target in TARGETS:
-  j=bisect.bisect_right(starts,target)-1;fn=funcs[j];arr=list(md.disasm(pe.get_data(fn[0],fn[1]-fn[0]),base+fn[0]))
-  lines += [f'## target `0x{target:08X}` PDATA `0x{fn[0]:08X}..0x{fn[1]:08X}`','', '### Calls','','| RVA | target/form |','|---|---|']
+  arr=decode_leaf(pe,md,base,target)
+  lines += [f'## target `0x{target:08X}`','', '### Calls','','| RVA | target/form |','|---|---|']
   for i in arr:
    if i.mnemonic=='call':
     op=i.operands[0];dst=f'RVA 0x{op.imm-base:08X}' if op.type==X86_OP_IMM else i.op_str
