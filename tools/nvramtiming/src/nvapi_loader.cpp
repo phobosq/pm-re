@@ -5,6 +5,7 @@
 
 #include <array>
 #include <sstream>
+#include <utility>
 
 namespace nvramtiming {
 namespace {
@@ -26,7 +27,7 @@ std::string win32_error(const char* prefix) {
 NvApi::~NvApi() { reset(); }
 
 void NvApi::reset() noexcept {
-  if (unload_ != nullptr) {
+  if (initialized_ && unload_ != nullptr) {
     reinterpret_cast<UnloadFn>(unload_)();
   }
   if (module_ != nullptr) {
@@ -39,10 +40,12 @@ void NvApi::reset() noexcept {
   enum_physical_gpus_ = nullptr;
   gpu_get_full_name_ = nullptr;
   register_op_ = nullptr;
+  initialized_ = false;
 }
 
 bool NvApi::load(std::string& error) {
   reset();
+  error.clear();
 
   HMODULE module = LoadLibraryW(L"nvapi64.dll");
   if (module == nullptr) {
@@ -79,11 +82,12 @@ bool NvApi::load(std::string& error) {
     reset();
     return false;
   }
-
+  initialized_ = true;
   return true;
 }
 
 std::vector<GpuInfo> NvApi::enumerate(std::string& error) const {
+  error.clear();
   std::array<NvPhysicalGpuHandle, kNvApiMaxPhysicalGpus> handles{};
   std::uint32_t count = 0;
   const NvStatus status = reinterpret_cast<EnumPhysicalGpusFn>(enum_physical_gpus_)(handles.data(), &count);
