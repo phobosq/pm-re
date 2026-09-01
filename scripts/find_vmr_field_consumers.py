@@ -14,8 +14,15 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 import pefile
-from capstone import Cs,CS_ARCH_X86,CS_MODE_64
-from capstone.x86 import X86_OP_MEM,X86_OP_IMM
+from capstone import Cs, CsError, CS_ARCH_X86, CS_MODE_64
+from capstone.x86 import X86_OP_MEM, X86_OP_IMM
+
+
+def safe_operands(insn):
+    try:
+        return insn.operands
+    except CsError:
+        return ()
 
 
 def main():
@@ -26,13 +33,17 @@ def main():
     ins=list(md.disasm(text.get_data(),base+text.VirtualAddress))
     hits=[]
     for idx,i in enumerate(ins):
-        mems=[op.mem for op in i.operands if op.type==X86_OP_MEM and op.mem.disp==0xb0]
+        ops=safe_operands(i)
+        if not ops: continue
+        mems=[op.mem for op in ops if op.type==X86_OP_MEM and op.mem.disp==0xb0]
         if not mems: continue
         lo=max(0,idx-12);hi=min(len(ins),idx+13);window=ins[lo:hi]
         has_stride=False;has_baseoff=False
         for w in window:
-            if w.mnemonic=='imul' and any(op.type==X86_OP_IMM and (op.imm & 0xffffffffffffffff)==0xd8 for op in w.operands): has_stride=True
-            for op in w.operands:
+            wops=safe_operands(w)
+            if not wops: continue
+            if w.mnemonic=='imul' and any(op.type==X86_OP_IMM and (op.imm & 0xffffffffffffffff)==0xd8 for op in wops): has_stride=True
+            for op in wops:
                 if op.type==X86_OP_MEM and op.mem.disp==0x2c0: has_baseoff=True
         score=1+3*has_stride+3*has_baseoff
         hits.append((score,idx,has_stride,has_baseoff))
