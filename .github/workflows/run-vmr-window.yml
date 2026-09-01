@@ -4,7 +4,7 @@ on:
   push:
     paths:
       - '.github/workflows/run-vmr-window.yml'
-      - 'scripts/trace_dynamic_api_slots.py'
+      - 'scripts/recover_getproc_strings.py'
 
 permissions:
   contents: write
@@ -18,16 +18,16 @@ jobs:
         with:
           python-version: '3.12'
       - run: python -m pip install pefile capstone
-      - name: Trace Type2 dynamic API slots
+      - name: Recover Type2 GetProcAddress strings
         run: |
           BIN=samples/work/unpacked/PhoenixMiner_6.2c_Windows/PhoenixMiner.exe.bin
-          python scripts/trace_dynamic_api_slots.py "$BIN" --out-dir notes
+          python scripts/recover_getproc_strings.py "$BIN" --out-dir notes
       - name: Commit result
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add notes/type2_dynamic_api_slots.md
+          git add notes/type2_getproc_strings.md
           if git diff --cached --quiet; then exit 0; fi
-          git commit -m 'analysis: trace Type2 dynamic API slots'
+          git commit -m 'analysis: recover Type2 GetProcAddress strings'
           git pull --rebase origin main
           git push
