@@ -1,0 +1,117 @@
+# Straps / IOMap backend entry provenance
+
+Confirmed transport family: `CreateFileA("\\.\IOMap")` near `0x1C40F0`, `DeviceIoControl` at `0x1C44A1`, straps entry `0x1C44F0`.
+
+## helper `0x001C4010` PDATA `0x001C4010..0x001C44E3`
+
+direct callers: `1`
+
+- `0x001C3C79` from `0x001C3A30..0x001C400E`
+## helper `0x001C44F0` PDATA `0x001C44F0..0x001C5118`
+
+direct callers: `2`
+
+- `0x00192149` from `0x00192100..0x00192173`
+- `0x001C562C` from `0x001C55F0..0x001C563E`
+
+### Calls
+
+| RVA | target |
+|---|---|
+| `0x001C4543` | `qword ptr [rax + 0x90]` |
+| `0x001C4568` | `qword ptr [rax + 0x98]` |
+| `0x001C4597` | `qword ptr [rax + 0x98]` |
+| `0x001C45CF` | `RVA 0x003D3050` |
+| `0x001C45DB` | `RVA 0x001C5120` |
+| `0x001C4BA5` | `RVA 0x001C5EE0` |
+| `0x001C4BBC` | `RVA 0x00040530` |
+| `0x001C4BDF` | `RVA 0x001C1F70` |
+| `0x001C4CA4` | `RVA 0x001C3A00` |
+| `0x001C4CBB` | `RVA 0x001C1F70` |
+| `0x001C4CDE` | `RVA 0x001C6CA0` |
+| `0x001C4EDA` | `RVA 0x001C63D0` |
+| `0x001C4EF1` | `RVA 0x00040530` |
+| `0x001C4F11` | `RVA 0x001C2100` |
+| `0x001C4F2F` | `RVA 0x001C6CA0` |
+| `0x001C50CA` | `RVA 0x000DCDD0` |
+| `0x001C50E1` | `RVA 0x00040530` |
+| `0x001C50EB` | `RVA 0x00032EF0` |
+| `0x001C50FA` | `RVA 0x003B24C0` |
+## helper `0x001C5120` PDATA `0x001C5120..0x001C52DA`
+
+direct callers: `1`
+
+- `0x001C45DB` from `0x001C44F0..0x001C5118`
+
+### Calls
+
+| RVA | target |
+|---|---|
+| `0x001C5186` | `RVA 0x001C1E40` |
+| `0x001C51BE` | `RVA 0x001C1E40` |
+| `0x001C51D2` | `RVA 0x001C1E40` |
+| `0x001C51E6` | `RVA 0x001C1E40` |
+| `0x001C51FA` | `RVA 0x001C1E40` |
+| `0x001C520E` | `RVA 0x001C1E40` |
+| `0x001C5222` | `RVA 0x001C1E40` |
+| `0x001C5236` | `RVA 0x001C1E40` |
+| `0x001C524A` | `RVA 0x001C1E40` |
+| `0x001C525E` | `RVA 0x001C1E40` |
+| `0x001C5272` | `RVA 0x001C1E40` |
+| `0x001C5286` | `RVA 0x001C1E40` |
+| `0x001C529A` | `RVA 0x001C1E40` |
+| `0x001C52AE` | `RVA 0x001C1E40` |
+## helper `0x001C1F70`
+
+direct callers: `3`
+
+- `0x001C33A2` from `0x001C2100..0x001C39FA`
+- `0x001C4BDF` from `0x001C44F0..0x001C5118`
+- `0x001C4CBB` from `0x001C44F0..0x001C5118`
+## helper `0x001C2100` PDATA `0x001C2100..0x001C39FA`
+
+direct callers: `1`
+
+- `0x001C4F11` from `0x001C44F0..0x001C5118`
+## helper `0x001C3A00`
+
+direct callers: `1`
+
+- `0x001C4CA4` from `0x001C44F0..0x001C5118`
+## helper `0x001C6CA0` PDATA `0x001C6CA0..0x001C7102`
+
+direct callers: `2`
+
+- `0x001C4CDE` from `0x001C44F0..0x001C5118`
+- `0x001C4F2F` from `0x001C44F0..0x001C5118`
+
+### Calls
+
+| RVA | target |
+|---|---|
+| `0x001C6CE5` | `RVA 0x003D2F70` |
+| `0x001C6D7A` | `RVA 0x001C1ED0` |
+| `0x001C6D90` | `RVA 0x001C1ED0` |
+| `0x001C6DA6` | `RVA 0x001C1ED0` |
+| `0x001C6DBC` | `RVA 0x001C1ED0` |
+| `0x001C6DE0` | `RVA 0x001C1ED0` |
+| `0x001C6DF6` | `RVA 0x001C1ED0` |
+| `0x001C6E0C` | `RVA 0x001C1ED0` |
+| `0x001C6E22` | `RVA 0x001C1ED0` |
+| `0x001C6E46` | `RVA 0x001C1ED0` |
+| `0x001C6E5C` | `RVA 0x001C1ED0` |
+| `0x001C6E72` | `RVA 0x001C1ED0` |
+| `0x001C6E88` | `RVA 0x001C1ED0` |
+| `0x001C6EAC` | `RVA 0x001C1ED0` |
+| `0x001C6EC2` | `RVA 0x001C1ED0` |
+| `0x001C6ED8` | `RVA 0x001C1ED0` |
+| `0x001C6EEE` | `RVA 0x001C1ED0` |
+| `0x001C6F16` | `RVA 0x001C1ED0` |
+| `0x001C6F2C` | `RVA 0x001C1ED0` |
+| `0x001C6F42` | `RVA 0x001C1ED0` |
+| `0x001C6F58` | `RVA 0x001C1ED0` |
+| `0x001C6F7F` | `RVA 0x001C1ED0` |
+| `0x001C70B0` | `RVA 0x0026EE50` |
+| `0x001C70C7` | `RVA 0x00063980` |
+| `0x001C70D1` | `RVA 0x00032EF0` |
+| `0x001C70E1` | `RVA 0x003B24C0` |
