@@ -8,6 +8,7 @@ on:
       - 'scripts/analyze_main_parser.py'
       - 'scripts/extract_obfuscated_literals.py'
       - 'scripts/extract_obfuscated_literals_alltext.py'
+      - 'scripts/analyze_vmr_anchor.py'
 
 permissions:
   contents: write
@@ -34,15 +35,16 @@ jobs:
           python scripts/analyze_main_parser.py "$BIN" --out-dir notes
           python scripts/extract_obfuscated_literals.py "$BIN" --out-dir notes
           python scripts/extract_obfuscated_literals_alltext.py "$BIN" --out-dir notes
+          python scripts/analyze_vmr_anchor.py "$BIN" --out-dir notes
 
       - name: Commit generated analysis
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add notes/main_call_census.csv notes/main_indirect_calls.md notes/main_argv_candidates.md notes/main_parser_firstpass.md notes/main_recovered_literals.md notes/alltext_recovered_options.md
+          git add notes/main_call_census.csv notes/main_indirect_calls.md notes/main_argv_candidates.md notes/main_parser_firstpass.md notes/main_recovered_literals.md notes/alltext_recovered_options.md notes/vmr_anchor_trace.md
           if git diff --cached --quiet; then
             echo 'No generated changes'
             exit 0
           fi
-          git commit -m 'analysis: scan all text for timing option literals'
+          git commit -m 'analysis: trace confirmed vmr parser anchor'
           git push
