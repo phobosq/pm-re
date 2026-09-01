@@ -1,0 +1,26 @@
+name: PM62C NVIDIA strap preprocessors
+on:
+  push:
+    paths:
+      - '.github/workflows/run-nvidia-strap-preprocessors.yml'
+      - 'scripts/decode_nvidia_strap_preprocessors.py'
+permissions:
+  contents: write
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install pefile capstone
+      - run: python scripts/decode_nvidia_strap_preprocessors.py samples/work/unpacked/PhoenixMiner_6.2c_Windows/PhoenixMiner.exe.bin --out-dir notes
+      - run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add notes/nvidia_strap_preprocessors.md
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'analysis: decode NVIDIA strap preprocessors'
+          git pull --rebase origin main
+          git push
