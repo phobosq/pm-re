@@ -1,0 +1,27 @@
+name: PM62C Type2 config child bridge
+on:
+  push:
+    paths:
+      - 'scripts/dump_type2_config_bridge_1305f0.py'
+      - '.github/workflows/run-type2-config-bridge-1305f0.yml'
+permissions:
+  contents: write
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install pefile capstone
+      - run: python scripts/dump_type2_config_bridge_1305f0.py samples/work/unpacked/PhoenixMiner_6.2c_Windows/PhoenixMiner.exe.bin --out-dir notes
+      - run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add notes/type2_config_bridge_1305f0.md
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'analysis: dump Type2 config child bridge 1305F0'
+          git fetch origin main
+          git rebase origin/main
+          git push
