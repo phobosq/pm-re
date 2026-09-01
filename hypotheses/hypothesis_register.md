@@ -1,48 +1,69 @@
-H01: vmr_parser_path_exists
-status: open
-evidence: docs show -vmr option; binary direct token visibility weak
-falsification_test: no parser comparator/store path found after dynamic compare tracing
-next_experiment: breakpoint on argument compare and track config writes
-confidence: hypothesis
+# Hypothesis register
 
-H02: vmr_uses_low_level_transport
-status: open
-evidence: EIO.dll exports include MMIO-like read/write symbols; DeviceIoControl patterns present
-falsification_test: vmr consumer path does not reach IOCTL/MMIO/NVAPI write functions
-next_experiment: vmr A/B trace with transport API breakpoints and stack correlation
-confidence: strongly_inferred
+Confidence key: confirmed / strongly_inferred / hypothesis / unknown
 
-H03: straps_vmt_depend_on_same_transport_family
-status: open
-evidence: docs cluster straps/vmt/vmr under timing controls
-falsification_test: straps/vmt consumers use unrelated transport chain
-next_experiment: after vmr confirmation, map straps/vmt consumer call graph
-confidence: hypothesis
+## H01 — vmr_parser_path_exists
+status: closed / confirmed
+evidence:
+- recovered literal `-vmr` at RVA `0x000E8F6E`
+- descriptor ctor `0x000DD570`
+- descriptor vtable `0x0043F0E8`
+- setter slot `+0x10 -> 0x000E10C0`
+- confirmed store `0x000E10D8: mov dword ptr [rdx + rcx + 0xB0], eax`
+- per-GPU stride confirmed as `0xD8`; array base is reached through owner `+0x2C0`
+conclusion: parser->persistent-config edge is closed statically
+confidence: confirmed
 
-H04: straps_vmt_share_vmr_transport_family
-status: open
-evidence: docs grouping + shared low-level transport surface
-falsification_test: straps/vmt bypass vmr transport family
-next_experiment: post-vmr gate A/B straps and vmt traces
-confidence: hypothesis
-
-H05: vmt_is_staged_parameterization
-status: open
-evidence: multiple vmt knobs suggest staged fields
-falsification_test: each vmt maps to isolated independent write path
-next_experiment: compare vmt1/2/3 pre-transport state transitions
-confidence: hypothesis
-
-H06: vmr_transport_candidates_prioritized_by_pdata
+## H02 — vmr_uses_low_level_transport
 status: active
-evidence: transport shortlist ranges 0x001C4010..0x001C44E3, 0x001C1BB0..0x001C1CE0, 0x001C6BB0..0x001C6C93, 0x0028CA90..0x0028CB6B
-falsification_test: none of shortlisted ranges participates in vmr path after code-flow validation
-next_experiment: inspect these ranges first in disassembler and trace upward callers
-confidence: strongly_inferred
+evidence:
+- VMR value is now tied to persistent per-GPU config field `+0xB0`
+- generic EIO/DeviceIoControl candidates exist but are not yet linked to this field
+falsification_test: confirmed `+0xB0` consumer terminates in a non-hardware path and no timing apply path exists
+next_experiment: enumerate genuine materializers/consumers of owner `+0x2C0` + stride `0xD8`, then follow the first downstream call boundary
+confidence: hypothesis
 
-H07: vmr_parser_entry_small_dispatcher
-status: active
-evidence: compact function range 0x003E16B0..0x003E16D5 contains GetCommandLineA/W
-falsification_test: function is unrelated to CLI parsing after local code analysis
-next_experiment: inspect immediate callers and downstream compare/config stores
-confidence: strongly_inferred
+## H03 — timing options share one per-GPU config record
+status: closed / confirmed
+evidence:
+- record stride `0xD8`
+- `-mt -> +0x98`
+- `-straps -> +0xAC`
+- `-vmr/-rxboost -> +0xB0`
+- `-vmt2 -> +0xB8`
+- `-vmt3 -> +0xBC`
+confidence: confirmed
+
+## H04 — vmr_and_rxboost_share_storage
+status: closed / confirmed
+evidence: both descriptor setters write per-GPU field `+0xB0`
+interpretation: storage is shared; semantic/backend distinction remains unresolved
+confidence: confirmed
+
+## H05 — five-field consumer_0x3053C0_is_backend
+status: falsified
+evidence:
+- function `0x003053C0..0x00305BB6` reads all five timing offsets but performs a self-contained arithmetic transform
+- no calls in the timing-field tail
+- final output is only two DWORD stores to `[r14]` and `[r14+4]`
+conclusion: likely generic hash/fingerprint/transform over a record, not timing application
+confidence: confirmed falsification
+
+## H06 — multifield_0x3C397C_is_backend
+status: falsified
+evidence:
+- function mutates offsets such as `+0xB0` and `+0xAC`
+- performs normalization/division rather than consuming immutable PM timing config
+conclusion: structurally similar unrelated object; offset collision
+confidence: strongly_inferred falsification
+
+## H07 — generic_transport_candidates_are_vmr_backend
+status: blocked / unproven
+evidence: DeviceIoControl/CreateFile clusters exist, but no parser/config data-flow edge reaches them yet
+falsification_test: confirmed timing-field consumer reaches a different vendor/MMIO path
+next_experiment: do not search upward from transport candidates; first close `per_gpu +0xB0 -> consumer`
+confidence: unknown
+
+## Active milestone
+M1 `-vmr -> persistent per-GPU config`: CLOSED / CONFIRMED.
+M2 `per-GPU +0xB0 -> first hardware-facing consumer`: ACTIVE.
