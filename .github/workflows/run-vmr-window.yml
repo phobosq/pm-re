@@ -4,7 +4,7 @@ on:
   push:
     paths:
       - '.github/workflows/run-vmr-window.yml'
-      - 'scripts/fingerprint_timing_fields.py'
+      - 'scripts/map_timing_option_fields.py'
 
 permissions:
   contents: write
@@ -18,15 +18,15 @@ jobs:
         with:
           python-version: '3.12'
       - run: python -m pip install pefile capstone
-      - name: Run timing-field fingerprint
+      - name: Map timing option fields
         run: |
           BIN=samples/work/unpacked/PhoenixMiner_6.2c_Windows/PhoenixMiner.exe.bin
-          python scripts/fingerprint_timing_fields.py "$BIN" --out-dir notes
+          python scripts/map_timing_option_fields.py "$BIN" --out-dir notes
       - name: Commit result
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add notes/timing_field_fingerprint.md
+          git add notes/timing_option_field_map.md
           if git diff --cached --quiet; then exit 0; fi
-          git commit -m 'analysis: fingerprint timing field consumers'
+          git commit -m 'analysis: map timing option fields'
           git push
