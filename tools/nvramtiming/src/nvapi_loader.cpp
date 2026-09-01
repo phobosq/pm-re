@@ -15,6 +15,26 @@ using InitializeFn = NvStatus(__cdecl*)();
 using UnloadFn = NvStatus(__cdecl*)();
 using EnumPhysicalGpusFn = NvStatus(__cdecl*)(NvPhysicalGpuHandle*, std::uint32_t*);
 using GpuGetFullNameFn = NvStatus(__cdecl*)(NvPhysicalGpuHandle, char*);
+using GpuRegisterOpFn = NvStatus(__cdecl*)(NvPhysicalGpuHandle, void*);
+
+struct RegisterOpEntry {
+  std::uint16_t opcode;
+  std::uint16_t reserved;
+  std::uint32_t reg;
+  std::uint64_t mask;
+  std::uint64_t value;
+};
+static_assert(sizeof(RegisterOpEntry) == 0x18, "RegisterOpEntry ABI mismatch");
+
+struct RegisterOpRequest1 {
+  std::uint32_t version;
+  std::uint32_t count;
+  RegisterOpEntry entry;
+};
+static_assert(sizeof(RegisterOpRequest1) == 0x20, "RegisterOpRequest ABI mismatch");
+
+constexpr std::uint32_t kRegisterOpRequestVersion = 0x00011808u;
+constexpr std::uint16_t kRegisterOpRead = 0x0015u;
 
 std::string win32_error(const char* prefix) {
   std::ostringstream os;
@@ -115,6 +135,42 @@ std::vector<GpuInfo> NvApi::enumerate(std::string& error) const {
     result.push_back(std::move(info));
   }
   return result;
+}
+
+bool NvApi::read_register(NvPhysicalGpuHandle gpu, std::uint32_t reg,
+                          std::uint64_t& value, std::string& error) const {
+  error.clear();
+  value = 0;
+  if (!initialized_) {
+    error = "NVAPI is not initialized";
+    return false;
+  }
+  if (gpu == nullptr) {
+    error = "Invalid physical GPU handle";
+    return false;
+  }
+  if (register_op_ == nullptr) {
+    error = "NvAPI_GPU_RegisterOp (0x2EB3C140) is unavailable";
+    return false;
+  }
+
+  RegisterOpRequest1 req{};
+  req.version = kRegisterOpRequestVersion;
+  req.count = 1;
+  req.entry.opcode = kRegisterOpRead;
+  req.entry.reg = reg;
+
+  const NvStatus status = reinterpret_cast<GpuRegisterOpFn>(register_op_)(gpu, &req);
+  if (status != kNvApiOk) {
+    std::ostringstream os;
+    os << "NvAPI_GPU_RegisterOp(read 0x" << std::hex << reg
+       << ") failed with status " << std::dec << status;
+    error = os.str();
+    return false;
+  }
+
+  value = req.entry.value;
+  return true;
 }
 
 }  // namespace nvramtiming
