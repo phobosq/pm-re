@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""Optimized per-GPU materializer scan. Static only."""
+"""Optimized per-GPU materializer scan. Static only.
+
+M2: enumerate functions that combine owner +0x2C0 with stride 0xD8 and inspect
+whether timing fields are read before any downstream call/write boundary.
+"""
 from __future__ import annotations
 import argparse,bisect
 from pathlib import Path
