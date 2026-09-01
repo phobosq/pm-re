@@ -4,7 +4,7 @@ on:
   push:
     paths:
       - '.github/workflows/run-vmr-window.yml'
-      - 'scripts/profile_nvidia_child_object.py'
+      - 'scripts/dump_nvidia_child_vtable.py'
 
 permissions:
   contents: write
@@ -18,16 +18,16 @@ jobs:
         with:
           python-version: '3.12'
       - run: python -m pip install pefile capstone
-      - name: Profile NVIDIA child object
+      - name: Dump NVIDIA child vtable
         run: |
           BIN=samples/work/unpacked/PhoenixMiner_6.2c_Windows/PhoenixMiner.exe.bin
-          python scripts/profile_nvidia_child_object.py "$BIN" --out-dir notes
+          python scripts/dump_nvidia_child_vtable.py "$BIN" --out-dir notes
       - name: Commit result
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add notes/nvidia_child_object_profile.md
+          git add notes/nvidia_child_vtable.md
           if git diff --cached --quiet; then exit 0; fi
-          git commit -m 'analysis: profile NVIDIA child object'
+          git commit -m 'analysis: dump NVIDIA child vtable'
           git pull --rebase origin main
           git push
