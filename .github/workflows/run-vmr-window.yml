@@ -4,7 +4,7 @@ on:
   push:
     paths:
       - '.github/workflows/run-vmr-window.yml'
-      - 'scripts/decode_runtime_base_ctor.py'
+      - 'scripts/decode_vmr_nonstack_candidates.py'
 
 permissions:
   contents: write
@@ -18,16 +18,16 @@ jobs:
         with:
           python-version: '3.12'
       - run: python -m pip install pefile capstone
-      - name: Decode runtime base ctor
+      - name: Decode focused VMR candidates
         run: |
           BIN=samples/work/unpacked/PhoenixMiner_6.2c_Windows/PhoenixMiner.exe.bin
-          python scripts/decode_runtime_base_ctor.py "$BIN" --out-dir notes
+          python scripts/decode_vmr_nonstack_candidates.py "$BIN" --out-dir notes
       - name: Commit result
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add notes/runtime_base_ctor.md
+          git add notes/vmr_nonstack_candidates.md
           if git diff --cached --quiet; then exit 0; fi
-          git commit -m 'analysis: decode runtime base ctor'
+          git commit -m 'analysis: decode focused VMR candidates'
           git pull --rebase origin main
           git push
