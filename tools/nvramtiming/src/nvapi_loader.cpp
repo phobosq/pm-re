@@ -15,6 +15,9 @@ using InitializeFn = NvStatus(__cdecl*)();
 using UnloadFn = NvStatus(__cdecl*)();
 using EnumPhysicalGpusFn = NvStatus(__cdecl*)(NvPhysicalGpuHandle*, std::uint32_t*);
 using GpuGetFullNameFn = NvStatus(__cdecl*)(NvPhysicalGpuHandle, char*);
+using GpuGetPciIdentifiersFn = NvStatus(__cdecl*)(NvPhysicalGpuHandle, std::uint32_t*,
+                                                  std::uint32_t*, std::uint32_t*,
+                                                  std::uint32_t*);
 using GpuRegisterOpFn = NvStatus(__cdecl*)(NvPhysicalGpuHandle, void*);
 
 struct RegisterOpEntry {
@@ -59,6 +62,7 @@ void NvApi::reset() noexcept {
   unload_ = nullptr;
   enum_physical_gpus_ = nullptr;
   gpu_get_full_name_ = nullptr;
+  gpu_get_pci_identifiers_ = nullptr;
   register_op_ = nullptr;
   initialized_ = false;
 }
@@ -86,9 +90,11 @@ bool NvApi::load(std::string& error) {
   unload_ = query(kNvApiUnloadId);
   enum_physical_gpus_ = query(kNvApiEnumPhysicalGpusId);
   gpu_get_full_name_ = query(kNvApiGpuGetFullNameId);
+  gpu_get_pci_identifiers_ = query(kNvApiGpuGetPciIdentifiersId);
   register_op_ = query(kNvApiGpuRegisterOpId);
 
-  if (initialize_ == nullptr || enum_physical_gpus_ == nullptr || gpu_get_full_name_ == nullptr) {
+  if (initialize_ == nullptr || enum_physical_gpus_ == nullptr ||
+      gpu_get_full_name_ == nullptr || gpu_get_pci_identifiers_ == nullptr) {
     error = "Required NVAPI interfaces are unavailable";
     reset();
     return false;
@@ -135,6 +141,25 @@ std::vector<GpuInfo> NvApi::enumerate(std::string& error) const {
     result.push_back(std::move(info));
   }
   return result;
+}
+
+bool NvApi::get_pci_identifiers(NvPhysicalGpuHandle gpu, PciIdentifiers& ids,
+                                std::string& error) const {
+  error.clear();
+  ids = {};
+  if (!initialized_ || gpu == nullptr || gpu_get_pci_identifiers_ == nullptr) {
+    error = "NvAPI_GPU_GetPCIIdentifiers is unavailable";
+    return false;
+  }
+  const NvStatus status = reinterpret_cast<GpuGetPciIdentifiersFn>(gpu_get_pci_identifiers_)(
+      gpu, &ids.device_id, &ids.subsystem_id, &ids.revision_id, &ids.ext_device_id);
+  if (status != kNvApiOk) {
+    std::ostringstream os;
+    os << "NvAPI_GPU_GetPCIIdentifiers failed with status " << status;
+    error = os.str();
+    return false;
+  }
+  return true;
 }
 
 bool NvApi::read_register(NvPhysicalGpuHandle gpu, std::uint32_t reg,
