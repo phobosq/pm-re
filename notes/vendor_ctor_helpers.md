@@ -1,8 +1,194 @@
-# Vendor constructor helpers
+# Vendor constructor / string helpers
 
-## target `0x00179840` PDATA `none`
+## target `0x001D35C0` PDATA `0x001D35C0..0x001D367D`
 
-## target `0x00179430` PDATA `none`
+### Calls
+
+| RVA | target/form | import? |
+|---|---|---|
+| `0x001D364A` | `RVA 0x00039C30` | `` |
+| `0x001D3662` | `RVA 0x0002BDB0` | `` |
+| `0x001D3672` | `RVA 0x003B24C0` | `` |
+
+### Disassembly
+
+```asm
+0x001D35C0: push rbx
+0x001D35C2: sub rsp, 0x60
+0x001D35C6: mov rax, qword ptr [rip + 0x603323]
+0x001D35CD: xor rax, rsp
+0x001D35D0: mov qword ptr [rsp + 0x50], rax
+0x001D35D5: xor r10d, r10d
+0x001D35D8: mov rbx, rdx
+0x001D35DB: mov qword ptr [rsp + 0x20], r10
+0x001D35E0: mov rax, qword ptr [rsp + 0x20]
+0x001D35E5: mov dword ptr [rsp + 0x2c], r10d
+0x001D35EA: cmp rax, 0x1d
+0x001D35EE: jae 0x1401d3633
+0x001D35F0: mov rax, qword ptr [rsp + 0x20]
+0x001D35F5: test rax, rax
+0x001D35F8: jne 0x1401d35ff
+0x001D35FA: mov r9d, dword ptr [rcx]
+0x001D35FD: jmp 0x1401d360a
+0x001D35FF: mov rax, qword ptr [rsp + 0x20]
+0x001D3604: movsx r9d, byte ptr [rax + rcx + 3]
+0x001D360A: mov rax, qword ptr [rsp + 0x20]
+0x001D360F: movsx edx, byte ptr [rax + rcx + 4]
+0x001D3614: mov rax, qword ptr [rsp + 0x20]
+0x001D3619: sub edx, 9
+0x001D361C: xor edx, r9d
+0x001D361F: mov byte ptr [rsp + rax + 0x30], dl
+0x001D3623: inc qword ptr [rsp + 0x20]
+0x001D3628: mov rax, qword ptr [rsp + 0x20]
+0x001D362D: cmp rax, 0x1d
+0x001D3631: jb 0x1401d35f0
+0x001D3633: mov qword ptr [rbx + 0x18], 0xf
+0x001D363B: mov edx, 0x1d
+0x001D3640: mov qword ptr [rbx + 0x10], r10
+0x001D3644: mov rcx, rbx
+0x001D3647: mov byte ptr [rbx], r10b
+0x001D364A: call 0x140039c30
+0x001D364F: movzx r9d, byte ptr [rsp + 0x28]
+0x001D3655: lea r8, [rsp + 0x4d]
+0x001D365A: lea rdx, [rsp + 0x30]
+0x001D365F: mov rcx, rbx
+0x001D3662: call 0x14002bdb0
+0x001D3667: mov rax, rbx
+0x001D366A: mov rcx, qword ptr [rsp + 0x50]
+0x001D366F: xor rcx, rsp
+0x001D3672: call 0x1403b24c0
+0x001D3677: add rsp, 0x60
+0x001D367B: pop rbx
+0x001D367C: ret
+```
+
+## target `0x001A5430` PDATA `0x001A5430..0x001A54F5`
+
+### Calls
+
+| RVA | target/form | import? |
+|---|---|---|
+| `0x001A54C2` | `RVA 0x00039C30` | `` |
+| `0x001A54DA` | `RVA 0x0002BDB0` | `` |
+| `0x001A54EA` | `RVA 0x003B24C0` | `` |
+
+### Disassembly
+
+```asm
+0x001A5430: push rbx
+0x001A5432: sub rsp, 0x60
+0x001A5436: mov rax, qword ptr [rip + 0x6314b3]
+0x001A543D: xor rax, rsp
+0x001A5440: mov qword ptr [rsp + 0x50], rax
+0x001A5445: xor r11d, r11d
+0x001A5448: mov rbx, rdx
+0x001A544B: mov qword ptr [rsp + 0x20], r11
+0x001A5450: mov rax, qword ptr [rsp + 0x20]
+0x001A5455: mov dword ptr [rsp + 0x2c], r11d
+0x001A545A: cmp rax, 0x20
+0x001A545E: jae 0x1401a54ab
+0x001A5460: mov rax, qword ptr [rsp + 0x20]
+0x001A5465: test rax, rax
+0x001A5468: jne 0x1401a5470
+0x001A546A: mov r10d, dword ptr [rcx + 4]
+0x001A546E: jmp 0x1401a547b
+0x001A5470: mov rax, qword ptr [rsp + 0x20]
+0x001A5475: movsx r10d, byte ptr [rax + rcx + 7]
+0x001A547B: mov rax, qword ptr [rsp + 0x20]
+0x001A5480: movsx r8d, byte ptr [rax + rcx + 8]
+0x001A5486: mov eax, dword ptr [rcx]
+0x001A5488: xor r8d, r10d
+0x001A548B: movsx edx, al
+0x001A548E: mov rax, qword ptr [rsp + 0x20]
+0x001A5493: xor r8d, edx
+0x001A5496: mov byte ptr [rsp + rax + 0x30], r8b
+0x001A549B: inc qword ptr [rsp + 0x20]
+0x001A54A0: mov rax, qword ptr [rsp + 0x20]
+0x001A54A5: cmp rax, 0x20
+0x001A54A9: jb 0x1401a5460
+0x001A54AB: mov qword ptr [rbx + 0x18], 0xf
+0x001A54B3: mov edx, 0x20
+0x001A54B8: mov qword ptr [rbx + 0x10], r11
+0x001A54BC: mov rcx, rbx
+0x001A54BF: mov byte ptr [rbx], r11b
+0x001A54C2: call 0x140039c30
+0x001A54C7: movzx r9d, byte ptr [rsp + 0x28]
+0x001A54CD: lea r8, [rsp + 0x50]
+0x001A54D2: lea rdx, [rsp + 0x30]
+0x001A54D7: mov rcx, rbx
+0x001A54DA: call 0x14002bdb0
+0x001A54DF: mov rax, rbx
+0x001A54E2: mov rcx, qword ptr [rsp + 0x50]
+0x001A54E7: xor rcx, rsp
+0x001A54EA: call 0x1403b24c0
+0x001A54EF: add rsp, 0x60
+0x001A54F3: pop rbx
+0x001A54F4: ret
+```
+
+## target `0x00178F80` PDATA `0x00178F80..0x00179045`
+
+### Calls
+
+| RVA | target/form | import? |
+|---|---|---|
+| `0x00179012` | `RVA 0x00039C30` | `` |
+| `0x0017902A` | `RVA 0x0002BDB0` | `` |
+| `0x0017903A` | `RVA 0x003B24C0` | `` |
+
+### Disassembly
+
+```asm
+0x00178F80: push rbx
+0x00178F82: sub rsp, 0x50
+0x00178F86: mov rax, qword ptr [rip + 0x65d963]
+0x00178F8D: xor rax, rsp
+0x00178F90: mov qword ptr [rsp + 0x40], rax
+0x00178F95: xor r11d, r11d
+0x00178F98: mov rbx, rdx
+0x00178F9B: mov qword ptr [rsp + 0x20], r11
+0x00178FA0: mov rax, qword ptr [rsp + 0x20]
+0x00178FA5: mov dword ptr [rsp + 0x2c], r11d
+0x00178FAA: cmp rax, 0xf
+0x00178FAE: jae 0x140178ffb
+0x00178FB0: mov rax, qword ptr [rsp + 0x20]
+0x00178FB5: test rax, rax
+0x00178FB8: jne 0x140178fc0
+0x00178FBA: mov r10d, dword ptr [rcx + 4]
+0x00178FBE: jmp 0x140178fcb
+0x00178FC0: mov rax, qword ptr [rsp + 0x20]
+0x00178FC5: movsx r10d, byte ptr [rax + rcx + 7]
+0x00178FCB: mov rax, qword ptr [rsp + 0x20]
+0x00178FD0: movsx r8d, byte ptr [rax + rcx + 8]
+0x00178FD6: mov eax, dword ptr [rcx]
+0x00178FD8: xor r8d, r10d
+0x00178FDB: movsx edx, al
+0x00178FDE: mov rax, qword ptr [rsp + 0x20]
+0x00178FE3: xor r8d, edx
+0x00178FE6: mov byte ptr [rsp + rax + 0x30], r8b
+0x00178FEB: inc qword ptr [rsp + 0x20]
+0x00178FF0: mov rax, qword ptr [rsp + 0x20]
+0x00178FF5: cmp rax, 0xf
+0x00178FF9: jb 0x140178fb0
+0x00178FFB: mov qword ptr [rbx + 0x18], 0xf
+0x00179003: mov edx, 0xf
+0x00179008: mov qword ptr [rbx + 0x10], r11
+0x0017900C: mov rcx, rbx
+0x0017900F: mov byte ptr [rbx], r11b
+0x00179012: call 0x140039c30
+0x00179017: movzx r9d, byte ptr [rsp + 0x28]
+0x0017901D: lea r8, [rsp + 0x3f]
+0x00179022: lea rdx, [rsp + 0x30]
+0x00179027: mov rcx, rbx
+0x0017902A: call 0x14002bdb0
+0x0017902F: mov rax, rbx
+0x00179032: mov rcx, qword ptr [rsp + 0x40]
+0x00179037: xor rcx, rsp
+0x0017903A: call 0x1403b24c0
+0x0017903F: add rsp, 0x50
+0x00179043: pop rbx
+0x00179044: ret
+```
 
 ## target `0x001D4A80` PDATA `0x001D4A80..0x001D5DC9`
 
@@ -62,11 +248,6 @@
 | `0x001D5D90` | `RVA 0x001D4650` | `` |
 | `0x001D5D9D` | `RVA 0x00032EF0` | `` |
 | `0x001D5DB0` | `RVA 0x003B24C0` | `` |
-
-### RIP-relative literal candidates
-
-| RVA | target | text |
-|---|---|---|
 
 ### Disassembly
 
