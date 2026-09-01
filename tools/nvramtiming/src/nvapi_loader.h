@@ -45,6 +45,9 @@ class NvApi {
                            std::string& error) const;
   bool read_register(NvPhysicalGpuHandle gpu, std::uint32_t reg,
                      std::uint64_t& value, std::string& error) const;
+  bool write_register_masked(NvPhysicalGpuHandle gpu, std::uint32_t reg,
+                             std::uint64_t mask, std::uint64_t value,
+                             std::string& error) const;
   bool register_op_available() const noexcept { return register_op_ != nullptr; }
 
  private:
