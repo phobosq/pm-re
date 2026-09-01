@@ -8,6 +8,7 @@ on:
       - 'scripts/analyze_vmr_anchor.py'
       - 'scripts/dump_vmr_setter_path.py'
       - 'scripts/dump_vmr_common_and_vtable.py'
+      - 'scripts/find_vmr_field_consumers.py'
 
 permissions:
   contents: write
@@ -27,11 +28,12 @@ jobs:
           python scripts/dump_vmr_window.py "$BIN" --out-dir notes
           python scripts/dump_vmr_setter_path.py "$BIN" --out-dir notes
           python scripts/dump_vmr_common_and_vtable.py "$BIN" --out-dir notes
+          python scripts/find_vmr_field_consumers.py "$BIN" --out-dir notes
       - name: Commit result
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add notes/vmr_window.md notes/vmr_setter_path.md notes/vmr_common_vtable.md
+          git add notes/vmr_window.md notes/vmr_setter_path.md notes/vmr_common_vtable.md notes/vmr_field_consumers.md
           if git diff --cached --quiet; then exit 0; fi
-          git commit -m 'analysis: resolve vmr descriptor vtable'
+          git commit -m 'analysis: rank vmr field consumers'
           git push
