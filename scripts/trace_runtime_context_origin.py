@@ -28,8 +28,8 @@ def main():
  def fnof(r):
   j=bisect.bisect_right(starts,r)-1
   return funcs[j] if j>=0 and funcs[j][0]<=r<funcs[j][1] else None
- md=Cs(CS_ARCH_X86,CS_MODE_64);md.detail=True
- ins=list(md.disasm(text.get_data(),base+text.VirtualAddress))
+ md=Cs(CS_ARCH_X86,CS_MODE_64);md.detail=True;md.skipdata=True
+ ins=[i for i in md.disasm(text.get_data(),base+text.VirtualAddress) if i.id]
  hits=[]
  for idx,i in enumerate(ins):
   for op in i.operands:
@@ -39,7 +39,6 @@ def main():
     if base<=v<base+pe.OPTIONAL_HEADER.SizeOfImage:
      target_rva=v-base
    elif op.type==X86_OP_MEM and 'rip' in i.op_str.lower():
-    # Capstone 5 builds differ in how RIP base ids are exposed; effective address is stable.
     v=i.address+i.size+op.mem.disp
     if base<=v<base+pe.OPTIONAL_HEADER.SizeOfImage:
      target_rva=v-base
