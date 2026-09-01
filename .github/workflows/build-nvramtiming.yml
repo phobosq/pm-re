@@ -1,0 +1,20 @@
+name: Build nvramtiming MVP
+on:
+  push:
+    paths:
+      - 'tools/nvramtiming/**'
+      - '.github/workflows/build-nvramtiming.yml'
+  pull_request:
+    paths:
+      - 'tools/nvramtiming/**'
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Configure
+        run: cmake -S tools/nvramtiming -B build/nvramtiming -A x64
+      - name: Build
+        run: cmake --build build/nvramtiming --config Release
