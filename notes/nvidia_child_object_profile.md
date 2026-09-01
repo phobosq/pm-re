@@ -1,0 +1,2473 @@
+# NVIDIA child object profile
+
+## target `0x001D4A80` PDATA `0x001D4A80..0x001D5DC9`
+
+### Calls
+
+| RVA | target/form |
+|---|---|
+| `0x001D4ACD` | `call RVA 0x0014B130` |
+| `0x001D4B19` | `call RVA 0x00408A20` |
+| `0x001D4B9C` | `call RVA 0x003D3050` |
+| `0x001D4C36` | `jmp RVA 0x001D4EA3` |
+| `0x001D4C4C` | `call qword ptr [rip + 0x612bf6]` |
+| `0x001D4DFB` | `call RVA 0x001EC770` |
+| `0x001D4E16` | `call RVA 0x001D4570` |
+| `0x001D4E40` | `call RVA 0x003DB020` |
+| `0x001D4E4F` | `call RVA 0x003DB020` |
+| `0x001D4E5E` | `call RVA 0x003DB020` |
+| `0x001D4E6A` | `call RVA 0x003DB020` |
+| `0x001D4E73` | `call RVA 0x003B20D4` |
+| `0x001D4ECC` | `call qword ptr [rip + 0x61296e]` |
+| `0x001D4EE0` | `call qword ptr [rip + 0x612972]` |
+| `0x001D5042` | `call RVA 0x001B62E0` |
+| `0x001D5055` | `call RVA 0x0012DA50` |
+| `0x001D5072` | `call RVA 0x001D4140` |
+| `0x001D509C` | `call RVA 0x003DB020` |
+| `0x001D50AB` | `call RVA 0x003DB020` |
+| `0x001D50BA` | `call RVA 0x003DB020` |
+| `0x001D50C6` | `call RVA 0x003DB020` |
+| `0x001D50CF` | `call RVA 0x003B20D4` |
+| `0x001D5111` | `call RVA 0x003DB020` |
+| `0x001D5120` | `call RVA 0x003DB020` |
+| `0x001D512F` | `call RVA 0x003DB020` |
+| `0x001D513B` | `call RVA 0x003DB020` |
+| `0x001D5144` | `call RVA 0x003B20D4` |
+| `0x001D51B9` | `jmp RVA 0x001D51CF` |
+| `0x001D51F6` | `call rax` |
+| `0x001D5397` | `call RVA 0x0026DE30` |
+| `0x001D53B4` | `call RVA 0x001D3FC0` |
+| `0x001D53DE` | `call RVA 0x003DB020` |
+| `0x001D53ED` | `call RVA 0x003DB020` |
+| `0x001D53FC` | `call RVA 0x003DB020` |
+| `0x001D5408` | `call RVA 0x003DB020` |
+| `0x001D5411` | `call RVA 0x003B20D4` |
+| `0x001D5453` | `call rax` |
+| `0x001D5704` | `call RVA 0x001A3280` |
+| `0x001D5721` | `call RVA 0x001D3FC0` |
+| `0x001D574B` | `call RVA 0x003DB020` |
+| `0x001D575A` | `call RVA 0x003DB020` |
+| `0x001D5769` | `call RVA 0x003DB020` |
+| `0x001D5775` | `call RVA 0x003DB020` |
+| `0x001D577E` | `call RVA 0x003B20D4` |
+| `0x001D57D2` | `call rax` |
+| `0x001D5A83` | `call RVA 0x001A3280` |
+| `0x001D5AA0` | `call RVA 0x001D3FC0` |
+| `0x001D5AC3` | `call RVA 0x00033D30` |
+| `0x001D5AC8` | `jmp RVA 0x001D5ACE` |
+| `0x001D5AFD` | `call RVA 0x003D3050` |
+| `0x001D5B10` | `call rdi` |
+| `0x001D5B21` | `jmp RVA 0x001D5DA3` |
+| `0x001D5D77` | `call RVA 0x00086390` |
+| `0x001D5D90` | `call RVA 0x001D4650` |
+| `0x001D5D9D` | `call RVA 0x00032EF0` |
+| `0x001D5DB0` | `call RVA 0x003B24C0` |
+
+### Object / RIP-relative accesses
+
+| RVA | instruction | note |
+|---|---|---|
+| `0x001D4AA5` | `mov rax, qword ptr [rip + 0x601e44]` | RIP->0x007D68F0 |
+| `0x001D4AD3` | `lea rax, [rip + 0x2e9396]` | RIP->0x004BDE70 |
+| `0x001D4ADD` | `lea r14, [rbx + 0xc0]` | rbx+0xc0 |
+| `0x001D4AE9` | `lea r15, [rbx + 0xc8]` | rbx+0xc8 |
+| `0x001D4AF3` | `mov qword ptr [rbx + 0xd0], rdi` | rbx+0xd0 |
+| `0x001D4AFA` | `mov byte ptr [rbx + 0xd8], dil` | rbx+0xd8 |
+| `0x001D4B01` | `mov qword ptr [rbx + 0xdc], rdi` | rbx+0xdc |
+| `0x001D4B08` | `mov byte ptr [rbx + 0xe4], dil` | rbx+0xe4 |
+| `0x001D4B0F` | `lea rcx, [rbx + 0xe8]` | rbx+0xe8 |
+| `0x001D4B1F` | `mov qword ptr [rbx + 0x138], 0xffffffffffffffff` | rbx+0x138 |
+| `0x001D4B2A` | `mov dword ptr [rbx + 0x140], 0xffffffff` | rbx+0x140 |
+| `0x001D4B34` | `mov qword ptr [rbx + 0x258], rdi` | rbx+0x258 |
+| `0x001D4B3B` | `mov dword ptr [rbx + 0x260], edi` | rbx+0x260 |
+| `0x001D4B43` | `mov qword ptr [rbx + 0x264], rax` | rbx+0x264 |
+| `0x001D4B4A` | `mov byte ptr [rbx + 0x26c], al` | rbx+0x26c |
+| `0x001D4B50` | `mov qword ptr [rbx + 0x270], 0xffffffffffffffff` | rbx+0x270 |
+| `0x001D4B5B` | `mov qword ptr [rbx + 0x278], rdi` | rbx+0x278 |
+| `0x001D4B62` | `mov byte ptr [rbx + 0x280], al` | rbx+0x280 |
+| `0x001D4B68` | `mov word ptr [rbx + 0x281], ax` | rbx+0x281 |
+| `0x001D4B6F` | `mov byte ptr [rbx + 0x398], al` | rbx+0x398 |
+| `0x001D4B75` | `mov word ptr [rbx + 0x399], ax` | rbx+0x399 |
+| `0x001D4B7C` | `mov dword ptr [rbx + 0x39c], edi` | rbx+0x39c |
+| `0x001D4B82` | `mov qword ptr [rbx + 0x3a0], 0xffffffffffffffff` | rbx+0x3a0 |
+| `0x001D4B8D` | `lea rcx, [rbx + 0x144]` | rbx+0x144 |
+| `0x001D4BA1` | `cmp dword ptr [rsi + 0xc0], edi` | rsi+0xc0 |
+| `0x001D4BA9` | `mov byte ptr [rbx + 0x26c], 1` | rbx+0x26c |
+| `0x001D4BB0` | `mov eax, dword ptr [rsi + 0xc0]` | rsi+0xc0 |
+| `0x001D4BB6` | `mov dword ptr [rbx + 0x3a0], eax` | rbx+0x3a0 |
+| `0x001D4BC8` | `mov rax, qword ptr [rip + 0x611839]` | RIP->0x007E6408 |
+| `0x001D4BE3` | `mov rcx, qword ptr [rip + 0x612d66]` | RIP->0x007E7950 |
+| `0x001D4BEA` | `mov r8, qword ptr [rip + 0x612d57]` | RIP->0x007E7948 |
+| `0x001D4C3B` | `lea rcx, [r14 + 8]` | r14+0x8 |
+| `0x001D4C3F` | `cmp qword ptr [rcx + 0x18], 0x10` | rcx+0x18 |
+| `0x001D4C4C` | `call qword ptr [rip + 0x612bf6]` | RIP->0x007E7848 |
+| `0x001D4E46` | `mov rax, qword ptr [rcx - 8]` | rcx-0x8 |
+| `0x001D4EA3` | `lea r14, [rbx + 0xc0]` | rbx+0xc0 |
+| `0x001D4EBA` | `mov rax, qword ptr [rip + 0x611547]` | RIP->0x007E6408 |
+| `0x001D4ECC` | `call qword ptr [rip + 0x61296e]` | RIP->0x007E7840 |
+| `0x001D4EE0` | `call qword ptr [rip + 0x612972]` | RIP->0x007E7858 |
+| `0x001D50A2` | `mov rax, qword ptr [rcx - 8]` | rcx-0x8 |
+| `0x001D5117` | `mov rax, qword ptr [rcx - 8]` | rcx-0x8 |
+| `0x001D5165` | `mov qword ptr [rbx + 0xd0], rdi` | rbx+0xd0 |
+| `0x001D516E` | `mov r8, qword ptr [rip + 0x612783]` | RIP->0x007E78F8 |
+| `0x001D5175` | `mov r10, qword ptr [rip + 0x612774]` | RIP->0x007E78F0 |
+| `0x001D51BF` | `mov qword ptr [rbx + 0xd0], rcx` | rbx+0xd0 |
+| `0x001D51CF` | `mov rcx, qword ptr [rbx + 0xd0]` | rbx+0xd0 |
+| `0x001D51DF` | `mov rax, qword ptr [rip + 0x61290a]` | RIP->0x007E7AF0 |
+| `0x001D51EF` | `lea rdx, [rbx + 0xdc]` | rbx+0xdc |
+| `0x001D53E4` | `mov rax, qword ptr [rcx - 8]` | rcx-0x8 |
+| `0x001D542F` | `mov dword ptr [rbx + 0xdc], edi` | rbx+0xdc |
+| `0x001D5435` | `mov rax, qword ptr [rip + 0x6126bc]` | RIP->0x007E7AF8 |
+| `0x001D5445` | `lea rdx, [rbx + 0xe0]` | rbx+0xe0 |
+| `0x001D544C` | `mov rcx, qword ptr [rbx + 0xd0]` | rbx+0xd0 |
+| `0x001D5751` | `mov rax, qword ptr [rcx - 8]` | rcx-0x8 |
+| `0x001D579C` | `mov dword ptr [rbx + 0xe0], edi` | rbx+0xe0 |
+| `0x001D57A2` | `mov rax, qword ptr [rip + 0x612357]` | RIP->0x007E7B00 |
+| `0x001D57CB` | `mov rcx, qword ptr [rbx + 0xd0]` | rbx+0xd0 |
+| `0x001D5ACE` | `mov dword ptr [rbx + 0x39c], edi` | rbx+0x39c |
+| `0x001D5AD4` | `mov rdi, qword ptr [rip + 0x611ff5]` | RIP->0x007E7AD0 |
+| `0x001D5B09` | `mov rcx, qword ptr [rbx + 0xd0]` | rbx+0xd0 |
+| `0x001D5B1A` | `mov byte ptr [rbx + 0xd8], 1` | rbx+0xd8 |
+
+### Full body
+
+```asm
+0x001D4A80: push rbp
+0x001D4A82: push rbx
+0x001D4A83: push rsi
+0x001D4A84: push rdi
+0x001D4A85: push r12
+0x001D4A87: push r13
+0x001D4A89: push r14
+0x001D4A8B: push r15
+0x001D4A8D: lea rbp, [rsp - 0x7c8]
+0x001D4A95: sub rsp, 0x8c8
+0x001D4A9C: mov qword ptr [rsp + 0x70], 0xfffffffffffffffe
+0x001D4AA5: mov rax, qword ptr [rip + 0x601e44]
+0x001D4AAC: xor rax, rsp
+0x001D4AAF: mov qword ptr [rbp + 0x7b0], rax
+0x001D4AB6: mov rsi, r9
+0x001D4AB9: mov r13, r8
+0x001D4ABC: mov r12d, edx
+0x001D4ABF: mov rbx, rcx
+0x001D4AC2: mov qword ptr [rsp + 0x78], rcx
+0x001D4AC7: mov r8, r9
+0x001D4ACA: mov rdx, r13
+0x001D4ACD: call 0x14014b130
+0x001D4AD2: nop
+0x001D4AD3: lea rax, [rip + 0x2e9396]
+0x001D4ADA: mov qword ptr [rbx], rax
+0x001D4ADD: lea r14, [rbx + 0xc0]
+0x001D4AE4: xor edi, edi
+0x001D4AE6: mov qword ptr [r14], rdi
+0x001D4AE9: lea r15, [rbx + 0xc8]
+0x001D4AF0: mov qword ptr [r15], rdi
+0x001D4AF3: mov qword ptr [rbx + 0xd0], rdi
+0x001D4AFA: mov byte ptr [rbx + 0xd8], dil
+0x001D4B01: mov qword ptr [rbx + 0xdc], rdi
+0x001D4B08: mov byte ptr [rbx + 0xe4], dil
+0x001D4B0F: lea rcx, [rbx + 0xe8]
+0x001D4B16: mov rdx, r13
+0x001D4B19: call 0x140408a20
+0x001D4B1E: nop
+0x001D4B1F: mov qword ptr [rbx + 0x138], 0xffffffffffffffff
+0x001D4B2A: mov dword ptr [rbx + 0x140], 0xffffffff
+0x001D4B34: mov qword ptr [rbx + 0x258], rdi
+0x001D4B3B: mov dword ptr [rbx + 0x260], edi
+0x001D4B41: xor eax, eax
+0x001D4B43: mov qword ptr [rbx + 0x264], rax
+0x001D4B4A: mov byte ptr [rbx + 0x26c], al
+0x001D4B50: mov qword ptr [rbx + 0x270], 0xffffffffffffffff
+0x001D4B5B: mov qword ptr [rbx + 0x278], rdi
+0x001D4B62: mov byte ptr [rbx + 0x280], al
+0x001D4B68: mov word ptr [rbx + 0x281], ax
+0x001D4B6F: mov byte ptr [rbx + 0x398], al
+0x001D4B75: mov word ptr [rbx + 0x399], ax
+0x001D4B7C: mov dword ptr [rbx + 0x39c], edi
+0x001D4B82: mov qword ptr [rbx + 0x3a0], 0xffffffffffffffff
+0x001D4B8D: lea rcx, [rbx + 0x144]
+0x001D4B94: xor edx, edx
+0x001D4B96: mov r8d, 0x114
+0x001D4B9C: call 0x1403d3050
+0x001D4BA1: cmp dword ptr [rsi + 0xc0], edi
+0x001D4BA7: jl 0x1401d4bbc
+0x001D4BA9: mov byte ptr [rbx + 0x26c], 1
+0x001D4BB0: mov eax, dword ptr [rsi + 0xc0]
+0x001D4BB6: mov dword ptr [rbx + 0x3a0], eax
+0x001D4BBC: imul r10, r12, 0xa8
+0x001D4BC3: mov qword ptr [rsp + 0x60], r10
+0x001D4BC8: mov rax, qword ptr [rip + 0x611839]
+0x001D4BCF: mov r9, qword ptr [r10 + rax + 0x80]
+0x001D4BD7: mov qword ptr [r14], r9
+0x001D4BDA: mov qword ptr [r15], rdi
+0x001D4BDD: or r12d, 0xffffffff
+0x001D4BE1: mov esi, edi
+0x001D4BE3: mov rcx, qword ptr [rip + 0x612d66]
+0x001D4BEA: mov r8, qword ptr [rip + 0x612d57]
+0x001D4BF1: sub rcx, r8
+0x001D4BF4: movabs rax, 0x6666666666666667
+0x001D4BFE: imul rcx
+0x001D4C01: sar rdx, 4
+0x001D4C05: mov rax, rdx
+0x001D4C08: shr rax, 0x3f
+0x001D4C0C: add rdx, rax
+0x001D4C0F: je 0x1401d4eaa
+0x001D4C15: mov rax, rdi
+0x001D4C18: nop dword ptr [rax + rax]
+0x001D4C20: lea rax, [rax + rax*4]
+0x001D4C24: lea r14, [r8 + rax*8]
+0x001D4C28: cmp qword ptr [r14], r9
+0x001D4C2B: je 0x1401d4c3b
+0x001D4C2D: inc esi
+0x001D4C2F: mov eax, esi
+0x001D4C31: cmp rax, rdx
+0x001D4C34: jb 0x1401d4c20
+0x001D4C36: jmp 0x1401d4ea3
+0x001D4C3B: lea rcx, [r14 + 8]
+0x001D4C3F: cmp qword ptr [rcx + 0x18], 0x10
+0x001D4C44: jb 0x1401d4c49
+0x001D4C46: mov rcx, qword ptr [rcx]
+0x001D4C49: mov rdx, r15
+0x001D4C4C: call qword ptr [rip + 0x612bf6]
+0x001D4C52: mov dword ptr [rsp + 0x30], eax
+0x001D4C56: test eax, eax
+0x001D4C58: je 0x1401d4e97
+0x001D4C5E: mov dword ptr [rbp + 0x10], 0x5a
+0x001D4C65: mov dword ptr [rbp + 0x14], 0x75
+0x001D4C6C: mov eax, dword ptr [rbp + 0x14]
+0x001D4C6F: xor eax, 0x21
+0x001D4C72: mov byte ptr [rbp + 0x18], al
+0x001D4C75: movsx ecx, byte ptr [rbp + 0x18]
+0x001D4C79: xor ecx, 0x27
+0x001D4C7C: mov byte ptr [rbp + 0x19], cl
+0x001D4C7F: movsx ecx, byte ptr [rbp + 0x19]
+0x001D4C83: xor ecx, 0x60
+0x001D4C86: mov byte ptr [rbp + 0x1a], cl
+0x001D4C89: movsx ecx, byte ptr [rbp + 0x1a]
+0x001D4C8D: xor ecx, 0x7a
+0x001D4C90: mov byte ptr [rbp + 0x1b], cl
+0x001D4C93: movsx ecx, byte ptr [rbp + 0x1b]
+0x001D4C97: xor ecx, 0x2f
+0x001D4C9A: mov byte ptr [rbp + 0x1c], cl
+0x001D4C9D: movsx ecx, byte ptr [rbp + 0x1c]
+0x001D4CA1: xor ecx, 0x34
+0x001D4CA4: mov byte ptr [rbp + 0x1d], cl
+0x001D4CA7: movsx ecx, byte ptr [rbp + 0x1d]
+0x001D4CAB: xor ecx, 0x3b
+0x001D4CAE: mov byte ptr [rbp + 0x1e], cl
+0x001D4CB1: movsx ecx, byte ptr [rbp + 0x1e]
+0x001D4CB5: xor ecx, 0x38
+0x001D4CB8: mov byte ptr [rbp + 0x1f], cl
+0x001D4CBB: movsx ecx, byte ptr [rbp + 0x1f]
+0x001D4CBF: xor ecx, 0x36
+0x001D4CC2: mov byte ptr [rbp + 0x20], cl
+0x001D4CC5: movsx ecx, byte ptr [rbp + 0x20]
+0x001D4CC9: xor ecx, 0x3f
+0x001D4CCC: mov byte ptr [rbp + 0x21], cl
+0x001D4CCF: movsx ecx, byte ptr [rbp + 0x21]
+0x001D4CD3: xor ecx, 0x7a
+0x001D4CD6: mov byte ptr [rbp + 0x22], cl
+0x001D4CD9: movsx ecx, byte ptr [rbp + 0x22]
+0x001D4CDD: xor ecx, 0x2e
+0x001D4CE0: mov byte ptr [rbp + 0x23], cl
+0x001D4CE3: movsx ecx, byte ptr [rbp + 0x23]
+0x001D4CE7: xor ecx, 0x35
+0x001D4CEA: mov byte ptr [rbp + 0x24], cl
+0x001D4CED: movsx ecx, byte ptr [rbp + 0x24]
+0x001D4CF1: xor ecx, 0x7a
+0x001D4CF4: mov byte ptr [rbp + 0x25], cl
+0x001D4CF7: movsx ecx, byte ptr [rbp + 0x25]
+0x001D4CFB: xor ecx, 0x33
+0x001D4CFE: mov byte ptr [rbp + 0x26], cl
+0x001D4D01: movsx ecx, byte ptr [rbp + 0x26]
+0x001D4D05: xor ecx, 0x34
+0x001D4D08: mov byte ptr [rbp + 0x27], cl
+0x001D4D0B: movsx ecx, byte ptr [rbp + 0x27]
+0x001D4D0F: xor ecx, 0x33
+0x001D4D12: mov byte ptr [rbp + 0x28], cl
+0x001D4D15: movsx ecx, byte ptr [rbp + 0x28]
+0x001D4D19: xor ecx, 0x2e
+0x001D4D1C: mov byte ptr [rbp + 0x29], cl
+0x001D4D1F: movsx ecx, byte ptr [rbp + 0x29]
+0x001D4D23: xor ecx, 0x7a
+0x001D4D26: mov byte ptr [rbp + 0x2a], cl
+0x001D4D29: movsx ecx, byte ptr [rbp + 0x2a]
+0x001D4D2D: xor ecx, 0x14
+0x001D4D30: mov byte ptr [rbp + 0x2b], cl
+0x001D4D33: movsx ecx, byte ptr [rbp + 0x2b]
+0x001D4D37: xor ecx, 0xc
+0x001D4D3A: mov byte ptr [rbp + 0x2c], cl
+0x001D4D3D: movsx ecx, byte ptr [rbp + 0x2c]
+0x001D4D41: xor ecx, 0x17
+0x001D4D44: mov byte ptr [rbp + 0x2d], cl
+0x001D4D47: movsx ecx, byte ptr [rbp + 0x2d]
+0x001D4D4B: xor ecx, 0x16
+0x001D4D4E: mov byte ptr [rbp + 0x2e], cl
+0x001D4D51: movsx ecx, byte ptr [rbp + 0x2e]
+0x001D4D55: xor ecx, 0x7a
+0x001D4D58: mov byte ptr [rbp + 0x2f], cl
+0x001D4D5B: movsx ecx, byte ptr [rbp + 0x2f]
+0x001D4D5F: xor ecx, 0x38
+0x001D4D62: mov byte ptr [rbp + 0x30], cl
+0x001D4D65: movsx ecx, byte ptr [rbp + 0x30]
+0x001D4D69: xor ecx, 0x23
+0x001D4D6C: mov byte ptr [rbp + 0x31], cl
+0x001D4D6F: movsx ecx, byte ptr [rbp + 0x31]
+0x001D4D73: xor ecx, 0x7a
+0x001D4D76: mov byte ptr [rbp + 0x32], cl
+0x001D4D79: movsx ecx, byte ptr [rbp + 0x32]
+0x001D4D7D: xor ecx, 0x38
+0x001D4D80: mov byte ptr [rbp + 0x33], cl
+0x001D4D83: movsx ecx, byte ptr [rbp + 0x33]
+0x001D4D87: xor ecx, 0x2f
+0x001D4D8A: mov byte ptr [rbp + 0x34], cl
+0x001D4D8D: movsx ecx, byte ptr [rbp + 0x34]
+0x001D4D91: xor ecx, 0x29
+0x001D4D94: mov byte ptr [rbp + 0x35], cl
+0x001D4D97: movsx ecx, byte ptr [rbp + 0x35]
+0x001D4D9B: xor ecx, 0x7a
+0x001D4D9E: mov byte ptr [rbp + 0x36], cl
+0x001D4DA1: movsx ecx, byte ptr [rbp + 0x36]
+0x001D4DA5: xor ecx, 0x13
+0x001D4DA8: mov byte ptr [rbp + 0x37], cl
+0x001D4DAB: movsx ecx, byte ptr [rbp + 0x37]
+0x001D4DAF: xor ecx, 0x1e
+0x001D4DB2: mov byte ptr [rbp + 0x38], cl
+0x001D4DB5: movsx ecx, byte ptr [rbp + 0x38]
+0x001D4DB9: xor ecx, 0x7a
+0x001D4DBC: mov byte ptr [rbp + 0x39], cl
+0x001D4DBF: movsx ecx, byte ptr [rbp + 0x39]
+0x001D4DC3: xor ecx, 0x77
+0x001D4DC6: mov byte ptr [rbp + 0x3a], cl
+0x001D4DC9: movsx ecx, byte ptr [rbp + 0x3a]
+0x001D4DCD: xor ecx, 0x7a
+0x001D4DD0: mov byte ptr [rbp + 0x3b], cl
+0x001D4DD3: movsx ecx, byte ptr [rbp + 0x3b]
+0x001D4DD7: xor ecx, 0x21
+0x001D4DDA: mov byte ptr [rbp + 0x3c], cl
+0x001D4DDD: movsx ecx, byte ptr [rbp + 0x3c]
+0x001D4DE1: xor ecx, 0x27
+0x001D4DE4: mov byte ptr [rbp + 0x3d], cl
+0x001D4DE7: xor eax, eax
+0x001D4DE9: mov byte ptr [rbp + 0x3e], al
+0x001D4DEC: movzx eax, byte ptr [rbp + 0x18]
+0x001D4DF0: lea rdx, [rbp + 0xa0]
+0x001D4DF7: lea rcx, [rbp + 0x10]
+0x001D4DFB: call 0x1401ec770
+0x001D4E00: nop
+0x001D4E01: cmp qword ptr [rax + 0x18], 0x10
+0x001D4E06: jb 0x1401d4e0b
+0x001D4E08: mov rax, qword ptr [rax]
+0x001D4E0B: lea r8, [rsp + 0x30]
+0x001D4E10: mov rdx, r13
+0x001D4E13: mov rcx, rax
+0x001D4E16: call 0x1401d4570
+0x001D4E1B: nop
+0x001D4E1C: mov rax, qword ptr [rbp + 0xb8]
+0x001D4E23: cmp rax, 0x10
+0x001D4E27: jb 0x1401d4e78
+0x001D4E29: inc rax
+0x001D4E2C: mov rcx, qword ptr [rbp + 0xa0]
+0x001D4E33: cmp rax, 0x1000
+0x001D4E39: jb 0x1401d4e73
+0x001D4E3B: test cl, 0x1f
+0x001D4E3E: je 0x1401d4e46
+0x001D4E40: call 0x1403db020
+0x001D4E45: int3
+0x001D4E46: mov rax, qword ptr [rcx - 8]
+0x001D4E4A: cmp rax, rcx
+0x001D4E4D: jb 0x1401d4e55
+0x001D4E4F: call 0x1403db020
+0x001D4E54: int3
+0x001D4E55: sub rcx, rax
+0x001D4E58: cmp rcx, 8
+0x001D4E5C: jae 0x1401d4e64
+0x001D4E5E: call 0x1403db020
+0x001D4E63: int3
+0x001D4E64: cmp rcx, 0x27
+0x001D4E68: jbe 0x1401d4e70
+0x001D4E6A: call 0x1403db020
+0x001D4E6F: int3
+0x001D4E70: mov rcx, rax
+0x001D4E73: call 0x1403b20d4
+0x001D4E78: mov qword ptr [rbp + 0xb8], 0xf
+0x001D4E83: mov qword ptr [rbp + 0xb0], rdi
+0x001D4E8A: mov byte ptr [rbp + 0xa0], 0
+0x001D4E91: mov qword ptr [r15], rdi
+0x001D4E94: mov r12d, esi
+0x001D4E97: mov qword ptr [r14], 0xffffffffffffffff
+0x001D4E9E: mov r10, qword ptr [rsp + 0x60]
+0x001D4EA3: lea r14, [rbx + 0xc0]
+0x001D4EAA: cmp qword ptr [r15], 0
+0x001D4EAE: jne 0x1401d5165
+0x001D4EB4: cmp r12d, -1
+0x001D4EB8: jne 0x1401d4ec6
+0x001D4EBA: mov rax, qword ptr [rip + 0x611547]
+0x001D4EC1: mov r12d, dword ptr [r10 + rax + 0x10]
+0x001D4EC6: mov rdx, r15
+0x001D4EC9: mov ecx, r12d
+0x001D4ECC: call qword ptr [rip + 0x61296e]
+0x001D4ED2: mov dword ptr [rsp + 0x34], eax
+0x001D4ED6: test eax, eax
+0x001D4ED8: je 0x1401d5165
+0x001D4EDE: mov ecx, eax
+0x001D4EE0: call qword ptr [rip + 0x612972]
+0x001D4EE6: mov qword ptr [rsp + 0x68], rax
+0x001D4EEB: mov dword ptr [rbp + 0x40], 0x39
+0x001D4EF2: mov dword ptr [rbp + 0x44], 0x54
+0x001D4EF9: mov eax, dword ptr [rbp + 0x44]
+0x001D4EFC: xor eax, 3
+0x001D4EFF: mov byte ptr [rbp + 0x48], al
+0x001D4F02: movsx ecx, byte ptr [rbp + 0x48]
+0x001D4F06: xor ecx, 0x19
+0x001D4F09: mov byte ptr [rbp + 0x49], cl
+0x001D4F0C: movsx ecx, byte ptr [rbp + 0x49]
+0x001D4F10: xor ecx, 0x4c
+0x001D4F13: mov byte ptr [rbp + 0x4a], cl
+0x001D4F16: movsx ecx, byte ptr [rbp + 0x4a]
+0x001D4F1A: xor ecx, 0x57
+0x001D4F1D: mov byte ptr [rbp + 0x4b], cl
+0x001D4F20: movsx ecx, byte ptr [rbp + 0x4b]
+0x001D4F24: xor ecx, 0x58
+0x001D4F27: mov byte ptr [rbp + 0x4c], cl
+0x001D4F2A: movsx ecx, byte ptr [rbp + 0x4c]
+0x001D4F2E: xor ecx, 0x5b
+0x001D4F31: mov byte ptr [rbp + 0x4d], cl
+0x001D4F34: movsx ecx, byte ptr [rbp + 0x4d]
+0x001D4F38: xor ecx, 0x55
+0x001D4F3B: mov byte ptr [rbp + 0x4e], cl
+0x001D4F3E: movsx ecx, byte ptr [rbp + 0x4e]
+0x001D4F42: xor ecx, 0x5c
+0x001D4F45: mov byte ptr [rbp + 0x4f], cl
+0x001D4F48: movsx ecx, byte ptr [rbp + 0x4f]
+0x001D4F4C: xor ecx, 0x19
+0x001D4F4F: mov byte ptr [rbp + 0x50], cl
+0x001D4F52: movsx ecx, byte ptr [rbp + 0x50]
+0x001D4F56: xor ecx, 0x4d
+0x001D4F59: mov byte ptr [rbp + 0x51], cl
+0x001D4F5C: movsx ecx, byte ptr [rbp + 0x51]
+0x001D4F60: xor ecx, 0x56
+0x001D4F63: mov byte ptr [rbp + 0x52], cl
+0x001D4F66: movsx ecx, byte ptr [rbp + 0x52]
+0x001D4F6A: xor ecx, 0x19
+0x001D4F6D: mov byte ptr [rbp + 0x53], cl
+0x001D4F70: movsx ecx, byte ptr [rbp + 0x53]
+0x001D4F74: xor ecx, 0x50
+0x001D4F77: mov byte ptr [rbp + 0x54], cl
+0x001D4F7A: movsx ecx, byte ptr [rbp + 0x54]
+0x001D4F7E: xor ecx, 0x57
+0x001D4F81: mov byte ptr [rbp + 0x55], cl
+0x001D4F84: movsx ecx, byte ptr [rbp + 0x55]
+0x001D4F88: xor ecx, 0x50
+0x001D4F8B: mov byte ptr [rbp + 0x56], cl
+0x001D4F8E: movsx ecx, byte ptr [rbp + 0x56]
+0x001D4F92: xor ecx, 0x4d
+0x001D4F95: mov byte ptr [rbp + 0x57], cl
+0x001D4F98: movsx ecx, byte ptr [rbp + 0x57]
+0x001D4F9C: xor ecx, 0x19
+0x001D4F9F: mov byte ptr [rbp + 0x58], cl
+0x001D4FA2: movsx ecx, byte ptr [rbp + 0x58]
+0x001D4FA6: xor ecx, 0x77
+0x001D4FA9: mov byte ptr [rbp + 0x59], cl
+0x001D4FAC: movsx ecx, byte ptr [rbp + 0x59]
+0x001D4FB0: xor ecx, 0x6f
+0x001D4FB3: mov byte ptr [rbp + 0x5a], cl
+0x001D4FB6: movsx ecx, byte ptr [rbp + 0x5a]
+0x001D4FBA: xor ecx, 0x74
+0x001D4FBD: mov byte ptr [rbp + 0x5b], cl
+0x001D4FC0: movsx ecx, byte ptr [rbp + 0x5b]
+0x001D4FC4: xor ecx, 0x75
+0x001D4FC7: mov byte ptr [rbp + 0x5c], cl
+0x001D4FCA: movsx ecx, byte ptr [rbp + 0x5c]
+0x001D4FCE: xor ecx, 0x19
+0x001D4FD1: mov byte ptr [rbp + 0x5d], cl
+0x001D4FD4: movsx ecx, byte ptr [rbp + 0x5d]
+0x001D4FD8: xor ecx, 0x14
+0x001D4FDB: mov byte ptr [rbp + 0x5e], cl
+0x001D4FDE: movsx ecx, byte ptr [rbp + 0x5e]
+0x001D4FE2: xor ecx, 0x19
+0x001D4FE5: mov byte ptr [rbp + 0x5f], cl
+0x001D4FE8: movsx ecx, byte ptr [rbp + 0x5f]
+0x001D4FEC: xor ecx, 0x42
+0x001D4FEF: mov byte ptr [rbp + 0x60], cl
+0x001D4FF2: movsx ecx, byte ptr [rbp + 0x60]
+0x001D4FF6: xor ecx, 0x44
+0x001D4FF9: mov byte ptr [rbp + 0x61], cl
+0x001D4FFC: movsx ecx, byte ptr [rbp + 0x61]
+0x001D5000: xor ecx, 0x19
+0x001D5003: mov byte ptr [rbp + 0x62], cl
+0x001D5006: movsx ecx, byte ptr [rbp + 0x62]
+0x001D500A: xor ecx, 0x11
+0x001D500D: mov byte ptr [rbp + 0x63], cl
+0x001D5010: movsx ecx, byte ptr [rbp + 0x63]
+0x001D5014: xor ecx, 0x42
+0x001D5017: mov byte ptr [rbp + 0x64], cl
+0x001D501A: movsx ecx, byte ptr [rbp + 0x64]
+0x001D501E: xor ecx, 0x44
+0x001D5021: mov byte ptr [rbp + 0x65], cl
+0x001D5024: movsx ecx, byte ptr [rbp + 0x65]
+0x001D5028: xor ecx, 0x10
+0x001D502B: mov byte ptr [rbp + 0x66], cl
+0x001D502E: xor eax, eax
+0x001D5030: mov byte ptr [rbp + 0x67], al
+0x001D5033: movzx eax, byte ptr [rbp + 0x48]
+0x001D5037: lea rdx, [rbp + 0xe0]
+0x001D503E: lea rcx, [rbp + 0x40]
+0x001D5042: call 0x1401b62e0
+0x001D5047: nop
+0x001D5048: mov r8, rax
+0x001D504B: mov rdx, r13
+0x001D504E: lea rcx, [rbp + 0xc0]
+0x001D5055: call 0x14012da50
+0x001D505A: nop
+0x001D505B: cmp qword ptr [rax + 0x18], 0x10
+0x001D5060: jb 0x1401d5065
+0x001D5062: mov rax, qword ptr [rax]
+0x001D5065: lea r8, [rsp + 0x34]
+0x001D506A: lea rdx, [rsp + 0x68]
+0x001D506F: mov rcx, rax
+0x001D5072: call 0x1401d4140
+0x001D5077: nop
+0x001D5078: mov rax, qword ptr [rbp + 0xd8]
+0x001D507F: cmp rax, 0x10
+0x001D5083: jb 0x1401d50d4
+0x001D5085: inc rax
+0x001D5088: mov rcx, qword ptr [rbp + 0xc0]
+0x001D508F: cmp rax, 0x1000
+0x001D5095: jb 0x1401d50cf
+0x001D5097: test cl, 0x1f
+0x001D509A: je 0x1401d50a2
+0x001D509C: call 0x1403db020
+0x001D50A1: int3
+0x001D50A2: mov rax, qword ptr [rcx - 8]
+0x001D50A6: cmp rax, rcx
+0x001D50A9: jb 0x1401d50b1
+0x001D50AB: call 0x1403db020
+0x001D50B0: int3
+0x001D50B1: sub rcx, rax
+0x001D50B4: cmp rcx, 8
+0x001D50B8: jae 0x1401d50c0
+0x001D50BA: call 0x1403db020
+0x001D50BF: int3
+0x001D50C0: cmp rcx, 0x27
+0x001D50C4: jbe 0x1401d50cc
+0x001D50C6: call 0x1403db020
+0x001D50CB: int3
+0x001D50CC: mov rcx, rax
+0x001D50CF: call 0x1403b20d4
+0x001D50D4: mov qword ptr [rbp + 0xd8], 0xf
+0x001D50DF: mov qword ptr [rbp + 0xd0], rdi
+0x001D50E6: mov byte ptr [rbp + 0xc0], 0
+0x001D50ED: mov rax, qword ptr [rbp + 0xf8]
+0x001D50F4: cmp rax, 0x10
+0x001D50F8: jb 0x1401d5149
+0x001D50FA: inc rax
+0x001D50FD: mov rcx, qword ptr [rbp + 0xe0]
+0x001D5104: cmp rax, 0x1000
+0x001D510A: jb 0x1401d5144
+0x001D510C: test cl, 0x1f
+0x001D510F: je 0x1401d5117
+0x001D5111: call 0x1403db020
+0x001D5116: int3
+0x001D5117: mov rax, qword ptr [rcx - 8]
+0x001D511B: cmp rax, rcx
+0x001D511E: jb 0x1401d5126
+0x001D5120: call 0x1403db020
+0x001D5125: int3
+0x001D5126: sub rcx, rax
+0x001D5129: cmp rcx, 8
+0x001D512D: jae 0x1401d5135
+0x001D512F: call 0x1403db020
+0x001D5134: int3
+0x001D5135: cmp rcx, 0x27
+0x001D5139: jbe 0x1401d5141
+0x001D513B: call 0x1403db020
+0x001D5140: int3
+0x001D5141: mov rcx, rax
+0x001D5144: call 0x1403b20d4
+0x001D5149: mov qword ptr [rbp + 0xf8], 0xf
+0x001D5154: mov qword ptr [rbp + 0xf0], rdi
+0x001D515B: mov byte ptr [rbp + 0xe0], 0
+0x001D5162: mov qword ptr [r15], rdi
+0x001D5165: mov qword ptr [rbx + 0xd0], rdi
+0x001D516C: mov edx, edi
+0x001D516E: mov r8, qword ptr [rip + 0x612783]
+0x001D5175: mov r10, qword ptr [rip + 0x612774]
+0x001D517C: sub r8, r10
+0x001D517F: sar r8, 4
+0x001D5183: test r8, r8
+0x001D5186: je 0x1401d51cf
+0x001D5188: mov r9, qword ptr [r14]
+0x001D518B: mov rax, rdi
+0x001D518E: mov ecx, 0xffff0000
+0x001D5193: and r9, rcx
+0x001D5196: nop word ptr [rax + rax]
+0x001D51A0: add rax, rax
+0x001D51A3: mov ecx, dword ptr [r10 + rax*8 + 8]
+0x001D51A8: shl ecx, 0x10
+0x001D51AB: cmp rcx, r9
+0x001D51AE: je 0x1401d51bb
+0x001D51B0: inc edx
+0x001D51B2: mov eax, edx
+0x001D51B4: cmp rax, r8
+0x001D51B7: jb 0x1401d51a0
+0x001D51B9: jmp 0x1401d51cf
+0x001D51BB: mov rcx, qword ptr [r10 + rax*8]
+0x001D51BF: mov qword ptr [rbx + 0xd0], rcx
+0x001D51C6: mov dword ptr [r10 + rax*8 + 8], 0xffffffff
+0x001D51CF: mov rcx, qword ptr [rbx + 0xd0]
+0x001D51D6: test rcx, rcx
+0x001D51D9: je 0x1401d5b26
+0x001D51DF: mov rax, qword ptr [rip + 0x61290a]
+0x001D51E6: test rax, rax
+0x001D51E9: je 0x1401d5435
+0x001D51EF: lea rdx, [rbx + 0xdc]
+0x001D51F6: call rax
+0x001D51F8: mov dword ptr [rsp + 0x38], eax
+0x001D51FC: test eax, eax
+0x001D51FE: je 0x1401d5435
+0x001D5204: mov dword ptr [rsp + 0x3c], 0x239
+0x001D520C: mov dword ptr [rbp - 0x20], 0x7e
+0x001D5213: mov eax, dword ptr [rbp - 0x20]
+0x001D5216: xor eax, 0x4e
+0x001D5219: mov byte ptr [rbp - 0x1c], al
+0x001D521C: movsx ecx, byte ptr [rbp - 0x1c]
+0x001D5220: xor ecx, 0x56
+0x001D5223: mov byte ptr [rbp - 0x1b], cl
+0x001D5226: movsx ecx, byte ptr [rbp - 0x1b]
+0x001D522A: xor ecx, 0x41
+0x001D522D: mov byte ptr [rbp - 0x1a], cl
+0x001D5230: movsx ecx, byte ptr [rbp - 0x1a]
+0x001D5234: xor ecx, 0x50
+0x001D5237: mov byte ptr [rbp - 0x19], cl
+0x001D523A: movsx ecx, byte ptr [rbp - 0x19]
+0x001D523E: xor ecx, 0x49
+0x001D5241: mov byte ptr [rbp - 0x18], cl
+0x001D5244: movsx ecx, byte ptr [rbp - 0x18]
+0x001D5248: xor ecx, 0x20
+0x001D524B: mov byte ptr [rbp - 0x17], cl
+0x001D524E: movsx ecx, byte ptr [rbp - 0x17]
+0x001D5252: xor ecx, 0x65
+0x001D5255: mov byte ptr [rbp - 0x16], cl
+0x001D5258: movsx ecx, byte ptr [rbp - 0x16]
+0x001D525C: xor ecx, 0x72
+0x001D525F: mov byte ptr [rbp - 0x15], cl
+0x001D5262: movsx ecx, byte ptr [rbp - 0x15]
+0x001D5266: xor ecx, 0x72
+0x001D5269: mov byte ptr [rbp - 0x14], cl
+0x001D526C: movsx ecx, byte ptr [rbp - 0x14]
+0x001D5270: xor ecx, 0x6f
+0x001D5273: mov byte ptr [rbp - 0x13], cl
+0x001D5276: movsx ecx, byte ptr [rbp - 0x13]
+0x001D527A: xor ecx, 0x72
+0x001D527D: mov byte ptr [rbp - 0x12], cl
+0x001D5280: movsx ecx, byte ptr [rbp - 0x12]
+0x001D5284: xor ecx, 0x20
+0x001D5287: mov byte ptr [rbp - 0x11], cl
+0x001D528A: movsx ecx, byte ptr [rbp - 0x11]
+0x001D528E: xor ecx, 0x69
+0x001D5291: mov byte ptr [rbp - 0x10], cl
+0x001D5294: movsx ecx, byte ptr [rbp - 0x10]
+0x001D5298: xor ecx, 0x6e
+0x001D529B: mov byte ptr [rbp - 0xf], cl
+0x001D529E: movsx ecx, byte ptr [rbp - 0xf]
+0x001D52A2: xor ecx, 0x20
+0x001D52A5: mov byte ptr [rbp - 0xe], cl
+0x001D52A8: movsx ecx, byte ptr [rbp - 0xe]
+0x001D52AC: xor ecx, 0x4e
+0x001D52AF: mov byte ptr [rbp - 0xd], cl
+0x001D52B2: movsx ecx, byte ptr [rbp - 0xd]
+0x001D52B6: xor ecx, 0x76
+0x001D52B9: mov byte ptr [rbp - 0xc], cl
+0x001D52BC: movsx ecx, byte ptr [rbp - 0xc]
+0x001D52C0: xor ecx, 0x61
+0x001D52C3: mov byte ptr [rbp - 0xb], cl
+0x001D52C6: movsx ecx, byte ptr [rbp - 0xb]
+0x001D52CA: xor ecx, 0x70
+0x001D52CD: mov byte ptr [rbp - 0xa], cl
+0x001D52D0: movsx ecx, byte ptr [rbp - 0xa]
+0x001D52D4: xor ecx, 0x69
+0x001D52D7: mov byte ptr [rbp - 9], cl
+0x001D52DA: movsx ecx, byte ptr [rbp - 9]
+0x001D52DE: xor ecx, 0x57
+0x001D52E1: mov byte ptr [rbp - 8], cl
+0x001D52E4: movsx ecx, byte ptr [rbp - 8]
+0x001D52E8: xor ecx, 0x72
+0x001D52EB: mov byte ptr [rbp - 7], cl
+0x001D52EE: movsx ecx, byte ptr [rbp - 7]
+0x001D52F2: xor ecx, 0x61
+0x001D52F5: mov byte ptr [rbp - 6], cl
+0x001D52F8: movsx ecx, byte ptr [rbp - 6]
+0x001D52FC: xor ecx, 0x70
+0x001D52FF: mov byte ptr [rbp - 5], cl
+0x001D5302: movsx ecx, byte ptr [rbp - 5]
+0x001D5306: xor ecx, 0x70
+0x001D5309: mov byte ptr [rbp - 4], cl
+0x001D530C: movsx ecx, byte ptr [rbp - 4]
+0x001D5310: xor ecx, 0x65
+0x001D5313: mov byte ptr [rbp - 3], cl
+0x001D5316: movsx ecx, byte ptr [rbp - 3]
+0x001D531A: xor ecx, 0x72
+0x001D531D: mov byte ptr [rbp - 2], cl
+0x001D5320: movsx ecx, byte ptr [rbp - 2]
+0x001D5324: xor ecx, 0x2e
+0x001D5327: mov byte ptr [rbp - 1], cl
+0x001D532A: movsx ecx, byte ptr [rbp - 1]
+0x001D532E: xor ecx, 0x63
+0x001D5331: mov byte ptr [rbp], cl
+0x001D5334: movsx ecx, byte ptr [rbp]
+0x001D5338: xor ecx, 0x3a
+0x001D533B: mov byte ptr [rbp + 1], cl
+0x001D533E: movsx ecx, byte ptr [rbp + 1]
+0x001D5342: xor ecx, 0x7b
+0x001D5345: mov byte ptr [rbp + 2], cl
+0x001D5348: movsx ecx, byte ptr [rbp + 2]
+0x001D534C: xor ecx, 0x7d
+0x001D534F: mov byte ptr [rbp + 3], cl
+0x001D5352: movsx ecx, byte ptr [rbp + 3]
+0x001D5356: xor ecx, 0x20
+0x001D5359: mov byte ptr [rbp + 4], cl
+0x001D535C: movsx ecx, byte ptr [rbp + 4]
+0x001D5360: xor ecx, 0x3a
+0x001D5363: mov byte ptr [rbp + 5], cl
+0x001D5366: movsx ecx, byte ptr [rbp + 5]
+0x001D536A: xor ecx, 0x20
+0x001D536D: mov byte ptr [rbp + 6], cl
+0x001D5370: movsx ecx, byte ptr [rbp + 6]
+0x001D5374: xor ecx, 0x7b
+0x001D5377: mov byte ptr [rbp + 7], cl
+0x001D537A: movsx ecx, byte ptr [rbp + 7]
+0x001D537E: xor ecx, 0x7d
+0x001D5381: mov byte ptr [rbp + 8], cl
+0x001D5384: mov byte ptr [rbp + 9], 0
+0x001D5388: movzx eax, byte ptr [rbp - 0x1c]
+0x001D538C: lea rdx, [rbp + 0x100]
+0x001D5393: lea rcx, [rbp - 0x20]
+0x001D5397: call 0x14026de30
+0x001D539C: nop
+0x001D539D: cmp qword ptr [rax + 0x18], 0x10
+0x001D53A2: jb 0x1401d53a7
+0x001D53A4: mov rax, qword ptr [rax]
+0x001D53A7: lea r8, [rsp + 0x38]
+0x001D53AC: lea rdx, [rsp + 0x3c]
+0x001D53B1: mov rcx, rax
+0x001D53B4: call 0x1401d3fc0
+0x001D53B9: nop
+0x001D53BA: mov rax, qword ptr [rbp + 0x118]
+0x001D53C1: cmp rax, 0x10
+0x001D53C5: jb 0x1401d5416
+0x001D53C7: inc rax
+0x001D53CA: mov rcx, qword ptr [rbp + 0x100]
+0x001D53D1: cmp rax, 0x1000
+0x001D53D7: jb 0x1401d5411
+0x001D53D9: test cl, 0x1f
+0x001D53DC: je 0x1401d53e4
+0x001D53DE: call 0x1403db020
+0x001D53E3: int3
+0x001D53E4: mov rax, qword ptr [rcx - 8]
+0x001D53E8: cmp rax, rcx
+0x001D53EB: jb 0x1401d53f3
+0x001D53ED: call 0x1403db020
+0x001D53F2: int3
+0x001D53F3: sub rcx, rax
+0x001D53F6: cmp rcx, 8
+0x001D53FA: jae 0x1401d5402
+0x001D53FC: call 0x1403db020
+0x001D5401: int3
+0x001D5402: cmp rcx, 0x27
+0x001D5406: jbe 0x1401d540e
+0x001D5408: call 0x1403db020
+0x001D540D: int3
+0x001D540E: mov rcx, rax
+0x001D5411: call 0x1403b20d4
+0x001D5416: mov qword ptr [rbp + 0x118], 0xf
+0x001D5421: mov qword ptr [rbp + 0x110], rdi
+0x001D5428: mov byte ptr [rbp + 0x100], 0
+0x001D542F: mov dword ptr [rbx + 0xdc], edi
+0x001D5435: mov rax, qword ptr [rip + 0x6126bc]
+0x001D543C: test rax, rax
+0x001D543F: je 0x1401d57a2
+0x001D5445: lea rdx, [rbx + 0xe0]
+0x001D544C: mov rcx, qword ptr [rbx + 0xd0]
+0x001D5453: call rax
+0x001D5455: mov dword ptr [rsp + 0x40], eax
+0x001D5459: test eax, eax
+0x001D545B: je 0x1401d57a2
+0x001D5461: mov dword ptr [rsp + 0x44], 0x23d
+0x001D5469: mov dword ptr [rbp - 0x80], 0x35
+0x001D5470: mov eax, dword ptr [rbp - 0x80]
+0x001D5473: add al, 0x35
+0x001D5475: movsx ecx, al
+0x001D5478: xor ecx, 0x15
+0x001D547B: mov dword ptr [rbp - 0x7c], ecx
+0x001D547E: mov eax, dword ptr [rbp - 0x7c]
+0x001D5481: mov ecx, dword ptr [rbp - 0x80]
+0x001D5484: xor ecx, eax
+0x001D5486: xor ecx, 0x4e
+0x001D5489: mov byte ptr [rbp - 0x78], cl
+0x001D548C: movsx ecx, byte ptr [rbp - 0x78]
+0x001D5490: mov eax, dword ptr [rbp - 0x80]
+0x001D5493: inc al
+0x001D5495: xor eax, ecx
+0x001D5497: xor eax, 0x56
+0x001D549A: mov byte ptr [rbp - 0x77], al
+0x001D549D: movsx ecx, byte ptr [rbp - 0x77]
+0x001D54A1: mov eax, dword ptr [rbp - 0x80]
+0x001D54A4: add al, 2
+0x001D54A6: xor eax, ecx
+0x001D54A8: xor eax, 0x41
+0x001D54AB: mov byte ptr [rbp - 0x76], al
+0x001D54AE: movsx ecx, byte ptr [rbp - 0x76]
+0x001D54B2: mov eax, dword ptr [rbp - 0x80]
+0x001D54B5: add al, 3
+0x001D54B7: xor eax, ecx
+0x001D54B9: xor eax, 0x50
+0x001D54BC: mov byte ptr [rbp - 0x75], al
+0x001D54BF: movsx ecx, byte ptr [rbp - 0x75]
+0x001D54C3: mov eax, dword ptr [rbp - 0x80]
+0x001D54C6: add al, 4
+0x001D54C8: xor eax, ecx
+0x001D54CA: xor eax, 0x49
+0x001D54CD: mov byte ptr [rbp - 0x74], al
+0x001D54D0: movsx ecx, byte ptr [rbp - 0x74]
+0x001D54D4: mov eax, dword ptr [rbp - 0x80]
+0x001D54D7: add al, 5
+0x001D54D9: xor eax, ecx
+0x001D54DB: xor eax, 0x20
+0x001D54DE: mov byte ptr [rbp - 0x73], al
+0x001D54E1: movsx ecx, byte ptr [rbp - 0x73]
+0x001D54E5: mov eax, dword ptr [rbp - 0x80]
+0x001D54E8: add al, 6
+0x001D54EA: xor eax, ecx
+0x001D54EC: xor eax, 0x65
+0x001D54EF: mov byte ptr [rbp - 0x72], al
+0x001D54F2: movsx ecx, byte ptr [rbp - 0x72]
+0x001D54F6: mov eax, dword ptr [rbp - 0x80]
+0x001D54F9: add al, 7
+0x001D54FB: xor eax, ecx
+0x001D54FD: xor eax, 0x72
+0x001D5500: mov byte ptr [rbp - 0x71], al
+0x001D5503: movsx ecx, byte ptr [rbp - 0x71]
+0x001D5507: mov eax, dword ptr [rbp - 0x80]
+0x001D550A: add al, 8
+0x001D550C: xor eax, ecx
+0x001D550E: xor eax, 0x72
+0x001D5511: mov byte ptr [rbp - 0x70], al
+0x001D5514: movsx ecx, byte ptr [rbp - 0x70]
+0x001D5518: mov eax, dword ptr [rbp - 0x80]
+0x001D551B: add al, 9
+0x001D551D: xor eax, ecx
+0x001D551F: xor eax, 0x6f
+0x001D5522: mov byte ptr [rbp - 0x6f], al
+0x001D5525: movsx ecx, byte ptr [rbp - 0x6f]
+0x001D5529: mov eax, dword ptr [rbp - 0x80]
+0x001D552C: add al, 0xa
+0x001D552E: xor eax, ecx
+0x001D5530: xor eax, 0x72
+0x001D5533: mov byte ptr [rbp - 0x6e], al
+0x001D5536: movsx ecx, byte ptr [rbp - 0x6e]
+0x001D553A: mov eax, dword ptr [rbp - 0x80]
+0x001D553D: add al, 0xb
+0x001D553F: xor eax, ecx
+0x001D5541: xor eax, 0x20
+0x001D5544: mov byte ptr [rbp - 0x6d], al
+0x001D5547: movsx ecx, byte ptr [rbp - 0x6d]
+0x001D554B: mov eax, dword ptr [rbp - 0x80]
+0x001D554E: add al, 0xc
+0x001D5550: xor eax, ecx
+0x001D5552: xor eax, 0x69
+0x001D5555: mov byte ptr [rbp - 0x6c], al
+0x001D5558: movsx ecx, byte ptr [rbp - 0x6c]
+0x001D555C: mov eax, dword ptr [rbp - 0x80]
+0x001D555F: add al, 0xd
+0x001D5561: xor eax, ecx
+0x001D5563: xor eax, 0x6e
+0x001D5566: mov byte ptr [rbp - 0x6b], al
+0x001D5569: movsx ecx, byte ptr [rbp - 0x6b]
+0x001D556D: mov eax, dword ptr [rbp - 0x80]
+0x001D5570: add al, 0xe
+0x001D5572: xor eax, ecx
+0x001D5574: xor eax, 0x20
+0x001D5577: mov byte ptr [rbp - 0x6a], al
+0x001D557A: movsx ecx, byte ptr [rbp - 0x6a]
+0x001D557E: mov eax, dword ptr [rbp - 0x80]
+0x001D5581: add al, 0xf
+0x001D5583: xor eax, ecx
+0x001D5585: xor eax, 0x4e
+0x001D5588: mov byte ptr [rbp - 0x69], al
+0x001D558B: movsx ecx, byte ptr [rbp - 0x69]
+0x001D558F: mov eax, dword ptr [rbp - 0x80]
+0x001D5592: add al, 0x10
+0x001D5594: xor eax, ecx
+0x001D5596: xor eax, 0x76
+0x001D5599: mov byte ptr [rbp - 0x68], al
+0x001D559C: movsx ecx, byte ptr [rbp - 0x68]
+0x001D55A0: mov eax, dword ptr [rbp - 0x80]
+0x001D55A3: add al, 0x11
+0x001D55A5: xor eax, ecx
+0x001D55A7: xor eax, 0x61
+0x001D55AA: mov byte ptr [rbp - 0x67], al
+0x001D55AD: movsx ecx, byte ptr [rbp - 0x67]
+0x001D55B1: mov eax, dword ptr [rbp - 0x80]
+0x001D55B4: add al, 0x12
+0x001D55B6: xor eax, ecx
+0x001D55B8: xor eax, 0x70
+0x001D55BB: mov byte ptr [rbp - 0x66], al
+0x001D55BE: movsx ecx, byte ptr [rbp - 0x66]
+0x001D55C2: mov eax, dword ptr [rbp - 0x80]
+0x001D55C5: add al, 0x13
+0x001D55C7: xor eax, ecx
+0x001D55C9: xor eax, 0x69
+0x001D55CC: mov byte ptr [rbp - 0x65], al
+0x001D55CF: movsx ecx, byte ptr [rbp - 0x65]
+0x001D55D3: mov eax, dword ptr [rbp - 0x80]
+0x001D55D6: add al, 0x14
+0x001D55D8: xor eax, ecx
+0x001D55DA: xor eax, 0x57
+0x001D55DD: mov byte ptr [rbp - 0x64], al
+0x001D55E0: movsx ecx, byte ptr [rbp - 0x64]
+0x001D55E4: mov eax, dword ptr [rbp - 0x80]
+0x001D55E7: add al, 0x15
+0x001D55E9: xor eax, ecx
+0x001D55EB: xor eax, 0x72
+0x001D55EE: mov byte ptr [rbp - 0x63], al
+0x001D55F1: movsx ecx, byte ptr [rbp - 0x63]
+0x001D55F5: mov eax, dword ptr [rbp - 0x80]
+0x001D55F8: add al, 0x16
+0x001D55FA: xor eax, ecx
+0x001D55FC: xor eax, 0x61
+0x001D55FF: mov byte ptr [rbp - 0x62], al
+0x001D5602: movsx ecx, byte ptr [rbp - 0x62]
+0x001D5606: mov eax, dword ptr [rbp - 0x80]
+0x001D5609: add al, 0x17
+0x001D560B: xor eax, ecx
+0x001D560D: xor eax, 0x70
+0x001D5610: mov byte ptr [rbp - 0x61], al
+0x001D5613: movsx ecx, byte ptr [rbp - 0x61]
+0x001D5617: mov eax, dword ptr [rbp - 0x80]
+0x001D561A: add al, 0x18
+0x001D561C: xor eax, ecx
+0x001D561E: xor eax, 0x70
+0x001D5621: mov byte ptr [rbp - 0x60], al
+0x001D5624: movsx ecx, byte ptr [rbp - 0x60]
+0x001D5628: mov eax, dword ptr [rbp - 0x80]
+0x001D562B: add al, 0x19
+0x001D562D: xor eax, ecx
+0x001D562F: xor eax, 0x65
+0x001D5632: mov byte ptr [rbp - 0x5f], al
+0x001D5635: movsx ecx, byte ptr [rbp - 0x5f]
+0x001D5639: mov eax, dword ptr [rbp - 0x80]
+0x001D563C: add al, 0x1a
+0x001D563E: xor eax, ecx
+0x001D5640: xor eax, 0x72
+0x001D5643: mov byte ptr [rbp - 0x5e], al
+0x001D5646: movsx ecx, byte ptr [rbp - 0x5e]
+0x001D564A: mov eax, dword ptr [rbp - 0x80]
+0x001D564D: add al, 0x1b
+0x001D564F: xor eax, ecx
+0x001D5651: xor eax, 0x2e
+0x001D5654: mov byte ptr [rbp - 0x5d], al
+0x001D5657: movsx ecx, byte ptr [rbp - 0x5d]
+0x001D565B: mov eax, dword ptr [rbp - 0x80]
+0x001D565E: add al, 0x1c
+0x001D5660: xor eax, ecx
+0x001D5662: xor eax, 0x63
+0x001D5665: mov byte ptr [rbp - 0x5c], al
+0x001D5668: movsx ecx, byte ptr [rbp - 0x5c]
+0x001D566C: mov eax, dword ptr [rbp - 0x80]
+0x001D566F: add al, 0x1d
+0x001D5671: xor eax, ecx
+0x001D5673: xor eax, 0x3a
+0x001D5676: mov byte ptr [rbp - 0x5b], al
+0x001D5679: movsx ecx, byte ptr [rbp - 0x5b]
+0x001D567D: mov eax, dword ptr [rbp - 0x80]
+0x001D5680: add al, 0x1e
+0x001D5682: xor eax, ecx
+0x001D5684: xor eax, 0x7b
+0x001D5687: mov byte ptr [rbp - 0x5a], al
+0x001D568A: movsx ecx, byte ptr [rbp - 0x5a]
+0x001D568E: mov eax, dword ptr [rbp - 0x80]
+0x001D5691: add al, 0x1f
+0x001D5693: xor eax, ecx
+0x001D5695: xor eax, 0x7d
+0x001D5698: mov byte ptr [rbp - 0x59], al
+0x001D569B: movsx ecx, byte ptr [rbp - 0x59]
+0x001D569F: mov eax, dword ptr [rbp - 0x80]
+0x001D56A2: add al, 0x20
+0x001D56A4: xor eax, ecx
+0x001D56A6: xor eax, 0x20
+0x001D56A9: mov byte ptr [rbp - 0x58], al
+0x001D56AC: movsx ecx, byte ptr [rbp - 0x58]
+0x001D56B0: mov eax, dword ptr [rbp - 0x80]
+0x001D56B3: add al, 0x21
+0x001D56B5: xor eax, ecx
+0x001D56B7: xor eax, 0x3a
+0x001D56BA: mov byte ptr [rbp - 0x57], al
+0x001D56BD: movsx ecx, byte ptr [rbp - 0x57]
+0x001D56C1: mov eax, dword ptr [rbp - 0x80]
+0x001D56C4: add al, 0x22
+0x001D56C6: xor eax, ecx
+0x001D56C8: xor eax, 0x20
+0x001D56CB: mov byte ptr [rbp - 0x56], al
+0x001D56CE: movsx ecx, byte ptr [rbp - 0x56]
+0x001D56D2: mov eax, dword ptr [rbp - 0x80]
+0x001D56D5: add al, 0x23
+0x001D56D7: xor eax, ecx
+0x001D56D9: xor eax, 0x7b
+0x001D56DC: mov byte ptr [rbp - 0x55], al
+0x001D56DF: movsx ecx, byte ptr [rbp - 0x55]
+0x001D56E3: mov eax, dword ptr [rbp - 0x80]
+0x001D56E6: add al, 0x24
+0x001D56E8: xor eax, ecx
+0x001D56EA: xor eax, 0x7d
+0x001D56ED: mov byte ptr [rbp - 0x54], al
+0x001D56F0: xor eax, eax
+0x001D56F2: mov byte ptr [rbp - 0x53], al
+0x001D56F5: movzx eax, byte ptr [rbp - 0x78]
+0x001D56F9: lea rdx, [rbp + 0x120]
+0x001D5700: lea rcx, [rbp - 0x80]
+0x001D5704: call 0x1401a3280
+0x001D5709: nop
+0x001D570A: cmp qword ptr [rax + 0x18], 0x10
+0x001D570F: jb 0x1401d5714
+0x001D5711: mov rax, qword ptr [rax]
+0x001D5714: lea r8, [rsp + 0x40]
+0x001D5719: lea rdx, [rsp + 0x44]
+0x001D571E: mov rcx, rax
+0x001D5721: call 0x1401d3fc0
+0x001D5726: nop
+0x001D5727: mov rax, qword ptr [rbp + 0x138]
+0x001D572E: cmp rax, 0x10
+0x001D5732: jb 0x1401d5783
+0x001D5734: inc rax
+0x001D5737: mov rcx, qword ptr [rbp + 0x120]
+0x001D573E: cmp rax, 0x1000
+0x001D5744: jb 0x1401d577e
+0x001D5746: test cl, 0x1f
+0x001D5749: je 0x1401d5751
+0x001D574B: call 0x1403db020
+0x001D5750: int3
+0x001D5751: mov rax, qword ptr [rcx - 8]
+0x001D5755: cmp rax, rcx
+0x001D5758: jb 0x1401d5760
+0x001D575A: call 0x1403db020
+0x001D575F: int3
+0x001D5760: sub rcx, rax
+0x001D5763: cmp rcx, 8
+0x001D5767: jae 0x1401d576f
+0x001D5769: call 0x1403db020
+0x001D576E: int3
+0x001D576F: cmp rcx, 0x27
+0x001D5773: jbe 0x1401d577b
+0x001D5775: call 0x1403db020
+0x001D577A: int3
+0x001D577B: mov rcx, rax
+0x001D577E: call 0x1403b20d4
+0x001D5783: mov qword ptr [rbp + 0x138], 0xf
+0x001D578E: mov qword ptr [rbp + 0x130], rdi
+0x001D5795: mov byte ptr [rbp + 0x120], 0
+0x001D579C: mov dword ptr [rbx + 0xe0], edi
+0x001D57A2: mov rax, qword ptr [rip + 0x612357]
+0x001D57A9: test rax, rax
+0x001D57AC: je 0x1401d5ad4
+0x001D57B2: lea rcx, [rsp + 0x54]
+0x001D57B7: mov qword ptr [rsp + 0x20], rcx
+0x001D57BC: lea r9, [rsp + 0x58]
+0x001D57C1: lea r8, [rsp + 0x5c]
+0x001D57C6: lea rdx, [rsp + 0x50]
+0x001D57CB: mov rcx, qword ptr [rbx + 0xd0]
+0x001D57D2: call rax
+0x001D57D4: mov dword ptr [rsp + 0x48], eax
+0x001D57D8: test eax, eax
+0x001D57DA: je 0x1401d5aca
+0x001D57E0: mov dword ptr [rsp + 0x4c], 0x242
+0x001D57E8: mov dword ptr [rbp - 0x50], 0x40
+0x001D57EF: mov eax, dword ptr [rbp - 0x50]
+0x001D57F2: add al, 0x40
+0x001D57F4: movsx ecx, al
+0x001D57F7: xor ecx, 5
+0x001D57FA: mov dword ptr [rbp - 0x4c], ecx
+0x001D57FD: mov eax, dword ptr [rbp - 0x4c]
+0x001D5800: mov ecx, dword ptr [rbp - 0x50]
+0x001D5803: xor ecx, eax
+0x001D5805: xor ecx, 0x4e
+0x001D5808: mov byte ptr [rbp - 0x48], cl
+0x001D580B: movsx ecx, byte ptr [rbp - 0x48]
+0x001D580F: mov eax, dword ptr [rbp - 0x50]
+0x001D5812: inc al
+0x001D5814: xor eax, ecx
+0x001D5816: xor eax, 0x56
+0x001D5819: mov byte ptr [rbp - 0x47], al
+0x001D581C: movsx ecx, byte ptr [rbp - 0x47]
+0x001D5820: mov eax, dword ptr [rbp - 0x50]
+0x001D5823: add al, 2
+0x001D5825: xor eax, ecx
+0x001D5827: xor eax, 0x41
+0x001D582A: mov byte ptr [rbp - 0x46], al
+0x001D582D: movsx ecx, byte ptr [rbp - 0x46]
+0x001D5831: mov eax, dword ptr [rbp - 0x50]
+0x001D5834: add al, 3
+0x001D5836: xor eax, ecx
+0x001D5838: xor eax, 0x50
+0x001D583B: mov byte ptr [rbp - 0x45], al
+0x001D583E: movsx ecx, byte ptr [rbp - 0x45]
+0x001D5842: mov eax, dword ptr [rbp - 0x50]
+0x001D5845: add al, 4
+0x001D5847: xor eax, ecx
+0x001D5849: xor eax, 0x49
+0x001D584C: mov byte ptr [rbp - 0x44], al
+0x001D584F: movsx ecx, byte ptr [rbp - 0x44]
+0x001D5853: mov eax, dword ptr [rbp - 0x50]
+0x001D5856: add al, 5
+0x001D5858: xor eax, ecx
+0x001D585A: xor eax, 0x20
+0x001D585D: mov byte ptr [rbp - 0x43], al
+0x001D5860: movsx ecx, byte ptr [rbp - 0x43]
+0x001D5864: mov eax, dword ptr [rbp - 0x50]
+0x001D5867: add al, 6
+0x001D5869: xor eax, ecx
+0x001D586B: xor eax, 0x65
+0x001D586E: mov byte ptr [rbp - 0x42], al
+0x001D5871: movsx ecx, byte ptr [rbp - 0x42]
+0x001D5875: mov eax, dword ptr [rbp - 0x50]
+0x001D5878: add al, 7
+0x001D587A: xor eax, ecx
+0x001D587C: xor eax, 0x72
+0x001D587F: mov byte ptr [rbp - 0x41], al
+0x001D5882: movsx ecx, byte ptr [rbp - 0x41]
+0x001D5886: mov eax, dword ptr [rbp - 0x50]
+0x001D5889: add al, 8
+0x001D588B: xor eax, ecx
+0x001D588D: xor eax, 0x72
+0x001D5890: mov byte ptr [rbp - 0x40], al
+0x001D5893: movsx ecx, byte ptr [rbp - 0x40]
+0x001D5897: mov eax, dword ptr [rbp - 0x50]
+0x001D589A: add al, 9
+0x001D589C: xor eax, ecx
+0x001D589E: xor eax, 0x6f
+0x001D58A1: mov byte ptr [rbp - 0x3f], al
+0x001D58A4: movsx ecx, byte ptr [rbp - 0x3f]
+0x001D58A8: mov eax, dword ptr [rbp - 0x50]
+0x001D58AB: add al, 0xa
+0x001D58AD: xor eax, ecx
+0x001D58AF: xor eax, 0x72
+0x001D58B2: mov byte ptr [rbp - 0x3e], al
+0x001D58B5: movsx ecx, byte ptr [rbp - 0x3e]
+0x001D58B9: mov eax, dword ptr [rbp - 0x50]
+0x001D58BC: add al, 0xb
+0x001D58BE: xor eax, ecx
+0x001D58C0: xor eax, 0x20
+0x001D58C3: mov byte ptr [rbp - 0x3d], al
+0x001D58C6: movsx ecx, byte ptr [rbp - 0x3d]
+0x001D58CA: mov eax, dword ptr [rbp - 0x50]
+0x001D58CD: add al, 0xc
+0x001D58CF: xor eax, ecx
+0x001D58D1: xor eax, 0x69
+0x001D58D4: mov byte ptr [rbp - 0x3c], al
+0x001D58D7: movsx ecx, byte ptr [rbp - 0x3c]
+0x001D58DB: mov eax, dword ptr [rbp - 0x50]
+0x001D58DE: add al, 0xd
+0x001D58E0: xor eax, ecx
+0x001D58E2: xor eax, 0x6e
+0x001D58E5: mov byte ptr [rbp - 0x3b], al
+0x001D58E8: movsx ecx, byte ptr [rbp - 0x3b]
+0x001D58EC: mov eax, dword ptr [rbp - 0x50]
+0x001D58EF: add al, 0xe
+0x001D58F1: xor eax, ecx
+0x001D58F3: xor eax, 0x20
+0x001D58F6: mov byte ptr [rbp - 0x3a], al
+0x001D58F9: movsx ecx, byte ptr [rbp - 0x3a]
+0x001D58FD: mov eax, dword ptr [rbp - 0x50]
+0x001D5900: add al, 0xf
+0x001D5902: xor eax, ecx
+0x001D5904: xor eax, 0x4e
+0x001D5907: mov byte ptr [rbp - 0x39], al
+0x001D590A: movsx ecx, byte ptr [rbp - 0x39]
+0x001D590E: mov eax, dword ptr [rbp - 0x50]
+0x001D5911: add al, 0x10
+0x001D5913: xor eax, ecx
+0x001D5915: xor eax, 0x76
+0x001D5918: mov byte ptr [rbp - 0x38], al
+0x001D591B: movsx ecx, byte ptr [rbp - 0x38]
+0x001D591F: mov eax, dword ptr [rbp - 0x50]
+0x001D5922: add al, 0x11
+0x001D5924: xor eax, ecx
+0x001D5926: xor eax, 0x61
+0x001D5929: mov byte ptr [rbp - 0x37], al
+0x001D592C: movsx ecx, byte ptr [rbp - 0x37]
+0x001D5930: mov eax, dword ptr [rbp - 0x50]
+0x001D5933: add al, 0x12
+0x001D5935: xor eax, ecx
+0x001D5937: xor eax, 0x70
+0x001D593A: mov byte ptr [rbp - 0x36], al
+0x001D593D: movsx ecx, byte ptr [rbp - 0x36]
+0x001D5941: mov eax, dword ptr [rbp - 0x50]
+0x001D5944: add al, 0x13
+0x001D5946: xor eax, ecx
+0x001D5948: xor eax, 0x69
+0x001D594B: mov byte ptr [rbp - 0x35], al
+0x001D594E: movsx ecx, byte ptr [rbp - 0x35]
+0x001D5952: mov eax, dword ptr [rbp - 0x50]
+0x001D5955: add al, 0x14
+0x001D5957: xor eax, ecx
+0x001D5959: xor eax, 0x57
+0x001D595C: mov byte ptr [rbp - 0x34], al
+0x001D595F: movsx ecx, byte ptr [rbp - 0x34]
+0x001D5963: mov eax, dword ptr [rbp - 0x50]
+0x001D5966: add al, 0x15
+0x001D5968: xor eax, ecx
+0x001D596A: xor eax, 0x72
+0x001D596D: mov byte ptr [rbp - 0x33], al
+0x001D5970: movsx ecx, byte ptr [rbp - 0x33]
+0x001D5974: mov eax, dword ptr [rbp - 0x50]
+0x001D5977: add al, 0x16
+0x001D5979: xor eax, ecx
+0x001D597B: xor eax, 0x61
+0x001D597E: mov byte ptr [rbp - 0x32], al
+0x001D5981: movsx ecx, byte ptr [rbp - 0x32]
+0x001D5985: mov eax, dword ptr [rbp - 0x50]
+0x001D5988: add al, 0x17
+0x001D598A: xor eax, ecx
+0x001D598C: xor eax, 0x70
+0x001D598F: mov byte ptr [rbp - 0x31], al
+0x001D5992: movsx ecx, byte ptr [rbp - 0x31]
+0x001D5996: mov eax, dword ptr [rbp - 0x50]
+0x001D5999: add al, 0x18
+0x001D599B: xor eax, ecx
+0x001D599D: xor eax, 0x70
+0x001D59A0: mov byte ptr [rbp - 0x30], al
+0x001D59A3: movsx ecx, byte ptr [rbp - 0x30]
+0x001D59A7: mov eax, dword ptr [rbp - 0x50]
+0x001D59AA: add al, 0x19
+0x001D59AC: xor eax, ecx
+0x001D59AE: xor eax, 0x65
+0x001D59B1: mov byte ptr [rbp - 0x2f], al
+0x001D59B4: movsx ecx, byte ptr [rbp - 0x2f]
+0x001D59B8: mov eax, dword ptr [rbp - 0x50]
+0x001D59BB: add al, 0x1a
+0x001D59BD: xor eax, ecx
+0x001D59BF: xor eax, 0x72
+0x001D59C2: mov byte ptr [rbp - 0x2e], al
+0x001D59C5: movsx ecx, byte ptr [rbp - 0x2e]
+0x001D59C9: mov eax, dword ptr [rbp - 0x50]
+0x001D59CC: add al, 0x1b
+0x001D59CE: xor eax, ecx
+0x001D59D0: xor eax, 0x2e
+0x001D59D3: mov byte ptr [rbp - 0x2d], al
+0x001D59D6: movsx ecx, byte ptr [rbp - 0x2d]
+0x001D59DA: mov eax, dword ptr [rbp - 0x50]
+0x001D59DD: add al, 0x1c
+0x001D59DF: xor eax, ecx
+0x001D59E1: xor eax, 0x63
+0x001D59E4: mov byte ptr [rbp - 0x2c], al
+0x001D59E7: movsx ecx, byte ptr [rbp - 0x2c]
+0x001D59EB: mov eax, dword ptr [rbp - 0x50]
+0x001D59EE: add al, 0x1d
+0x001D59F0: xor eax, ecx
+0x001D59F2: xor eax, 0x3a
+0x001D59F5: mov byte ptr [rbp - 0x2b], al
+0x001D59F8: movsx ecx, byte ptr [rbp - 0x2b]
+0x001D59FC: mov eax, dword ptr [rbp - 0x50]
+0x001D59FF: add al, 0x1e
+0x001D5A01: xor eax, ecx
+0x001D5A03: xor eax, 0x7b
+0x001D5A06: mov byte ptr [rbp - 0x2a], al
+0x001D5A09: movsx ecx, byte ptr [rbp - 0x2a]
+0x001D5A0D: mov eax, dword ptr [rbp - 0x50]
+0x001D5A10: add al, 0x1f
+0x001D5A12: xor eax, ecx
+0x001D5A14: xor eax, 0x7d
+0x001D5A17: mov byte ptr [rbp - 0x29], al
+0x001D5A1A: movsx ecx, byte ptr [rbp - 0x29]
+0x001D5A1E: mov eax, dword ptr [rbp - 0x50]
+0x001D5A21: add al, 0x20
+0x001D5A23: xor eax, ecx
+0x001D5A25: xor eax, 0x20
+0x001D5A28: mov byte ptr [rbp - 0x28], al
+0x001D5A2B: movsx ecx, byte ptr [rbp - 0x28]
+0x001D5A2F: mov eax, dword ptr [rbp - 0x50]
+0x001D5A32: add al, 0x21
+0x001D5A34: xor eax, ecx
+0x001D5A36: xor eax, 0x3a
+0x001D5A39: mov byte ptr [rbp - 0x27], al
+0x001D5A3C: movsx ecx, byte ptr [rbp - 0x27]
+0x001D5A40: mov eax, dword ptr [rbp - 0x50]
+0x001D5A43: add al, 0x22
+0x001D5A45: xor eax, ecx
+0x001D5A47: xor eax, 0x20
+0x001D5A4A: mov byte ptr [rbp - 0x26], al
+0x001D5A4D: movsx ecx, byte ptr [rbp - 0x26]
+0x001D5A51: mov eax, dword ptr [rbp - 0x50]
+0x001D5A54: add al, 0x23
+0x001D5A56: xor eax, ecx
+0x001D5A58: xor eax, 0x7b
+0x001D5A5B: mov byte ptr [rbp - 0x25], al
+0x001D5A5E: movsx ecx, byte ptr [rbp - 0x25]
+0x001D5A62: mov eax, dword ptr [rbp - 0x50]
+0x001D5A65: add al, 0x24
+0x001D5A67: xor eax, ecx
+0x001D5A69: xor eax, 0x7d
+0x001D5A6C: mov byte ptr [rbp - 0x24], al
+0x001D5A6F: xor eax, eax
+0x001D5A71: mov byte ptr [rbp - 0x23], al
+0x001D5A74: movzx eax, byte ptr [rbp - 0x48]
+0x001D5A78: lea rdx, [rbp + 0x140]
+0x001D5A7F: lea rcx, [rbp - 0x50]
+0x001D5A83: call 0x1401a3280
+0x001D5A88: nop
+0x001D5A89: cmp qword ptr [rax + 0x18], 0x10
+0x001D5A8E: jb 0x1401d5a93
+0x001D5A90: mov rax, qword ptr [rax]
+0x001D5A93: lea r8, [rsp + 0x48]
+0x001D5A98: lea rdx, [rsp + 0x4c]
+0x001D5A9D: mov rcx, rax
+0x001D5AA0: call 0x1401d3fc0
+0x001D5AA5: nop
+0x001D5AA6: mov rdx, qword ptr [rbp + 0x158]
+0x001D5AAD: cmp rdx, 0x10
+0x001D5AB1: jb 0x1401d5ace
+0x001D5AB3: inc rdx
+0x001D5AB6: mov r8d, 1
+0x001D5ABC: mov rcx, qword ptr [rbp + 0x140]
+0x001D5AC3: call 0x140033d30
+0x001D5AC8: jmp 0x1401d5ace
+0x001D5ACA: mov edi, dword ptr [rsp + 0x50]
+0x001D5ACE: mov dword ptr [rbx + 0x39c], edi
+0x001D5AD4: mov rdi, qword ptr [rip + 0x611ff5]
+0x001D5ADB: test rdi, rdi
+0x001D5ADE: je 0x1401d5da3
+0x001D5AE4: mov dword ptr [rbp + 0x180], 0x1062c
+0x001D5AEE: xor edx, edx
+0x001D5AF0: mov r8d, 0x628
+0x001D5AF6: lea rcx, [rbp + 0x184]
+0x001D5AFD: call 0x1403d3050
+0x001D5B02: lea rdx, [rbp + 0x180]
+0x001D5B09: mov rcx, qword ptr [rbx + 0xd0]
+0x001D5B10: call rdi
+0x001D5B12: test eax, eax
+0x001D5B14: jne 0x1401d5da3
+0x001D5B1A: mov byte ptr [rbx + 0xd8], 1
+0x001D5B21: jmp 0x1401d5da3
+0x001D5B26: mov dword ptr [rbp + 0x68], 0x46
+0x001D5B2D: mov dword ptr [rbp + 0x6c], 0x2e
+0x001D5B34: mov eax, dword ptr [rbp + 0x6c]
+0x001D5B37: xor eax, 0x3d
+0x001D5B3A: mov byte ptr [rbp + 0x70], al
+0x001D5B3D: movsx ecx, byte ptr [rbp + 0x70]
+0x001D5B41: xor ecx, 0x3b
+0x001D5B44: mov byte ptr [rbp + 0x71], cl
+0x001D5B47: movsx ecx, byte ptr [rbp + 0x71]
+0x001D5B4B: xor ecx, 0x7c
+0x001D5B4E: mov byte ptr [rbp + 0x72], cl
+0x001D5B51: movsx ecx, byte ptr [rbp + 0x72]
+0x001D5B55: xor ecx, 0x66
+0x001D5B58: mov byte ptr [rbp + 0x73], cl
+0x001D5B5B: movsx ecx, byte ptr [rbp + 0x73]
+0x001D5B5F: xor ecx, 0x33
+0x001D5B62: mov byte ptr [rbp + 0x74], cl
+0x001D5B65: movsx ecx, byte ptr [rbp + 0x74]
+0x001D5B69: xor ecx, 0x28
+0x001D5B6C: mov byte ptr [rbp + 0x75], cl
+0x001D5B6F: movsx ecx, byte ptr [rbp + 0x75]
+0x001D5B73: xor ecx, 0x27
+0x001D5B76: mov byte ptr [rbp + 0x76], cl
+0x001D5B79: movsx ecx, byte ptr [rbp + 0x76]
+0x001D5B7D: xor ecx, 0x24
+0x001D5B80: mov byte ptr [rbp + 0x77], cl
+0x001D5B83: movsx ecx, byte ptr [rbp + 0x77]
+0x001D5B87: xor ecx, 0x2a
+0x001D5B8A: mov byte ptr [rbp + 0x78], cl
+0x001D5B8D: movsx ecx, byte ptr [rbp + 0x78]
+0x001D5B91: xor ecx, 0x23
+0x001D5B94: mov byte ptr [rbp + 0x79], cl
+0x001D5B97: movsx ecx, byte ptr [rbp + 0x79]
+0x001D5B9B: xor ecx, 0x66
+0x001D5B9E: mov byte ptr [rbp + 0x7a], cl
+0x001D5BA1: movsx ecx, byte ptr [rbp + 0x7a]
+0x001D5BA5: xor ecx, 0x32
+0x001D5BA8: mov byte ptr [rbp + 0x7b], cl
+0x001D5BAB: movsx ecx, byte ptr [rbp + 0x7b]
+0x001D5BAF: xor ecx, 0x29
+0x001D5BB2: mov byte ptr [rbp + 0x7c], cl
+0x001D5BB5: movsx ecx, byte ptr [rbp + 0x7c]
+0x001D5BB9: xor ecx, 0x66
+0x001D5BBC: mov byte ptr [rbp + 0x7d], cl
+0x001D5BBF: movsx ecx, byte ptr [rbp + 0x7d]
+0x001D5BC3: xor ecx, 0x2f
+0x001D5BC6: mov byte ptr [rbp + 0x7e], cl
+0x001D5BC9: movsx ecx, byte ptr [rbp + 0x7e]
+0x001D5BCD: xor ecx, 0x28
+0x001D5BD0: mov byte ptr [rbp + 0x7f], cl
+0x001D5BD3: movsx ecx, byte ptr [rbp + 0x7f]
+0x001D5BD7: xor ecx, 0x2f
+0x001D5BDA: mov byte ptr [rbp + 0x80], cl
+0x001D5BE0: movsx ecx, byte ptr [rbp + 0x80]
+0x001D5BE7: xor ecx, 0x32
+0x001D5BEA: mov byte ptr [rbp + 0x81], cl
+0x001D5BF0: movsx ecx, byte ptr [rbp + 0x81]
+0x001D5BF7: xor ecx, 0x66
+0x001D5BFA: mov byte ptr [rbp + 0x82], cl
+0x001D5C00: movsx ecx, byte ptr [rbp + 0x82]
+0x001D5C07: xor ecx, 8
+0x001D5C0A: mov byte ptr [rbp + 0x83], cl
+0x001D5C10: movsx ecx, byte ptr [rbp + 0x83]
+0x001D5C17: xor ecx, 0x30
+0x001D5C1A: mov byte ptr [rbp + 0x84], cl
+0x001D5C20: movsx ecx, byte ptr [rbp + 0x84]
+0x001D5C27: xor ecx, 7
+0x001D5C2A: mov byte ptr [rbp + 0x85], cl
+0x001D5C30: movsx ecx, byte ptr [rbp + 0x85]
+0x001D5C37: xor ecx, 0x16
+0x001D5C3A: mov byte ptr [rbp + 0x86], cl
+0x001D5C40: movsx ecx, byte ptr [rbp + 0x86]
+0x001D5C47: xor ecx, 0xf
+0x001D5C4A: mov byte ptr [rbp + 0x87], cl
+0x001D5C50: movsx ecx, byte ptr [rbp + 0x87]
+0x001D5C57: xor ecx, 0x66
+0x001D5C5A: mov byte ptr [rbp + 0x88], cl
+0x001D5C60: movsx ecx, byte ptr [rbp + 0x88]
+0x001D5C67: xor ecx, 0x31
+0x001D5C6A: mov byte ptr [rbp + 0x89], cl
+0x001D5C70: movsx ecx, byte ptr [rbp + 0x89]
+0x001D5C77: xor ecx, 0x2f
+0x001D5C7A: mov byte ptr [rbp + 0x8a], cl
+0x001D5C80: movsx ecx, byte ptr [rbp + 0x8a]
+0x001D5C87: xor ecx, 0x32
+0x001D5C8A: mov byte ptr [rbp + 0x8b], cl
+0x001D5C90: movsx ecx, byte ptr [rbp + 0x8b]
+0x001D5C97: xor ecx, 0x2e
+0x001D5C9A: mov byte ptr [rbp + 0x8c], cl
+0x001D5CA0: movsx ecx, byte ptr [rbp + 0x8c]
+0x001D5CA7: xor ecx, 0x66
+0x001D5CAA: mov byte ptr [rbp + 0x8d], cl
+0x001D5CB0: movsx ecx, byte ptr [rbp + 0x8d]
+0x001D5CB7: xor ecx, 0x24
+0x001D5CBA: mov byte ptr [rbp + 0x8e], cl
+0x001D5CC0: movsx ecx, byte ptr [rbp + 0x8e]
+0x001D5CC7: xor ecx, 0x33
+0x001D5CCA: mov byte ptr [rbp + 0x8f], cl
+0x001D5CD0: movsx ecx, byte ptr [rbp + 0x8f]
+0x001D5CD7: xor ecx, 0x35
+0x001D5CDA: mov byte ptr [rbp + 0x90], cl
+0x001D5CE0: movsx ecx, byte ptr [rbp + 0x90]
+0x001D5CE7: xor ecx, 0x66
+0x001D5CEA: mov byte ptr [rbp + 0x91], cl
+0x001D5CF0: movsx ecx, byte ptr [rbp + 0x91]
+0x001D5CF7: xor ecx, 0xf
+0x001D5CFA: mov byte ptr [rbp + 0x92], cl
+0x001D5D00: movsx ecx, byte ptr [rbp + 0x92]
+0x001D5D07: xor ecx, 2
+0x001D5D0A: mov byte ptr [rbp + 0x93], cl
+0x001D5D10: movsx ecx, byte ptr [rbp + 0x93]
+0x001D5D17: xor ecx, 0x66
+0x001D5D1A: mov byte ptr [rbp + 0x94], cl
+0x001D5D20: movsx ecx, byte ptr [rbp + 0x94]
+0x001D5D27: xor ecx, 0x3d
+0x001D5D2A: mov byte ptr [rbp + 0x95], cl
+0x001D5D30: movsx ecx, byte ptr [rbp + 0x95]
+0x001D5D37: xor ecx, 0x7c
+0x001D5D3A: mov byte ptr [rbp + 0x96], cl
+0x001D5D40: movsx ecx, byte ptr [rbp + 0x96]
+0x001D5D47: xor ecx, 0x1e
+0x001D5D4A: mov byte ptr [rbp + 0x97], cl
+0x001D5D50: movsx ecx, byte ptr [rbp + 0x97]
+0x001D5D57: xor ecx, 0x3b
+0x001D5D5A: mov byte ptr [rbp + 0x98], cl
+0x001D5D60: xor eax, eax
+0x001D5D62: mov byte ptr [rbp + 0x99], al
+0x001D5D68: movzx eax, byte ptr [rbp + 0x70]
+0x001D5D6C: lea rdx, [rbp + 0x160]
+0x001D5D73: lea rcx, [rbp + 0x68]
+0x001D5D77: call 0x140086390
+0x001D5D7C: nop
+0x001D5D7D: cmp qword ptr [rax + 0x18], 0x10
+0x001D5D82: jb 0x1401d5d87
+0x001D5D84: mov rax, qword ptr [rax]
+0x001D5D87: mov r8, r14
+0x001D5D8A: mov rdx, r13
+0x001D5D8D: mov rcx, rax
+0x001D5D90: call 0x1401d4650
+0x001D5D95: nop
+0x001D5D96: lea rcx, [rbp + 0x160]
+0x001D5D9D: call 0x140032ef0
+0x001D5DA2: nop
+0x001D5DA3: mov rax, rbx
+0x001D5DA6: mov rcx, qword ptr [rbp + 0x7b0]
+0x001D5DAD: xor rcx, rsp
+0x001D5DB0: call 0x1403b24c0
+0x001D5DB5: add rsp, 0x8c8
+0x001D5DBC: pop r15
+0x001D5DBE: pop r14
+0x001D5DC0: pop r13
+0x001D5DC2: pop r12
+0x001D5DC4: pop rdi
+0x001D5DC5: pop rsi
+0x001D5DC6: pop rbx
+0x001D5DC7: pop rbp
+0x001D5DC8: ret
+```
+
+## target `0x001EED90` PDATA `0x001EED90..0x001EF190`
+
+### Calls
+
+| RVA | target/form |
+|---|---|
+| `0x001EED9F` | `jmp qword ptr [rax + 0x28]` |
+| `0x001EEE04` | `call RVA 0x00001120` |
+| `0x001EEE15` | `call RVA 0x00001480` |
+
+### Object / RIP-relative accesses
+
+| RVA | instruction | note |
+|---|---|---|
+| `0x001EED90` | `mov rcx, qword ptr [rcx + 0x30]` | rcx+0x30 |
+| `0x001EEDB0` | `mov dword ptr [rip + 0x5f8baa], ecx` | RIP->0x007E7960 |
+| `0x001EEDB6` | `mov dword ptr [rip + 0x5f8ba8], edx` | RIP->0x007E7964 |
+| `0x001EEDE6` | `mov rax, qword ptr [rip + 0x5e7b03]` | RIP->0x007D68F0 |
+| `0x001EEDF7` | `cmp dword ptr [rip + 0x5f764a], 0` | RIP->0x007E6448 |
+
+### Full body
+
+```asm
+0x001EED90: mov rcx, qword ptr [rcx + 0x30]
+0x001EED94: test rcx, rcx
+0x001EED97: jne 0x1401eed9c
+0x001EED99: xor al, al
+0x001EED9B: ret
+0x001EED9C: mov rax, qword ptr [rcx]
+0x001EED9F: jmp qword ptr [rax + 0x28]
+0x001EEDA3: int3
+0x001EEDA4: int3
+0x001EEDA5: int3
+0x001EEDA6: int3
+0x001EEDA7: int3
+0x001EEDA8: int3
+0x001EEDA9: int3
+0x001EEDAA: int3
+0x001EEDAB: int3
+0x001EEDAC: int3
+0x001EEDAD: int3
+0x001EEDAE: int3
+0x001EEDAF: int3
+0x001EEDB0: mov dword ptr [rip + 0x5f8baa], ecx
+0x001EEDB6: mov dword ptr [rip + 0x5f8ba8], edx
+0x001EEDBC: ret
+0x001EEDBD: int3
+0x001EEDBE: int3
+0x001EEDBF: int3
+0x001EEDC0: mov rax, rsp
+0x001EEDC3: push rbp
+0x001EEDC4: lea rbp, [rax - 0x9c8]
+0x001EEDCB: sub rsp, 0xac0
+0x001EEDD2: mov qword ptr [rbp - 0x10], 0xfffffffffffffffe
+0x001EEDDA: mov qword ptr [rax + 8], rbx
+0x001EEDDE: mov qword ptr [rax + 0x10], rsi
+0x001EEDE2: mov qword ptr [rax + 0x18], rdi
+0x001EEDE6: mov rax, qword ptr [rip + 0x5e7b03]
+0x001EEDED: xor rax, rsp
+0x001EEDF0: mov qword ptr [rbp + 0x9b0], rax
+0x001EEDF7: cmp dword ptr [rip + 0x5f764a], 0
+0x001EEDFE: jg 0x1401ef9b8
+0x001EEE04: call 0x140001120
+0x001EEE09: mov edi, eax
+0x001EEE0B: test eax, eax
+0x001EEE0D: je 0x1401ef49f
+0x001EEE13: mov ecx, eax
+0x001EEE15: call 0x140001480
+0x001EEE1A: mov rsi, rax
+0x001EEE1D: mov dword ptr [rbp + 0x448], 0x23
+0x001EEE27: mov ecx, dword ptr [rbp + 0x448]
+0x001EEE2D: add cl, 0x23
+0x001EEE30: movsx edx, cl
+0x001EEE33: xor edx, 0x29
+0x001EEE36: mov dword ptr [rbp + 0x44c], edx
+0x001EEE3C: mov ecx, dword ptr [rbp + 0x44c]
+0x001EEE42: mov edx, dword ptr [rbp + 0x448]
+0x001EEE48: xor edx, ecx
+0x001EEE4A: xor edx, 0x43
+0x001EEE4D: mov byte ptr [rbp + 0x450], dl
+0x001EEE53: movsx ecx, byte ptr [rbp + 0x450]
+0x001EEE5A: mov eax, dword ptr [rbp + 0x448]
+0x001EEE60: inc al
+0x001EEE62: xor eax, ecx
+0x001EEE64: xor eax, 0x55
+0x001EEE67: mov byte ptr [rbp + 0x451], al
+0x001EEE6D: movsx ecx, byte ptr [rbp + 0x451]
+0x001EEE74: mov eax, dword ptr [rbp + 0x448]
+0x001EEE7A: add al, 2
+0x001EEE7C: xor eax, ecx
+0x001EEE7E: xor eax, 0x44
+0x001EEE81: mov byte ptr [rbp + 0x452], al
+0x001EEE87: movsx ecx, byte ptr [rbp + 0x452]
+0x001EEE8E: mov eax, dword ptr [rbp + 0x448]
+0x001EEE94: add al, 3
+0x001EEE96: xor eax, ecx
+0x001EEE98: xor eax, 0x41
+0x001EEE9B: mov byte ptr [rbp + 0x453], al
+0x001EEEA1: movsx ecx, byte ptr [rbp + 0x453]
+0x001EEEA8: mov eax, dword ptr [rbp + 0x448]
+0x001EEEAE: add al, 4
+0x001EEEB0: xor eax, ecx
+0x001EEEB2: xor eax, 0x52
+0x001EEEB5: mov byte ptr [rbp + 0x454], al
+0x001EEEBB: movsx ecx, byte ptr [rbp + 0x454]
+0x001EEEC2: mov eax, dword ptr [rbp + 0x448]
+0x001EEEC8: add al, 5
+0x001EEECA: xor eax, ecx
+0x001EEECC: xor eax, 0x54
+0x001EEECF: mov byte ptr [rbp + 0x455], al
+0x001EEED5: movsx ecx, byte ptr [rbp + 0x455]
+0x001EEEDC: mov eax, dword ptr [rbp + 0x448]
+0x001EEEE2: add al, 6
+0x001EEEE4: xor eax, ecx
+0x001EEEE6: xor eax, 0x20
+0x001EEEE9: mov byte ptr [rbp + 0x456], al
+0x001EEEEF: movsx ecx, byte ptr [rbp + 0x456]
+0x001EEEF6: mov eax, dword ptr [rbp + 0x448]
+0x001EEEFC: add al, 7
+0x001EEEFE: xor eax, ecx
+0x001EEF00: xor eax, 0x65
+0x001EEF03: mov byte ptr [rbp + 0x457], al
+0x001EEF09: movsx ecx, byte ptr [rbp + 0x457]
+0x001EEF10: mov eax, dword ptr [rbp + 0x448]
+0x001EEF16: add al, 8
+0x001EEF18: xor eax, ecx
+0x001EEF1A: xor eax, 0x72
+0x001EEF1D: mov byte ptr [rbp + 0x458], al
+0x001EEF23: movsx ecx, byte ptr [rbp + 0x458]
+0x001EEF2A: mov eax, dword ptr [rbp + 0x448]
+0x001EEF30: add al, 9
+0x001EEF32: xor eax, ecx
+0x001EEF34: xor eax, 0x72
+0x001EEF37: mov byte ptr [rbp + 0x459], al
+0x001EEF3D: movsx ecx, byte ptr [rbp + 0x459]
+0x001EEF44: mov eax, dword ptr [rbp + 0x448]
+0x001EEF4A: add al, 0xa
+0x001EEF4C: xor eax, ecx
+0x001EEF4E: xor eax, 0x6f
+0x001EEF51: mov byte ptr [rbp + 0x45a], al
+0x001EEF57: movsx ecx, byte ptr [rbp + 0x45a]
+0x001EEF5E: mov eax, dword ptr [rbp + 0x448]
+0x001EEF64: add al, 0xb
+0x001EEF66: xor eax, ecx
+0x001EEF68: xor eax, 0x72
+0x001EEF6B: mov byte ptr [rbp + 0x45b], al
+0x001EEF71: movsx ecx, byte ptr [rbp + 0x45b]
+0x001EEF78: mov eax, dword ptr [rbp + 0x448]
+0x001EEF7E: add al, 0xc
+0x001EEF80: xor eax, ecx
+0x001EEF82: xor eax, 0x20
+0x001EEF85: mov byte ptr [rbp + 0x45c], al
+0x001EEF8B: movsx ecx, byte ptr [rbp + 0x45c]
+0x001EEF92: mov eax, dword ptr [rbp + 0x448]
+0x001EEF98: add al, 0xd
+0x001EEF9A: xor eax, ecx
+0x001EEF9C: xor eax, 0x69
+0x001EEF9F: mov byte ptr [rbp + 0x45d], al
+0x001EEFA5: movsx ecx, byte ptr [rbp + 0x45d]
+0x001EEFAC: mov eax, dword ptr [rbp + 0x448]
+0x001EEFB2: add al, 0xe
+0x001EEFB4: xor eax, ecx
+0x001EEFB6: xor eax, 0x6e
+0x001EEFB9: mov byte ptr [rbp + 0x45e], al
+0x001EEFBF: movsx ecx, byte ptr [rbp + 0x45e]
+0x001EEFC6: mov eax, dword ptr [rbp + 0x448]
+0x001EEFCC: add al, 0xf
+0x001EEFCE: xor eax, ecx
+0x001EEFD0: xor eax, 0x20
+0x001EEFD3: mov byte ptr [rbp + 0x45f], al
+0x001EEFD9: movsx ecx, byte ptr [rbp + 0x45f]
+0x001EEFE0: mov eax, dword ptr [rbp + 0x448]
+0x001EEFE6: add al, 0x10
+0x001EEFE8: xor eax, ecx
+0x001EEFEA: xor eax, 0x43
+0x001EEFED: mov byte ptr [rbp + 0x460], al
+0x001EEFF3: movsx ecx, byte ptr [rbp + 0x460]
+0x001EEFFA: mov eax, dword ptr [rbp + 0x448]
+0x001EF000: add al, 0x11
+0x001EF002: xor eax, ecx
+0x001EF004: xor eax, 0x75
+0x001EF007: mov byte ptr [rbp + 0x461], al
+0x001EF00D: movsx ecx, byte ptr [rbp + 0x461]
+0x001EF014: mov eax, dword ptr [rbp + 0x448]
+0x001EF01A: add al, 0x12
+0x001EF01C: xor eax, ecx
+0x001EF01E: xor eax, 0x64
+0x001EF021: mov byte ptr [rbp + 0x462], al
+0x001EF027: movsx ecx, byte ptr [rbp + 0x462]
+0x001EF02E: mov eax, dword ptr [rbp + 0x448]
+0x001EF034: add al, 0x13
+0x001EF036: xor eax, ecx
+0x001EF038: xor eax, 0x61
+0x001EF03B: mov byte ptr [rbp + 0x463], al
+0x001EF041: movsx ecx, byte ptr [rbp + 0x463]
+0x001EF048: mov eax, dword ptr [rbp + 0x448]
+0x001EF04E: add al, 0x14
+0x001EF050: xor eax, ecx
+0x001EF052: xor eax, 0x50
+0x001EF055: mov byte ptr [rbp + 0x464], al
+0x001EF05B: movsx ecx, byte ptr [rbp + 0x464]
+0x001EF062: mov eax, dword ptr [rbp + 0x448]
+0x001EF068: add al, 0x15
+0x001EF06A: xor eax, ecx
+0x001EF06C: xor eax, 0x72
+0x001EF06F: mov byte ptr [rbp + 0x465], al
+0x001EF075: movsx ecx, byte ptr [rbp + 0x465]
+0x001EF07C: mov eax, dword ptr [rbp + 0x448]
+0x001EF082: add al, 0x16
+0x001EF084: xor eax, ecx
+0x001EF086: xor eax, 0x6f
+0x001EF089: mov byte ptr [rbp + 0x466], al
+0x001EF08F: movsx ecx, byte ptr [rbp + 0x466]
+0x001EF096: mov eax, dword ptr [rbp + 0x448]
+0x001EF09C: add al, 0x17
+0x001EF09E: xor eax, ecx
+0x001EF0A0: xor eax, 0x67
+0x001EF0A3: mov byte ptr [rbp + 0x467], al
+0x001EF0A9: movsx ecx, byte ptr [rbp + 0x467]
+0x001EF0B0: mov eax, dword ptr [rbp + 0x448]
+0x001EF0B6: add al, 0x18
+0x001EF0B8: xor eax, ecx
+0x001EF0BA: xor eax, 0x72
+0x001EF0BD: mov byte ptr [rbp + 0x468], al
+0x001EF0C3: movsx ecx, byte ptr [rbp + 0x468]
+0x001EF0CA: mov eax, dword ptr [rbp + 0x448]
+0x001EF0D0: add al, 0x19
+0x001EF0D2: xor eax, ecx
+0x001EF0D4: xor eax, 0x61
+0x001EF0D7: mov byte ptr [rbp + 0x469], al
+0x001EF0DD: movsx ecx, byte ptr [rbp + 0x469]
+0x001EF0E4: mov eax, dword ptr [rbp + 0x448]
+0x001EF0EA: add al, 0x1a
+0x001EF0EC: xor eax, ecx
+0x001EF0EE: xor eax, 0x6d
+0x001EF0F1: mov byte ptr [rbp + 0x46a], al
+0x001EF0F7: movsx ecx, byte ptr [rbp + 0x46a]
+0x001EF0FE: mov eax, dword ptr [rbp + 0x448]
+0x001EF104: add al, 0x1b
+0x001EF106: xor eax, ecx
+0x001EF108: xor eax, 0x2e
+0x001EF10B: mov byte ptr [rbp + 0x46b], al
+0x001EF111: movsx ecx, byte ptr [rbp + 0x46b]
+0x001EF118: mov eax, dword ptr [rbp + 0x448]
+0x001EF11E: add al, 0x1c
+0x001EF120: xor eax, ecx
+0x001EF122: xor eax, 0x63
+0x001EF125: mov byte ptr [rbp + 0x46c], al
+0x001EF12B: movsx ecx, byte ptr [rbp + 0x46c]
+0x001EF132: mov eax, dword ptr [rbp + 0x448]
+0x001EF138: add al, 0x1d
+0x001EF13A: xor eax, ecx
+0x001EF13C: xor eax, 0x75
+0x001EF13F: mov byte ptr [rbp + 0x46d], al
+0x001EF145: movsx ecx, byte ptr [rbp + 0x46d]
+0x001EF14C: mov eax, dword ptr [rbp + 0x448]
+0x001EF152: add al, 0x1e
+0x001EF154: xor eax, ecx
+0x001EF156: xor eax, 0x3a
+0x001EF159: mov byte ptr [rbp + 0x46e], al
+0x001EF15F: movsx ecx, byte ptr [rbp + 0x46e]
+0x001EF166: mov eax, dword ptr [rbp + 0x448]
+0x001EF16C: add al, 0x1f
+0x001EF16E: xor eax, ecx
+0x001EF170: xor eax, 0x7b
+0x001EF173: mov byte ptr [rbp + 0x46f], al
+0x001EF179: movsx ecx, byte ptr [rbp + 0x46f]
+0x001EF180: mov eax, dword ptr [rbp + 0x448]
+0x001EF186: add al, 0x20
+0x001EF188: xor eax, ecx
+0x001EF18A: xor eax, 0x7d
+```
+
+## target `0x001F0120` PDATA `0x001F0120..0x001F0520`
+
+### Calls
+
+| RVA | target/form |
+|---|---|
+| `0x001F013C` | `jmp qword ptr [r10 + 0x18]` |
+| `0x001F0183` | `call RVA 0x00159B40` |
+| `0x001F0190` | `call RVA 0x001ED8F0` |
+| `0x001F019B` | `jmp RVA 0x001F093C` |
+| `0x001F03E3` | `call RVA 0x000563F0` |
+| `0x001F0401` | `call RVA 0x0012ED80` |
+| `0x001F0425` | `call RVA 0x003DB020` |
+| `0x001F0434` | `call RVA 0x003DB020` |
+| `0x001F0443` | `call RVA 0x003DB020` |
+| `0x001F044F` | `call RVA 0x003DB020` |
+| `0x001F0458` | `call RVA 0x003B20D4` |
+| `0x001F0471` | `call RVA 0x00391550` |
+| `0x001F0479` | `call RVA 0x00391534` |
+| `0x001F04B4` | `call qword ptr [rax + 8]` |
+| `0x001F04BF` | `call RVA 0x00391550` |
+| `0x001F04C7` | `call RVA 0x00391534` |
+
+### Object / RIP-relative accesses
+
+| RVA | instruction | note |
+|---|---|---|
+| `0x001F0120` | `mov rcx, qword ptr [rcx + 0x30]` | rcx+0x30 |
+| `0x001F0165` | `mov rax, qword ptr [rip + 0x5e6784]` | RIP->0x007D68F0 |
+| `0x001F017F` | `mov rcx, qword ptr [r14 + 0x10]` | r14+0x10 |
+| `0x001F0188` | `mov dword ptr [rsi + 0x28], eax` | rsi+0x28 |
+| `0x001F03FA` | `lea r8, [rsi + 0x28]` | rsi+0x28 |
+| `0x001F042B` | `mov rax, qword ptr [rcx - 8]` | rcx-0x8 |
+| `0x001F04A4` | `mov rcx, qword ptr [rsi + 0x30]` | rsi+0x30 |
+| `0x001F04B1` | `mov edx, dword ptr [rsi + 0x28]` | rsi+0x28 |
+
+### Full body
+
+```asm
+0x001F0120: mov rcx, qword ptr [rcx + 0x30]
+0x001F0124: mov rax, qword ptr [rsp + 0x30]
+0x001F0129: mov qword ptr [rsp + 0x30], r9
+0x001F012E: movzx r9d, byte ptr [rsp + 0x28]
+0x001F0134: mov r10, qword ptr [rcx]
+0x001F0137: mov qword ptr [rsp + 0x28], rax
+0x001F013C: jmp qword ptr [r10 + 0x18]
+0x001F0140: push rbp
+0x001F0142: push rsi
+0x001F0143: push rdi
+0x001F0144: push r14
+0x001F0146: push r15
+0x001F0148: lea rbp, [rsp - 0x20]
+0x001F014D: sub rsp, 0x120
+0x001F0154: mov qword ptr [rsp + 0x30], 0xfffffffffffffffe
+0x001F015D: mov qword ptr [rsp + 0x168], rbx
+0x001F0165: mov rax, qword ptr [rip + 0x5e6784]
+0x001F016C: xor rax, rsp
+0x001F016F: mov qword ptr [rbp + 0x10], rax
+0x001F0173: mov r15d, r8d
+0x001F0176: mov r14, rdx
+0x001F0179: mov rsi, rcx
+0x001F017C: mov edx, dword ptr [rdx + 0x18]
+0x001F017F: mov rcx, qword ptr [r14 + 0x10]
+0x001F0183: call 0x140159b40
+0x001F0188: mov dword ptr [rsi + 0x28], eax
+0x001F018B: mov edx, eax
+0x001F018D: mov rcx, rsi
+0x001F0190: call 0x1401ed8f0
+0x001F0195: test al, al
+0x001F0197: jne 0x1401f01a0
+0x001F0199: xor al, al
+0x001F019B: jmp 0x1401f093c
+0x001F01A0: mov dword ptr [rbp - 0x60], 0x66
+0x001F01A7: mov eax, dword ptr [rbp - 0x60]
+0x001F01AA: add al, 0x66
+0x001F01AC: movsx ecx, al
+0x001F01AF: xor ecx, 0x5c
+0x001F01B2: mov dword ptr [rbp - 0x5c], ecx
+0x001F01B5: mov eax, dword ptr [rbp - 0x5c]
+0x001F01B8: mov ecx, dword ptr [rbp - 0x60]
+0x001F01BB: xor ecx, eax
+0x001F01BD: xor ecx, 0x7b
+0x001F01C0: mov byte ptr [rbp - 0x58], cl
+0x001F01C3: movsx ecx, byte ptr [rbp - 0x58]
+0x001F01C7: mov eax, dword ptr [rbp - 0x60]
+0x001F01CA: inc al
+0x001F01CC: xor eax, ecx
+0x001F01CE: xor eax, 0x7d
+0x001F01D1: mov byte ptr [rbp - 0x57], al
+0x001F01D4: movsx ecx, byte ptr [rbp - 0x57]
+0x001F01D8: mov eax, dword ptr [rbp - 0x60]
+0x001F01DB: add al, 2
+0x001F01DD: xor eax, ecx
+0x001F01DF: xor eax, 0x3a
+0x001F01E2: mov byte ptr [rbp - 0x56], al
+0x001F01E5: movsx ecx, byte ptr [rbp - 0x56]
+0x001F01E9: mov eax, dword ptr [rbp - 0x60]
+0x001F01EC: add al, 3
+0x001F01EE: xor eax, ecx
+0x001F01F0: xor eax, 0x20
+0x001F01F3: mov byte ptr [rbp - 0x55], al
+0x001F01F6: movsx ecx, byte ptr [rbp - 0x55]
+0x001F01FA: mov eax, dword ptr [rbp - 0x60]
+0x001F01FD: add al, 4
+0x001F01FF: xor eax, ecx
+0x001F0201: xor eax, 0x47
+0x001F0204: mov byte ptr [rbp - 0x54], al
+0x001F0207: movsx ecx, byte ptr [rbp - 0x54]
+0x001F020B: mov eax, dword ptr [rbp - 0x60]
+0x001F020E: add al, 5
+0x001F0210: xor eax, ecx
+0x001F0212: xor eax, 0x65
+0x001F0215: mov byte ptr [rbp - 0x53], al
+0x001F0218: movsx ecx, byte ptr [rbp - 0x53]
+0x001F021C: mov eax, dword ptr [rbp - 0x60]
+0x001F021F: add al, 6
+0x001F0221: xor eax, ecx
+0x001F0223: xor eax, 0x6e
+0x001F0226: mov byte ptr [rbp - 0x52], al
+0x001F0229: movsx ecx, byte ptr [rbp - 0x52]
+0x001F022D: mov eax, dword ptr [rbp - 0x60]
+0x001F0230: add al, 7
+0x001F0232: xor eax, ecx
+0x001F0234: xor eax, 0x65
+0x001F0237: mov byte ptr [rbp - 0x51], al
+0x001F023A: movsx ecx, byte ptr [rbp - 0x51]
+0x001F023E: mov eax, dword ptr [rbp - 0x60]
+0x001F0241: add al, 8
+0x001F0243: xor eax, ecx
+0x001F0245: xor eax, 0x72
+0x001F0248: mov byte ptr [rbp - 0x50], al
+0x001F024B: movsx ecx, byte ptr [rbp - 0x50]
+0x001F024F: mov eax, dword ptr [rbp - 0x60]
+0x001F0252: add al, 9
+0x001F0254: xor eax, ecx
+0x001F0256: xor eax, 0x61
+0x001F0259: mov byte ptr [rbp - 0x4f], al
+0x001F025C: movsx ecx, byte ptr [rbp - 0x4f]
+0x001F0260: mov eax, dword ptr [rbp - 0x60]
+0x001F0263: add al, 0xa
+0x001F0265: xor eax, ecx
+0x001F0267: xor eax, 0x74
+0x001F026A: mov byte ptr [rbp - 0x4e], al
+0x001F026D: movsx ecx, byte ptr [rbp - 0x4e]
+0x001F0271: mov eax, dword ptr [rbp - 0x60]
+0x001F0274: add al, 0xb
+0x001F0276: xor eax, ecx
+0x001F0278: xor eax, 0x69
+0x001F027B: mov byte ptr [rbp - 0x4d], al
+0x001F027E: movsx ecx, byte ptr [rbp - 0x4d]
+0x001F0282: mov eax, dword ptr [rbp - 0x60]
+0x001F0285: add al, 0xc
+0x001F0287: xor eax, ecx
+0x001F0289: xor eax, 0x6e
+0x001F028C: mov byte ptr [rbp - 0x4c], al
+0x001F028F: movsx ecx, byte ptr [rbp - 0x4c]
+0x001F0293: mov eax, dword ptr [rbp - 0x60]
+0x001F0296: add al, 0xd
+0x001F0298: xor eax, ecx
+0x001F029A: xor eax, 0x67
+0x001F029D: mov byte ptr [rbp - 0x4b], al
+0x001F02A0: movsx ecx, byte ptr [rbp - 0x4b]
+0x001F02A4: mov eax, dword ptr [rbp - 0x60]
+0x001F02A7: add al, 0xe
+0x001F02A9: xor eax, ecx
+0x001F02AB: xor eax, 0x20
+0x001F02AE: mov byte ptr [rbp - 0x4a], al
+0x001F02B1: movsx ecx, byte ptr [rbp - 0x4a]
+0x001F02B5: mov eax, dword ptr [rbp - 0x60]
+0x001F02B8: add al, 0xf
+0x001F02BA: xor eax, ecx
+0x001F02BC: xor eax, 0x44
+0x001F02BF: mov byte ptr [rbp - 0x49], al
+0x001F02C2: movsx ecx, byte ptr [rbp - 0x49]
+0x001F02C6: mov eax, dword ptr [rbp - 0x60]
+0x001F02C9: add al, 0x10
+0x001F02CB: xor eax, ecx
+0x001F02CD: xor eax, 0x41
+0x001F02D0: mov byte ptr [rbp - 0x48], al
+0x001F02D3: movsx ecx, byte ptr [rbp - 0x48]
+0x001F02D7: mov eax, dword ptr [rbp - 0x60]
+0x001F02DA: add al, 0x11
+0x001F02DC: xor eax, ecx
+0x001F02DE: xor eax, 0x47
+0x001F02E1: mov byte ptr [rbp - 0x47], al
+0x001F02E4: movsx ecx, byte ptr [rbp - 0x47]
+0x001F02E8: mov eax, dword ptr [rbp - 0x60]
+0x001F02EB: add al, 0x12
+0x001F02ED: xor eax, ecx
+0x001F02EF: xor eax, 0x20
+0x001F02F2: mov byte ptr [rbp - 0x46], al
+0x001F02F5: movsx ecx, byte ptr [rbp - 0x46]
+0x001F02F9: mov eax, dword ptr [rbp - 0x60]
+0x001F02FC: add al, 0x13
+0x001F02FE: xor eax, ecx
+0x001F0300: xor eax, 0x66
+0x001F0303: mov byte ptr [rbp - 0x45], al
+0x001F0306: movsx ecx, byte ptr [rbp - 0x45]
+0x001F030A: mov eax, dword ptr [rbp - 0x60]
+0x001F030D: add al, 0x14
+0x001F030F: xor eax, ecx
+0x001F0311: xor eax, 0x6f
+0x001F0314: mov byte ptr [rbp - 0x44], al
+0x001F0317: movsx ecx, byte ptr [rbp - 0x44]
+0x001F031B: mov eax, dword ptr [rbp - 0x60]
+0x001F031E: add al, 0x15
+0x001F0320: xor eax, ecx
+0x001F0322: xor eax, 0x72
+0x001F0325: mov byte ptr [rbp - 0x43], al
+0x001F0328: movsx ecx, byte ptr [rbp - 0x43]
+0x001F032C: mov eax, dword ptr [rbp - 0x60]
+0x001F032F: add al, 0x16
+0x001F0331: xor eax, ecx
+0x001F0333: xor eax, 0x20
+0x001F0336: mov byte ptr [rbp - 0x42], al
+0x001F0339: movsx ecx, byte ptr [rbp - 0x42]
+0x001F033D: mov eax, dword ptr [rbp - 0x60]
+0x001F0340: add al, 0x17
+0x001F0342: xor eax, ecx
+0x001F0344: xor eax, 0x65
+0x001F0347: mov byte ptr [rbp - 0x41], al
+0x001F034A: movsx ecx, byte ptr [rbp - 0x41]
+0x001F034E: mov eax, dword ptr [rbp - 0x60]
+0x001F0351: add al, 0x18
+0x001F0353: xor eax, ecx
+0x001F0355: xor eax, 0x70
+0x001F0358: mov byte ptr [rbp - 0x40], al
+0x001F035B: movsx ecx, byte ptr [rbp - 0x40]
+0x001F035F: mov eax, dword ptr [rbp - 0x60]
+0x001F0362: add al, 0x19
+0x001F0364: xor eax, ecx
+0x001F0366: xor eax, 0x6f
+0x001F0369: mov byte ptr [rbp - 0x3f], al
+0x001F036C: movsx ecx, byte ptr [rbp - 0x3f]
+0x001F0370: mov eax, dword ptr [rbp - 0x60]
+0x001F0373: add al, 0x1a
+0x001F0375: xor eax, ecx
+0x001F0377: xor eax, 0x63
+0x001F037A: mov byte ptr [rbp - 0x3e], al
+0x001F037D: movsx ecx, byte ptr [rbp - 0x3e]
+0x001F0381: mov eax, dword ptr [rbp - 0x60]
+0x001F0384: add al, 0x1b
+0x001F0386: xor eax, ecx
+0x001F0388: xor eax, 0x68
+0x001F038B: mov byte ptr [rbp - 0x3d], al
+0x001F038E: movsx ecx, byte ptr [rbp - 0x3d]
+0x001F0392: mov eax, dword ptr [rbp - 0x60]
+0x001F0395: add al, 0x1c
+0x001F0397: xor eax, ecx
+0x001F0399: xor eax, 0x20
+0x001F039C: mov byte ptr [rbp - 0x3c], al
+0x001F039F: movsx ecx, byte ptr [rbp - 0x3c]
+0x001F03A3: mov eax, dword ptr [rbp - 0x60]
+0x001F03A6: add al, 0x1d
+0x001F03A8: xor eax, ecx
+0x001F03AA: xor eax, 0x23
+0x001F03AD: mov byte ptr [rbp - 0x3b], al
+0x001F03B0: movsx ecx, byte ptr [rbp - 0x3b]
+0x001F03B4: mov eax, dword ptr [rbp - 0x60]
+0x001F03B7: add al, 0x1e
+0x001F03B9: xor eax, ecx
+0x001F03BB: xor eax, 0x7b
+0x001F03BE: mov byte ptr [rbp - 0x3a], al
+0x001F03C1: movsx ecx, byte ptr [rbp - 0x3a]
+0x001F03C5: mov eax, dword ptr [rbp - 0x60]
+0x001F03C8: add al, 0x1f
+0x001F03CA: xor eax, ecx
+0x001F03CC: xor eax, 0x7d
+0x001F03CF: mov byte ptr [rbp - 0x39], al
+0x001F03D2: xor eax, eax
+0x001F03D4: mov byte ptr [rbp - 0x38], al
+0x001F03D7: movzx eax, byte ptr [rbp - 0x58]
+0x001F03DB: lea rdx, [rbp - 0x30]
+0x001F03DF: lea rcx, [rbp - 0x60]
+0x001F03E3: call 0x1400563f0
+0x001F03E8: nop
+0x001F03E9: mov rdx, qword ptr [rsi]
+0x001F03EC: cmp qword ptr [rax + 0x18], 0x10
+0x001F03F1: jb 0x1401f03f6
+0x001F03F3: mov rax, qword ptr [rax]
+0x001F03F6: add rdx, 8
+0x001F03FA: lea r8, [rsi + 0x28]
+0x001F03FE: mov rcx, rax
+0x001F0401: call 0x14012ed80
+0x001F0406: nop
+0x001F0407: mov rax, qword ptr [rbp - 0x18]
+0x001F040B: cmp rax, 0x10
+0x001F040F: jb 0x1401f045d
+0x001F0411: inc rax
+0x001F0414: mov rcx, qword ptr [rbp - 0x30]
+0x001F0418: cmp rax, 0x1000
+0x001F041E: jb 0x1401f0458
+0x001F0420: test cl, 0x1f
+0x001F0423: je 0x1401f042b
+0x001F0425: call 0x1403db020
+0x001F042A: int3
+0x001F042B: mov rax, qword ptr [rcx - 8]
+0x001F042F: cmp rax, rcx
+0x001F0432: jb 0x1401f043a
+0x001F0434: call 0x1403db020
+0x001F0439: int3
+0x001F043A: sub rcx, rax
+0x001F043D: cmp rcx, 8
+0x001F0441: jae 0x1401f0449
+0x001F0443: call 0x1403db020
+0x001F0448: int3
+0x001F0449: cmp rcx, 0x27
+0x001F044D: jbe 0x1401f0455
+0x001F044F: call 0x1403db020
+0x001F0454: int3
+0x001F0455: mov rcx, rax
+0x001F0458: call 0x1403b20d4
+0x001F045D: mov qword ptr [rbp - 0x18], 0xf
+0x001F0465: mov qword ptr [rbp - 0x20], 0
+0x001F046D: mov byte ptr [rbp - 0x30], 0
+0x001F0471: call 0x140391550
+0x001F0476: mov rbx, rax
+0x001F0479: call 0x140391534
+0x001F047E: cqo
+0x001F0480: idiv rbx
+0x001F0483: imul rcx, rax, 0x3b9aca00
+0x001F048A: imul rax, rdx, 0x3b9aca00
+0x001F0491: cqo
+0x001F0493: idiv rbx
+0x001F0496: lea rbx, [rax + rcx]
+0x001F049A: mov qword ptr [rsp + 0x38], rbx
+0x001F049F: mov qword ptr [rsp + 0x40], rbx
+0x001F04A4: mov rcx, qword ptr [rsi + 0x30]
+0x001F04A8: mov rax, qword ptr [rcx]
+0x001F04AB: mov r9, qword ptr [r14]
+0x001F04AE: mov r8d, r15d
+0x001F04B1: mov edx, dword ptr [rsi + 0x28]
+0x001F04B4: call qword ptr [rax + 8]
+0x001F04B7: test al, al
+0x001F04B9: je 0x1401f0199
+0x001F04BF: call 0x140391550
+0x001F04C4: mov rdi, rax
+0x001F04C7: call 0x140391534
+0x001F04CC: cqo
+0x001F04CE: idiv rdi
+0x001F04D1: imul rcx, rax, 0x3b9aca00
+0x001F04D8: imul rax, rdx, 0x3b9aca00
+0x001F04DF: cqo
+0x001F04E1: idiv rdi
+0x001F04E4: lea rdx, [rax + rcx]
+0x001F04E8: mov qword ptr [rsp + 0x48], rdx
+0x001F04ED: sub rdx, rbx
+0x001F04F0: movabs rax, 0x431bde82d7b634db
+0x001F04FA: imul rdx
+0x001F04FD: sar rdx, 0x12
+0x001F0501: mov rax, rdx
+0x001F0504: shr rax, 0x3f
+0x001F0508: add rdx, rax
+0x001F050B: mov qword ptr [rsp + 0x50], rdx
+0x001F0510: mov qword ptr [rsp + 0x58], rdx
+0x001F0515: mov qword ptr [rsp + 0x60], rdx
+0x001F051A: xorps xmm2, xmm2
+```
+
+## target `0x001F0960` PDATA `0x001F0960..0x001F0D60`
+
+### Calls
+
+| RVA | target/form |
+|---|---|
+| `0x001F096C` | `jmp qword ptr [rax + 0x30]` |
+| `0x001F09BD` | `jmp RVA 0x001F09CA` |
+| `0x001F0A0A` | `call RVA 0x00039C30` |
+| `0x001F0A22` | `call RVA 0x0002BDB0` |
+| `0x001F0A32` | `call RVA 0x003B24C0` |
+| `0x001F0A7D` | `jmp RVA 0x001F0A8A` |
+| `0x001F0ACA` | `call RVA 0x00039C30` |
+| `0x001F0AE2` | `call RVA 0x0002BDB0` |
+| `0x001F0AF2` | `call RVA 0x003B24C0` |
+| `0x001F0B3D` | `jmp RVA 0x001F0B4A` |
+| `0x001F0B8A` | `call RVA 0x00039C30` |
+| `0x001F0BA2` | `call RVA 0x0002BDB0` |
+| `0x001F0BB2` | `call RVA 0x003B24C0` |
+| `0x001F0BFD` | `jmp RVA 0x001F0C0A` |
+| `0x001F0C4A` | `call RVA 0x00039C30` |
+| `0x001F0C62` | `call RVA 0x0002BDB0` |
+| `0x001F0C72` | `call RVA 0x003B24C0` |
+| `0x001F0CD0` | `call RVA 0x003B2098` |
+| `0x001F0D14` | `call RVA 0x000355E0` |
+| `0x001F0D43` | `call RVA 0x001FEA30` |
+| `0x001F0D48` | `jmp RVA 0x001F0D4D` |
+
+### Object / RIP-relative accesses
+
+| RVA | instruction | note |
+|---|---|---|
+| `0x001F0960` | `mov rcx, qword ptr [rcx + 0x30]` | rcx+0x30 |
+| `0x001F0986` | `mov rax, qword ptr [rip + 0x5e5f63]` | RIP->0x007D68F0 |
+| `0x001F09F3` | `mov qword ptr [rbx + 0x18], 0xf` | rbx+0x18 |
+| `0x001F0A00` | `mov qword ptr [rbx + 0x10], r10` | rbx+0x10 |
+| `0x001F0A46` | `mov rax, qword ptr [rip + 0x5e5ea3]` | RIP->0x007D68F0 |
+| `0x001F0AB3` | `mov qword ptr [rbx + 0x18], 0xf` | rbx+0x18 |
+| `0x001F0AC0` | `mov qword ptr [rbx + 0x10], r10` | rbx+0x10 |
+| `0x001F0B06` | `mov rax, qword ptr [rip + 0x5e5de3]` | RIP->0x007D68F0 |
+| `0x001F0B73` | `mov qword ptr [rbx + 0x18], 0xf` | rbx+0x18 |
+| `0x001F0B80` | `mov qword ptr [rbx + 0x10], r10` | rbx+0x10 |
+| `0x001F0BC6` | `mov rax, qword ptr [rip + 0x5e5d23]` | RIP->0x007D68F0 |
+| `0x001F0C33` | `mov qword ptr [rbx + 0x18], 0xf` | rbx+0x18 |
+| `0x001F0C40` | `mov qword ptr [rbx + 0x10], r10` | rbx+0x10 |
+| `0x001F0C9A` | `mov rax, qword ptr [rip + 0x5e5c4f]` | RIP->0x007D68F0 |
+
+### Full body
+
+```asm
+0x001F0960: mov rcx, qword ptr [rcx + 0x30]
+0x001F0964: test rcx, rcx
+0x001F0967: je 0x1401f0970
+0x001F0969: mov rax, qword ptr [rcx]
+0x001F096C: jmp qword ptr [rax + 0x30]
+0x001F0970: ret
+0x001F0971: int3
+0x001F0972: int3
+0x001F0973: int3
+0x001F0974: int3
+0x001F0975: int3
+0x001F0976: int3
+0x001F0977: int3
+0x001F0978: int3
+0x001F0979: int3
+0x001F097A: int3
+0x001F097B: int3
+0x001F097C: int3
+0x001F097D: int3
+0x001F097E: int3
+0x001F097F: int3
+0x001F0980: push rbx
+0x001F0982: sub rsp, 0x70
+0x001F0986: mov rax, qword ptr [rip + 0x5e5f63]
+0x001F098D: xor rax, rsp
+0x001F0990: mov qword ptr [rsp + 0x60], rax
+0x001F0995: xor r10d, r10d
+0x001F0998: mov rbx, rdx
+0x001F099B: mov qword ptr [rsp + 0x20], r10
+0x001F09A0: mov rax, qword ptr [rsp + 0x20]
+0x001F09A5: mov dword ptr [rsp + 0x2c], r10d
+0x001F09AA: cmp rax, 0x2b
+0x001F09AE: jae 0x1401f09f3
+0x001F09B0: mov rax, qword ptr [rsp + 0x20]
+0x001F09B5: test rax, rax
+0x001F09B8: jne 0x1401f09bf
+0x001F09BA: mov r9d, dword ptr [rcx]
+0x001F09BD: jmp 0x1401f09ca
+0x001F09BF: mov rax, qword ptr [rsp + 0x20]
+0x001F09C4: movsx r9d, byte ptr [rax + rcx + 3]
+0x001F09CA: mov rax, qword ptr [rsp + 0x20]
+0x001F09CF: movsx edx, byte ptr [rax + rcx + 4]
+0x001F09D4: mov rax, qword ptr [rsp + 0x20]
+0x001F09D9: sub edx, 9
+0x001F09DC: xor edx, r9d
+0x001F09DF: mov byte ptr [rsp + rax + 0x30], dl
+0x001F09E3: inc qword ptr [rsp + 0x20]
+0x001F09E8: mov rax, qword ptr [rsp + 0x20]
+0x001F09ED: cmp rax, 0x2b
+0x001F09F1: jb 0x1401f09b0
+0x001F09F3: mov qword ptr [rbx + 0x18], 0xf
+0x001F09FB: mov edx, 0x2b
+0x001F0A00: mov qword ptr [rbx + 0x10], r10
+0x001F0A04: mov rcx, rbx
+0x001F0A07: mov byte ptr [rbx], r10b
+0x001F0A0A: call 0x140039c30
+0x001F0A0F: movzx r9d, byte ptr [rsp + 0x28]
+0x001F0A15: lea r8, [rsp + 0x5b]
+0x001F0A1A: lea rdx, [rsp + 0x30]
+0x001F0A1F: mov rcx, rbx
+0x001F0A22: call 0x14002bdb0
+0x001F0A27: mov rax, rbx
+0x001F0A2A: mov rcx, qword ptr [rsp + 0x60]
+0x001F0A2F: xor rcx, rsp
+0x001F0A32: call 0x1403b24c0
+0x001F0A37: add rsp, 0x70
+0x001F0A3B: pop rbx
+0x001F0A3C: ret
+0x001F0A3D: int3
+0x001F0A3E: int3
+0x001F0A3F: int3
+0x001F0A40: push rbx
+0x001F0A42: sub rsp, 0x70
+0x001F0A46: mov rax, qword ptr [rip + 0x5e5ea3]
+0x001F0A4D: xor rax, rsp
+0x001F0A50: mov qword ptr [rsp + 0x60], rax
+0x001F0A55: xor r10d, r10d
+0x001F0A58: mov rbx, rdx
+0x001F0A5B: mov qword ptr [rsp + 0x20], r10
+0x001F0A60: mov rax, qword ptr [rsp + 0x20]
+0x001F0A65: mov dword ptr [rsp + 0x2c], r10d
+0x001F0A6A: cmp rax, 0x2c
+0x001F0A6E: jae 0x1401f0ab3
+0x001F0A70: mov rax, qword ptr [rsp + 0x20]
+0x001F0A75: test rax, rax
+0x001F0A78: jne 0x1401f0a7f
+0x001F0A7A: mov r9d, dword ptr [rcx]
+0x001F0A7D: jmp 0x1401f0a8a
+0x001F0A7F: mov rax, qword ptr [rsp + 0x20]
+0x001F0A84: movsx r9d, byte ptr [rax + rcx + 3]
+0x001F0A8A: mov rax, qword ptr [rsp + 0x20]
+0x001F0A8F: movsx edx, byte ptr [rax + rcx + 4]
+0x001F0A94: mov rax, qword ptr [rsp + 0x20]
+0x001F0A99: sub edx, 2
+0x001F0A9C: xor edx, r9d
+0x001F0A9F: mov byte ptr [rsp + rax + 0x30], dl
+0x001F0AA3: inc qword ptr [rsp + 0x20]
+0x001F0AA8: mov rax, qword ptr [rsp + 0x20]
+0x001F0AAD: cmp rax, 0x2c
+0x001F0AB1: jb 0x1401f0a70
+0x001F0AB3: mov qword ptr [rbx + 0x18], 0xf
+0x001F0ABB: mov edx, 0x2c
+0x001F0AC0: mov qword ptr [rbx + 0x10], r10
+0x001F0AC4: mov rcx, rbx
+0x001F0AC7: mov byte ptr [rbx], r10b
+0x001F0ACA: call 0x140039c30
+0x001F0ACF: movzx r9d, byte ptr [rsp + 0x28]
+0x001F0AD5: lea r8, [rsp + 0x5c]
+0x001F0ADA: lea rdx, [rsp + 0x30]
+0x001F0ADF: mov rcx, rbx
+0x001F0AE2: call 0x14002bdb0
+0x001F0AE7: mov rax, rbx
+0x001F0AEA: mov rcx, qword ptr [rsp + 0x60]
+0x001F0AEF: xor rcx, rsp
+0x001F0AF2: call 0x1403b24c0
+0x001F0AF7: add rsp, 0x70
+0x001F0AFB: pop rbx
+0x001F0AFC: ret
+0x001F0AFD: int3
+0x001F0AFE: int3
+0x001F0AFF: int3
+0x001F0B00: push rbx
+0x001F0B02: sub rsp, 0x70
+0x001F0B06: mov rax, qword ptr [rip + 0x5e5de3]
+0x001F0B0D: xor rax, rsp
+0x001F0B10: mov qword ptr [rsp + 0x68], rax
+0x001F0B15: xor r10d, r10d
+0x001F0B18: mov rbx, rdx
+0x001F0B1B: mov qword ptr [rsp + 0x20], r10
+0x001F0B20: mov rax, qword ptr [rsp + 0x20]
+0x001F0B25: mov dword ptr [rsp + 0x2c], r10d
+0x001F0B2A: cmp rax, 0x38
+0x001F0B2E: jae 0x1401f0b73
+0x001F0B30: mov rax, qword ptr [rsp + 0x20]
+0x001F0B35: test rax, rax
+0x001F0B38: jne 0x1401f0b3f
+0x001F0B3A: mov r9d, dword ptr [rcx]
+0x001F0B3D: jmp 0x1401f0b4a
+0x001F0B3F: mov rax, qword ptr [rsp + 0x20]
+0x001F0B44: movsx r9d, byte ptr [rax + rcx + 3]
+0x001F0B4A: mov rax, qword ptr [rsp + 0x20]
+0x001F0B4F: movsx edx, byte ptr [rax + rcx + 4]
+0x001F0B54: mov rax, qword ptr [rsp + 0x20]
+0x001F0B59: sub edx, 3
+0x001F0B5C: xor edx, r9d
+0x001F0B5F: mov byte ptr [rsp + rax + 0x30], dl
+0x001F0B63: inc qword ptr [rsp + 0x20]
+0x001F0B68: mov rax, qword ptr [rsp + 0x20]
+0x001F0B6D: cmp rax, 0x38
+0x001F0B71: jb 0x1401f0b30
+0x001F0B73: mov qword ptr [rbx + 0x18], 0xf
+0x001F0B7B: mov edx, 0x38
+0x001F0B80: mov qword ptr [rbx + 0x10], r10
+0x001F0B84: mov rcx, rbx
+0x001F0B87: mov byte ptr [rbx], r10b
+0x001F0B8A: call 0x140039c30
+0x001F0B8F: movzx r9d, byte ptr [rsp + 0x28]
+0x001F0B95: lea r8, [rsp + 0x68]
+0x001F0B9A: lea rdx, [rsp + 0x30]
+0x001F0B9F: mov rcx, rbx
+0x001F0BA2: call 0x14002bdb0
+0x001F0BA7: mov rax, rbx
+0x001F0BAA: mov rcx, qword ptr [rsp + 0x68]
+0x001F0BAF: xor rcx, rsp
+0x001F0BB2: call 0x1403b24c0
+0x001F0BB7: add rsp, 0x70
+0x001F0BBB: pop rbx
+0x001F0BBC: ret
+0x001F0BBD: int3
+0x001F0BBE: int3
+0x001F0BBF: int3
+0x001F0BC0: push rbx
+0x001F0BC2: sub rsp, 0x70
+0x001F0BC6: mov rax, qword ptr [rip + 0x5e5d23]
+0x001F0BCD: xor rax, rsp
+0x001F0BD0: mov qword ptr [rsp + 0x60], rax
+0x001F0BD5: xor r10d, r10d
+0x001F0BD8: mov rbx, rdx
+0x001F0BDB: mov qword ptr [rsp + 0x20], r10
+0x001F0BE0: mov rax, qword ptr [rsp + 0x20]
+0x001F0BE5: mov dword ptr [rsp + 0x2c], r10d
+0x001F0BEA: cmp rax, 0x30
+0x001F0BEE: jae 0x1401f0c33
+0x001F0BF0: mov rax, qword ptr [rsp + 0x20]
+0x001F0BF5: test rax, rax
+0x001F0BF8: jne 0x1401f0bff
+0x001F0BFA: mov r9d, dword ptr [rcx]
+0x001F0BFD: jmp 0x1401f0c0a
+0x001F0BFF: mov rax, qword ptr [rsp + 0x20]
+0x001F0C04: movsx r9d, byte ptr [rax + rcx + 3]
+0x001F0C0A: mov rax, qword ptr [rsp + 0x20]
+0x001F0C0F: movsx edx, byte ptr [rax + rcx + 4]
+0x001F0C14: mov rax, qword ptr [rsp + 0x20]
+0x001F0C19: sub edx, 5
+0x001F0C1C: xor edx, r9d
+0x001F0C1F: mov byte ptr [rsp + rax + 0x30], dl
+0x001F0C23: inc qword ptr [rsp + 0x20]
+0x001F0C28: mov rax, qword ptr [rsp + 0x20]
+0x001F0C2D: cmp rax, 0x30
+0x001F0C31: jb 0x1401f0bf0
+0x001F0C33: mov qword ptr [rbx + 0x18], 0xf
+0x001F0C3B: mov edx, 0x30
+0x001F0C40: mov qword ptr [rbx + 0x10], r10
+0x001F0C44: mov rcx, rbx
+0x001F0C47: mov byte ptr [rbx], r10b
+0x001F0C4A: call 0x140039c30
+0x001F0C4F: movzx r9d, byte ptr [rsp + 0x28]
+0x001F0C55: lea r8, [rsp + 0x60]
+0x001F0C5A: lea rdx, [rsp + 0x30]
+0x001F0C5F: mov rcx, rbx
+0x001F0C62: call 0x14002bdb0
+0x001F0C67: mov rax, rbx
+0x001F0C6A: mov rcx, qword ptr [rsp + 0x60]
+0x001F0C6F: xor rcx, rsp
+0x001F0C72: call 0x1403b24c0
+0x001F0C77: add rsp, 0x70
+0x001F0C7B: pop rbx
+0x001F0C7C: ret
+0x001F0C7D: int3
+0x001F0C7E: int3
+0x001F0C7F: int3
+0x001F0C80: push rbx
+0x001F0C82: push rbp
+0x001F0C83: push rsi
+0x001F0C84: push rdi
+0x001F0C85: push r12
+0x001F0C87: push r13
+0x001F0C89: push r14
+0x001F0C8B: push r15
+0x001F0C8D: sub rsp, 0x78
+0x001F0C91: mov qword ptr [rsp + 0x38], 0xfffffffffffffffe
+0x001F0C9A: mov rax, qword ptr [rip + 0x5e5c4f]
+0x001F0CA1: xor rax, rsp
+0x001F0CA4: mov qword ptr [rsp + 0x68], rax
+0x001F0CA9: mov r12, r9
+0x001F0CAC: mov r15, r8
+0x001F0CAF: mov r14, rdx
+0x001F0CB2: mov rsi, rcx
+0x001F0CB5: mov r13, qword ptr [rsp + 0xe0]
+0x001F0CBD: mov rdi, qword ptr [rsp + 0xe8]
+0x001F0CC5: xor ebx, ebx
+0x001F0CC7: mov dword ptr [rsp + 0x30], ebx
+0x001F0CCB: mov ecx, 0x4e8
+0x001F0CD0: call 0x1403b2098
+0x001F0CD5: mov rbp, rax
+0x001F0CD8: mov qword ptr [rsp + 0x40], rax
+0x001F0CDD: test rax, rax
+0x001F0CE0: je 0x1401f0d4a
+0x001F0CE2: mov qword ptr [rsp + 0x60], 0xf
+0x001F0CEB: mov qword ptr [rsp + 0x58], rbx
+0x001F0CF0: mov byte ptr [rsp + 0x48], bl
+0x001F0CF4: cmp byte ptr [rdi], bl
+0x001F0CF6: je 0x1401f0d09
+0x001F0CF8: or rbx, 0xffffffffffffffff
+0x001F0CFC: nop dword ptr [rax]
+0x001F0D00: inc rbx
+0x001F0D03: cmp byte ptr [rdi + rbx], 0
+0x001F0D07: jne 0x1401f0d00
+0x001F0D09: mov r8, rbx
+0x001F0D0C: mov rdx, rdi
+0x001F0D0F: lea rcx, [rsp + 0x48]
+0x001F0D14: call 0x1400355e0
+0x001F0D19: nop
+0x001F0D1A: mov ebx, 1
+0x001F0D1F: mov dword ptr [rsp + 0x30], ebx
+0x001F0D23: lea rax, [rsp + 0x48]
+0x001F0D28: mov qword ptr [rsp + 0x28], rax
+0x001F0D2D: movzx eax, byte ptr [r13]
+0x001F0D32: mov byte ptr [rsp + 0x20], al
+0x001F0D36: mov r9d, dword ptr [r12]
+0x001F0D3A: mov r8d, dword ptr [r15]
+0x001F0D3D: mov rdx, qword ptr [r14]
+0x001F0D40: mov rcx, rbp
+0x001F0D43: call 0x1401fea30
+0x001F0D48: jmp 0x1401f0d4d
+0x001F0D4A: mov rax, rbx
+0x001F0D4D: mov qword ptr [rsi], rax
+0x001F0D50: or ebx, 2
+0x001F0D53: test bl, 1
+0x001F0D56: je 0x1401f0db0
+0x001F0D58: mov rax, qword ptr [rsp + 0x60]
+```
