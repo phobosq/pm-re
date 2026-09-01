@@ -8,7 +8,7 @@ import argparse,bisect
 from pathlib import Path
 import pefile
 from capstone import Cs,CS_ARCH_X86,CS_MODE_64
-from capstone.x86 import X86_OP_MEM,X86_OP_IMM,X86_REG_RIP
+from capstone.x86 import X86_OP_MEM,X86_OP_IMM
 
 TARGETS={
  0x0012F250:'runtime_ctor',
@@ -32,15 +32,17 @@ def main():
  ins=list(md.disasm(text.get_data(),base+text.VirtualAddress))
  hits=[]
  for idx,i in enumerate(ins):
-  # direct call/immediate refs
   for op in i.operands:
    target_rva=None
    if op.type==X86_OP_IMM:
     v=op.imm
-    if base<=v<base+pe.OPTIONAL_HEADER.SizeOfImage: target_rva=v-base
-   elif op.type==X86_OP_MEM and op.mem.base==X86_REG_RIP:
+    if base<=v<base+pe.OPTIONAL_HEADER.SizeOfImage:
+     target_rva=v-base
+   elif op.type==X86_OP_MEM and 'rip' in i.op_str.lower():
+    # Capstone 5 builds differ in how RIP base ids are exposed; effective address is stable.
     v=i.address+i.size+op.mem.disp
-    if base<=v<base+pe.OPTIONAL_HEADER.SizeOfImage: target_rva=v-base
+    if base<=v<base+pe.OPTIONAL_HEADER.SizeOfImage:
+     target_rva=v-base
    if target_rva in TARGETS:
     hits.append((idx,i,target_rva,fnof(i.address-base)))
  lines=['# Runtime context origin','',
