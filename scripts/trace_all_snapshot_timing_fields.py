@@ -4,11 +4,11 @@ For each call, recover the output local passed in RDX and find accesses to timin
 within the returned 0xD8 snapshot. Static only.
 """
 from __future__ import annotations
-import argparse,bisect
+import argparse,bisect,struct
 from pathlib import Path
 import pefile
 from capstone import Cs,CS_ARCH_X86,CS_MODE_64
-from capstone.x86 import X86_OP_IMM,X86_OP_MEM,X86_OP_REG
+from capstone.x86 import X86_OP_MEM,X86_OP_REG
 GETTER=0x00084A60
 SIZE=0xD8
 LABELS={0x98:'mt',0xAC:'straps',0xB0:'vmr/rxboost',0xB8:'vmt2',0xBC:'vmt3'}
@@ -24,32 +24,37 @@ def main():
  def fnof(r):
   j=bisect.bisect_right(starts,r)-1
   return funcs[j] if j>=0 and funcs[j][0]<=r<funcs[j][1] else None
- md=Cs(CS_ARCH_X86,CS_MODE_64);md.detail=True
+ md=Cs(CS_ARCH_X86,CS_MODE_64);md.detail=True;md.skipdata=True
  text=next(s for s in pe.sections if s.Name.rstrip(b'\0')==b'.text')
- allins=list(md.disasm(text.get_data(),base+text.VirtualAddress));byaddr={i.address-base:k for k,i in enumerate(allins)}
+ tdata=text.get_data();trva=text.VirtualAddress
+ # Robust direct-call scan: E8 rel32, target = next_instruction + rel32.
  calls=[]
- for i in allins:
-  if i.mnemonic=='call' and i.operands and i.operands[0].type==X86_OP_IMM and i.operands[0].imm-base==GETTER:calls.append(i.address-base)
+ for off in range(0,len(tdata)-5):
+  if tdata[off]!=0xE8:continue
+  rel=struct.unpack_from('<i',tdata,off+1)[0]
+  call_rva=trva+off
+  target=call_rva+5+rel
+  if target==GETTER:calls.append(call_rva)
  lines=['# All snapshot timing-field consumers','',f'getter `0x{GETTER:08X}`, calls `{len(calls)}`','',
         '| getter call | PDATA | output local | timing hits |','|---|---|---|---:|']
  details=[]
  for c in calls:
   fn=fnof(c)
   if not fn:continue
-  b,en=fn;arr=allins[byaddr[b]:] if b in byaddr else list(md.disasm(pe.get_data(b,en-b),base+b))
-  arr=[i for i in arr if i.address-base<en]
+  b,en=fn;arr=[i for i in md.disasm(pe.get_data(b,en-b),base+b) if i.id!=0]
   ci=next((n for n,i in enumerate(arr) if i.address-base==c),None)
   if ci is None:continue
-  outreg=None;outdisp=None;setup=None
-  # walk back for last LEA RDX,[rsp/rbp+disp] or MOV RDX,reg derived from such LEA (simple case)
+  # Walk backward and recover RDX as an alias of rsp/rbp local.
   aliases={}
-  for i in arr[max(0,ci-24):ci]:
+  for i in arr[max(0,ci-32):ci]:
    if i.mnemonic=='lea' and len(i.operands)==2 and i.operands[0].type==X86_OP_REG and i.operands[1].type==X86_OP_MEM:
     dst=i.reg_name(i.operands[0].reg);mem=i.operands[1].mem;bn=i.reg_name(mem.base)
     if bn in ('rsp','rbp'):aliases[dst]=(bn,mem.disp,i.address-base)
    elif i.mnemonic=='mov' and len(i.operands)==2 and i.operands[0].type==X86_OP_REG and i.operands[1].type==X86_OP_REG:
     dst=i.reg_name(i.operands[0].reg);src=i.reg_name(i.operands[1].reg)
     if src in aliases:aliases[dst]=aliases[src]
+    elif dst in aliases:aliases.pop(dst,None)
+  outreg=outdisp=setup=None
   if 'rdx' in aliases:outreg,outdisp,setup=aliases['rdx']
   hits=[]
   if outreg is not None:
