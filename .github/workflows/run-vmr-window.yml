@@ -4,7 +4,7 @@ on:
   push:
     paths:
       - '.github/workflows/run-vmr-window.yml'
-      - 'scripts/decode_snapshot_consumer_123000.py'
+      - 'scripts/trace_snapshot_handoffs.py'
 
 permissions:
   contents: write
@@ -18,16 +18,16 @@ jobs:
         with:
           python-version: '3.12'
       - run: python -m pip install pefile capstone
-      - name: Decode snapshot consumer 0x123000
+      - name: Trace snapshot handoffs
         run: |
           BIN=samples/work/unpacked/PhoenixMiner_6.2c_Windows/PhoenixMiner.exe.bin
-          python scripts/decode_snapshot_consumer_123000.py "$BIN" --out-dir notes
+          python scripts/trace_snapshot_handoffs.py "$BIN" --out-dir notes
       - name: Commit result
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add notes/snapshot_consumer_123000.md
+          git add notes/snapshot_handoffs.md
           if git diff --cached --quiet; then exit 0; fi
-          git commit -m 'analysis: decode per-gpu snapshot consumer 0x123000'
+          git commit -m 'analysis: trace per-gpu snapshot handoffs'
           git pull --rebase origin main
           git push
