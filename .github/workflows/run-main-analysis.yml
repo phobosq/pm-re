@@ -1,0 +1,43 @@
+name: PM62C main analysis
+
+on:
+  push:
+    paths:
+      - '.github/workflows/run-main-analysis.yml'
+      - 'scripts/analyze_main_capstone.py'
+
+permissions:
+  contents: write
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: python -m pip install pefile capstone
+
+      - name: Run static analysis
+        run: |
+          python scripts/analyze_main_capstone.py \
+            samples/work/unpacked/PhoenixMiner_6.2c_Windows/PhoenixMiner.exe.bin \
+            --out-dir notes
+
+      - name: Commit generated analysis
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add notes/main_call_census.csv notes/main_indirect_calls.md notes/main_argv_candidates.md
+          if git diff --cached --quiet; then
+            echo 'No generated changes'
+            exit 0
+          fi
+          git commit -m 'analysis: generate PM62C main call census'
+          git push
