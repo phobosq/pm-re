@@ -6,6 +6,7 @@ on:
       - '.github/workflows/run-main-analysis.yml'
       - 'scripts/analyze_main_capstone.py'
       - 'scripts/analyze_main_parser.py'
+      - 'scripts/extract_obfuscated_literals.py'
 
 permissions:
   contents: write
@@ -27,21 +28,19 @@ jobs:
 
       - name: Run static analysis
         run: |
-          python scripts/analyze_main_capstone.py \
-            samples/work/unpacked/PhoenixMiner_6.2c_Windows/PhoenixMiner.exe.bin \
-            --out-dir notes
-          python scripts/analyze_main_parser.py \
-            samples/work/unpacked/PhoenixMiner_6.2c_Windows/PhoenixMiner.exe.bin \
-            --out-dir notes
+          BIN=samples/work/unpacked/PhoenixMiner_6.2c_Windows/PhoenixMiner.exe.bin
+          python scripts/analyze_main_capstone.py "$BIN" --out-dir notes
+          python scripts/analyze_main_parser.py "$BIN" --out-dir notes
+          python scripts/extract_obfuscated_literals.py "$BIN" --out-dir notes
 
       - name: Commit generated analysis
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add notes/main_call_census.csv notes/main_indirect_calls.md notes/main_argv_candidates.md notes/main_parser_firstpass.md
+          git add notes/main_call_census.csv notes/main_indirect_calls.md notes/main_argv_candidates.md notes/main_parser_firstpass.md notes/main_recovered_literals.md
           if git diff --cached --quiet; then
             echo 'No generated changes'
             exit 0
           fi
-          git commit -m 'analysis: generate focused PM62C main parser pass'
+          git commit -m 'analysis: recover PM62C main obfuscated literals'
           git push
