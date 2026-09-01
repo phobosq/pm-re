@@ -1,0 +1,4 @@
+"section","ptr_rva","func_rva","func_label"
+".rdata","0x0043DC30","0x000CA0E0","PR02_root_A"
+".rdata","0x0070CD70","0x003A4D54","PR02_root_B"
+".rdata","0x00718DA0","0x003E16B0","PR01_parser_cmdline"
