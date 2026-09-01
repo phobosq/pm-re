@@ -7,7 +7,7 @@ import argparse,bisect,struct
 from pathlib import Path
 import pefile
 from capstone import Cs,CS_ARCH_X86,CS_MODE_64
-from capstone.x86 import X86_OP_MEM,X86_OP_IMM
+from capstone.x86 import X86_OP_MEM,X86_OP_IMM,X86_OP_REG
 VT=0x004BDE70
 MAX=40
 
@@ -45,10 +45,13 @@ def main():
    lines.append(f'| `0x{i.address-base:08X}` | `{i.mnemonic} {f}` |')
   lines += ['','### this-like field accesses','','| RVA | instruction |','|---|---|']
   aliases={'rcx'}
-  # simple aliases from entry rcx to common callee-saved regs
+  # simple aliases from entry RCX to common callee-saved regs
   for i in arr[:20]:
-   if i.mnemonic=='mov' and len(i.operands)==2 and i.reg_name(i.operands[1].reg) in aliases if i.operands[1].type==1 else False:
-    aliases.add(i.reg_name(i.operands[0].reg))
+   if i.mnemonic!='mov' or len(i.operands)!=2:continue
+   dst,src=i.operands
+   if dst.type!=X86_OP_REG or src.type!=X86_OP_REG:continue
+   src_name=i.reg_name(src.reg);dst_name=i.reg_name(dst.reg)
+   if src_name in aliases:aliases.add(dst_name)
   for i in arr:
    for op in i.operands:
     if op.type==X86_OP_MEM and i.reg_name(op.mem.base) in aliases and op.mem.disp:
